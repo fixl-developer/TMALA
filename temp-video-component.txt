@@ -1,0 +1,149 @@
+AGENCIES TAB VIDEOS:
+
+                {/* Right Side - Videos */}
+                <div className="grid gap-3">
+                  {/* Agencies Video */}
+                  <div 
+                    className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-white/10 cursor-none"
+                    onMouseEnter={() => setHoveredVideo('agencies-main')}
+                    onMouseLeave={() => {
+                      setHoveredVideo(null)
+                      setVideoMouseDown(false)
+                    }}
+                    onMouseMove={handleFeatureVideoMouseMove}
+                    onMouseDown={() => setVideoMouseDown(true)}
+                    onMouseUp={() => setVideoMouseDown(false)}
+                    onClick={() => toggleFeatureVideo('agencies-main')}
+                  >
+                    <video
+                      ref={(el) => videoRefs.current['agencies-main'] = el}
+                      src="/agencies-demo.mp4"
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-3 left-3">
+                      <p className="text-white font-bold text-base">Agencies</p>
+                      <p className="text-gray-300 text-xs">Complete agency management</p>
+                    </div>
+                    
+                    {/* Custom Cursor */}
+                    {hoveredVideo === 'agencies-main' && (
+                      <div
+                        className="absolute pointer-events-none z-50 transition-all duration-300 ease-out"
+                        style={{
+                          left: `${videoCursorPos.x}px`,
+                          top: `${videoCursorPos.y}px`,
+                          transform: `translate(-50%, -50%) scale(${videoMouseDown ? 0.9 : 1})`,
+                        }}
+                      >
+                        <div className="w-16 h-16 rounded-full bg-yellow-400 border-2 border-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.5)] flex items-center justify-center">
+                          {videoPlaying['agencies-main'] ? (
+                            <Pause className="w-7 h-7 text-black fill-black" />
+                          ) : (
+                            <Play className="w-7 h-7 text-black fill-black ml-0.5" />
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Talents & Sponsors Videos */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div 
+                      className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-pink-500/10 to-purple-500/10 border border-white/10 cursor-none"
+                      onMouseEnter={() => setHoveredVideo('talents-small-1')}
+                      onMouseLeave={() => {
+                        setHoveredVideo(null)
+                        setVideoMouseDown(false)
+                      }}
+                      onMouseMove={handleFeatureVideoMouseMove}
+                      onMouseDown={() => setVideoMouseDown(true)}
+                      onMouseUp={() => setVideoMouseDown(false)}
+                      onClick={() => toggleFeatureVideo('talents-small-1')}
+                    >
+                      <video
+                        ref={(el) => videoRefs.current['talents-small-1'] = el}
+                        src="/talents-demo.mp4"
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-2 left-2">
+                        <p className="text-white font-semibold text-xs">Talents</p>
+                      </div>
+                      
+                      {/* Custom Cursor */}
+                      {hoveredVideo === 'talents-small-1' && (
+                        <div
+                          className="absolute pointer-events-none z-50 transition-all duration-300 ease-out"
+                          style={{
+                            left: `${videoCursorPos.x}px`,
+                            top: `${videoCursorPos.y}px`,
+                            transform: `translate(-50%, -50%) scale(${videoMouseDown ? 0.9 : 1})`,
+                          }}
+                        >
+                          <div className="w-12 h-12 rounded-full bg-yellow-400 border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.5)] flex items-center justify-center">
+                            {videoPlaying['talents-small-1'] ? (
+                              <Pause className="w-5 h-5 text-black fill-black" />
+                            ) : (
+                              <Play className="w-5 h-5 text-black fill-black ml-0.5" />
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div 
+                      className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-white/10 cursor-none"
+                      onMouseEnter={() => setHoveredVideo('sponsors-small-2')}
+                      onMouseLeave={() => {
+                        setHoveredVideo(null)
+                        setVideoMouseDown(false)
+                      }}
+                      onMouseMove={handleFeatureVideoMouseMove}
+                      onMouseDown={() => setVideoMouseDown(true)}
+                      onMouseUp={() => setVideoMouseDown(false)}
+                      onClick={() => toggleFeatureVideo('sponsors-small-2')}
+                    >
+                      <video
+                        ref={(el) => videoRefs.current['sponsors-small-2'] = el}
+                        src="/sponsors-demo.mp4"
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-2 left-2">
+                        <p className="text-white font-semibold text-xs">Sponsors</p>
+                      </div>
+                      
+                      {/* Custom Cursor */}
+                      {hoveredVideo === 'sponsors-small-2' && (
+                        <div
+                          className="absolute pointer-events-none z-50 transition-all duration-300 ease-out"
+                          style={{
+                            left: `${videoCursorPos.x}px`,
+                            top: `${videoCursorPos.y}px`,
+                            transform: `translate(-50%, -50%) scale(${videoMouseDown ? 0.9 : 1})`,
+                          }}
+                        >
+                          <div className="w-12 h-12 rounded-full bg-yellow-400 border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.5)] flex items-center justify-center">
+                            {videoPlaying['sponsors-small-2'] ? (
+                              <Pause className="w-5 h-5 text-black fill-black" />
+                            ) : (
+                              <Play className="w-5 h-5 text-black fill-black ml-0.5" />
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
