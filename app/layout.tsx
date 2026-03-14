@@ -1,31 +1,24 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display, Bebas_Neue, Orbitron } from 'next/font/google'
+import { Bebas_Neue, Plus_Jakarta_Sans } from 'next/font/google'
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
+import { ScrollProgress } from "@/components/scroll-progress"
+import { AuthModalProvider } from "@/components/auth-modal"
 
 import './globals.css'
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-jakarta',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 const bebas = Bebas_Neue({
-  weight: ['400'],
   subsets: ['latin'],
   variable: '--font-bebas',
-})
-
-const orbitron = Orbitron({
-  subsets: ['latin'],
-  variable: '--font-orbitron',
+  weight: '400',
 })
 
 export const metadata: Metadata = {
@@ -47,13 +40,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${bebas.variable} ${orbitron.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${bebas.variable}`}>
+      <head />
       <body className="font-sans antialiased" suppressHydrationWarning>
-        <SmoothScrollProvider>
-          <Header />
-          {children}
-          <Footer />
-        </SmoothScrollProvider>
+        <AuthModalProvider>
+          <SmoothScrollProvider>
+            <ScrollProgress />
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScrollProvider>
+        </AuthModalProvider>
       </body>
     </html>
   )

@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
@@ -16,47 +15,43 @@ import {
   Sparkles,
   Shield,
   BarChart3,
-  Camera,
   Calendar,
-  Search,
-  Zap,
-  Globe,
-  Lock,
   ChevronDown,
   Play,
   Pause
 } from "lucide-react"
+import { IconBox } from "@/components/ui/icon-box"
 
 const coreFeatures = [
   {
     icon: Building2,
-    title: "Multi-Tenant Architecture",
-    description: "Complete data isolation and custom branding for each agency with secure multi-tenancy."
+    title: "Infinite Multi-Tenancy",
+    description: "Complete data isolation and enterprise-grade branding for every agency division."
   },
   {
     icon: Sparkles,
-    title: "AI-Enhanced Portfolios",
-    description: "Automatic photo enhancement, smart organization, and AI-powered portfolio optimization."
+    title: "Neural Engine Portfolios",
+    description: "State-of-the-art AI enhancement and intelligent portfolio orchestration."
   },
   {
     icon: Shield,
-    title: "Advanced Security",
-    description: "Enterprise-grade security with RBAC/ABAC, data encryption, and compliance features."
+    title: "Fortress Security",
+    description: "Institutional-grade RBAC/ABAC with end-to-end cryptographic data protection."
   },
   {
     icon: Users,
-    title: "Talent Management",
-    description: "Comprehensive talent database with advanced search, filtering, and management tools."
+    title: "Talent Lifecycle Hub",
+    description: "Beyond search: A complete environment for talent discovery and growth."
   },
   {
     icon: Calendar,
-    title: "Event Management",
-    description: "Built-in tools for organizing pageants, casting calls, and talent showcases."
+    title: "Studio Event Engine",
+    description: "Architect complex pageants, casting calls, and high-fidelity showcases."
   },
   {
     icon: BarChart3,
-    title: "Analytics & Insights",
-    description: "Detailed analytics on performance, engagement, bookings, and revenue streams."
+    title: "Predictive Analytics",
+    description: "Real-time insights on engagement, revenue velocity, and performance trends."
   }
 ]
 
@@ -109,8 +104,17 @@ export default function FeaturesPage() {
     'sponsors-small-1': true,
     'sponsors-small-2': true,
   })
-  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({})
 
+  // Individual refs for each video
+  const talentsMainRef = useRef<HTMLVideoElement>(null)
+  const agenciesMainRef = useRef<HTMLVideoElement>(null)
+  const sponsorsMainRef = useRef<HTMLVideoElement>(null)
+  const agenciesSmall1Ref = useRef<HTMLVideoElement>(null)
+  const agenciesSmall2Ref = useRef<HTMLVideoElement>(null)
+  const talentsSmall1Ref = useRef<HTMLVideoElement>(null)
+  const talentsSmall2Ref = useRef<HTMLVideoElement>(null)
+  const sponsorsSmall1Ref = useRef<HTMLVideoElement>(null)
+  const sponsorsSmall2Ref = useRef<HTMLVideoElement>(null)
 
   const scrollToContent = () => {
     window.scrollTo({
@@ -129,7 +133,19 @@ export default function FeaturesPage() {
   }
 
   const toggleFeatureVideo = (videoKey: string) => {
-    const video = videoRefs.current[videoKey]
+    const refMap: { [key: string]: React.RefObject<HTMLVideoElement> } = {
+      'talents-main': talentsMainRef,
+      'agencies-main': agenciesMainRef,
+      'sponsors-main': sponsorsMainRef,
+      'agencies-small-1': agenciesSmall1Ref,
+      'agencies-small-2': agenciesSmall2Ref,
+      'talents-small-1': talentsSmall1Ref,
+      'talents-small-2': talentsSmall2Ref,
+      'sponsors-small-1': sponsorsSmall1Ref,
+      'sponsors-small-2': sponsorsSmall2Ref,
+    }
+
+    const video = refMap[videoKey]?.current
     if (video) {
       if (videoPlaying[videoKey]) {
         video.pause()
@@ -142,28 +158,28 @@ export default function FeaturesPage() {
 
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-montra-red/30 pt-20">
+    <main className="min-h-screen section-bg-charcoal text-white selection:bg-montra-red/30 pt-20">
       {/* 3D Parallax Hero Section */}
       {/* Editorial Hero Section */}
-      <section className="relative h-[90vh] w-full bg-black overflow-hidden flex flex-col justify-center items-center">
+      <section className="relative h-[90vh] w-full section-bg-charcoal overflow-hidden flex flex-col justify-center items-center">
         {/* Background Subtle Texture */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900/20 via-black to-black opacity-40" />
 
         {/* Left Image - Floating */}
         <div className="absolute left-0 top-[10%] lg:left-[5%] lg:top-[15%] w-[40vw] lg:w-[25vw] aspect-[3/4] overflow-hidden z-0 animate-slide-in-left">
-          <img
-            src="/feature-onboarding.jpg"
-            alt="Agency Vision"
+          <video
+            src="https://assets.mixkit.co/videos/44556/44556-1080.mp4"
             className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000 ease-out hover:scale-105"
+            autoPlay loop muted playsInline
           />
         </div>
 
         {/* Right Image - Lower */}
         <div className="absolute right-0 bottom-0 lg:right-[0] lg:bottom-[0] w-[50vw] lg:w-[35vw] aspect-[4/3] overflow-hidden z-0 animate-slide-in-right">
-          <img
-            src="/feature-agency-control.jpg"
-            alt="Digital Future"
+          <video
+            src="https://assets.mixkit.co/videos/42286/42286-1080.mp4"
             className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000 ease-out hover:scale-105"
+            autoPlay loop muted playsInline
           />
         </div>
 
@@ -201,13 +217,13 @@ export default function FeaturesPage() {
           }
         `}</style>
 
-        {/* Main Typography - Centered & Overlapping */}
-        <div className="relative z-50 flex flex-col items-center justify-center text-center pointer-events-none">
+        {/* Main Typography - Centered & Overlapping (below header/menu modal) */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center pointer-events-none">
           <h1 className="font-bebas text-[10vw] leading-[0.9] text-white tracking-tighter drop-shadow-2xl">
-            REDEFINE
+            REIMAGINE
           </h1>
           <h1 className="font-bebas text-[10vw] leading-[0.9] text-white tracking-tighter drop-shadow-2xl">
-            YOUR <span className="text-montra-red italic">AGENCY</span>
+            THE <span className="text-montra-red italic">ENTERPRISE</span>
           </h1>
         </div>
 
@@ -227,7 +243,7 @@ export default function FeaturesPage() {
       <PhysicsFeatures />
 
       {/* Role-Specific Features */}
-      <section className="relative bg-black border-y border-white/5 py-20 flex items-center min-h-[80vh]">
+      <section className="relative section-bg-cool border-y border-white/5 py-20 flex items-center min-h-[80vh]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-4">
             <h2 className="font-bebas text-3xl font-bold text-white sm:text-5xl uppercase tracking-tight">
@@ -250,9 +266,7 @@ export default function FeaturesPage() {
                 {/* Left Side - Content */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-montra-red/10 border border-montra-red/20">
-                      <Users className="h-5 w-5 text-montra-red" />
-                    </div>
+                    <IconBox icon={Users} size="sm" variant="solid" accentColor="amber" />
                     <div>
                       <h3 className="text-lg font-bebas uppercase tracking-widest text-white">Talent Portfolio Tools</h3>
                       <p className="text-[10px] text-gray-400 font-light">Showcase your skills and get discovered</p>
@@ -262,9 +276,7 @@ export default function FeaturesPage() {
                   <div className="grid gap-1.5">
                     {talentFeatures.map((feature, index) => (
                       <div key={index} className="flex items-start gap-2 p-2 rounded-none bg-zinc-900/40 border border-white/5 hover:border-montra-red/30 transition-all">
-                        <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-none bg-montra-red/20 border border-montra-red/30 mt-0.5">
-                          <Users className="h-2 w-2 text-montra-red" />
-                        </div>
+                        <IconBox icon={Users} size="sm" variant="solid" accentColor="amber" className="h-6 w-6 [&>svg]:h-2 [&>svg]:w-2 shrink-0 mt-0.5" />
                         <span className="text-[11px] text-gray-300 leading-tight font-light">{feature}</span>
                       </div>
                     ))}
@@ -291,8 +303,8 @@ export default function FeaturesPage() {
                     onClick={() => toggleFeatureVideo('talents-main')}
                   >
                     <video
-                      ref={(el) => { videoRefs.current['talents-main'] = el; }}
-                      src="/talents-demo.mp4"
+                      ref={talentsMainRef}
+                      src="https://assets.mixkit.co/videos/52270/52270-1080.mp4"
                       className="w-full h-full object-cover"
                       autoPlay
                       loop
@@ -341,8 +353,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('agencies-small-1')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['agencies-small-1'] = el; }}
-                        src="/agencies-demo.mp4"
+                        ref={agenciesSmall1Ref}
+                        src="https://assets.mixkit.co/videos/4809/4809-1080.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -387,8 +399,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('sponsors-small-1')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['sponsors-small-1'] = el; }}
-                        src="/sponsors-demo.mp4"
+                        ref={sponsorsSmall1Ref}
+                        src="https://assets.mixkit.co/videos/26787/26787-720.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -430,9 +442,7 @@ export default function FeaturesPage() {
                 {/* Left Side - Content */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-montra-red/10 border border-montra-red/20">
-                      <Building2 className="h-5 w-5 text-montra-red" />
-                    </div>
+                    <IconBox icon={Building2} size="sm" variant="solid" accentColor="amber" />
                     <div>
                       <h3 className="text-lg font-bebas uppercase tracking-widest text-white">Agency Management Tools</h3>
                       <p className="text-[10px] text-gray-400 font-light">Everything you need to manage your talent agency</p>
@@ -442,9 +452,7 @@ export default function FeaturesPage() {
                   <div className="grid gap-1.5">
                     {agencyFeatures.map((feature, index) => (
                       <div key={index} className="flex items-start gap-2 p-2 rounded-none bg-zinc-900/40 border border-white/5 hover:border-montra-red/30 transition-all">
-                        <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-none bg-montra-red/20 border border-montra-red/30 mt-0.5">
-                          <Building2 className="h-2 w-2 text-montra-red" />
-                        </div>
+                        <IconBox icon={Building2} size="sm" variant="solid" accentColor="amber" className="h-6 w-6 [&>svg]:h-2 [&>svg]:w-2 shrink-0 mt-0.5" />
                         <span className="text-[11px] text-gray-300 leading-tight font-light">{feature}</span>
                       </div>
                     ))}
@@ -471,8 +479,8 @@ export default function FeaturesPage() {
                     onClick={() => toggleFeatureVideo('agencies-main')}
                   >
                     <video
-                      ref={(el) => { videoRefs.current['agencies-main'] = el; }}
-                      src="/agencies-demo.mp4"
+                      ref={agenciesMainRef}
+                      src="https://assets.mixkit.co/videos/4809/4809-1080.mp4"
                       className="w-full h-full object-cover"
                       autoPlay
                       loop
@@ -521,8 +529,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('talents-small-1')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['talents-small-1'] = el; }}
-                        src="/talents-demo.mp4"
+                        ref={talentsSmall1Ref}
+                        src="https://assets.mixkit.co/videos/52270/52270-1080.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -567,8 +575,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('sponsors-small-2')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['sponsors-small-2'] = el; }}
-                        src="/sponsors-demo.mp4"
+                        ref={sponsorsSmall2Ref}
+                        src="https://assets.mixkit.co/videos/26787/26787-720.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -610,9 +618,7 @@ export default function FeaturesPage() {
                 {/* Left Side - Content */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-montra-red/10 border border-montra-red/20">
-                      <DollarSign className="h-5 w-5 text-montra-red" />
-                    </div>
+                    <IconBox icon={DollarSign} size="sm" variant="solid" accentColor="amber" />
                     <div>
                       <h3 className="text-lg font-bebas uppercase tracking-widest text-white">Sponsorship & Marketing Tools</h3>
                       <p className="text-[10px] text-gray-400 font-light">Connect with verified talents</p>
@@ -622,9 +628,7 @@ export default function FeaturesPage() {
                   <div className="grid gap-1.5">
                     {sponsorFeatures.map((feature, index) => (
                       <div key={index} className="flex items-start gap-2 p-2 rounded-none bg-zinc-900/40 border border-white/5 hover:border-montra-red/30 transition-all">
-                        <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-none bg-montra-red/20 border border-montra-red/30 mt-0.5">
-                          <DollarSign className="h-2 w-2 text-montra-red" />
-                        </div>
+                        <IconBox icon={DollarSign} size="sm" variant="solid" accentColor="amber" className="h-6 w-6 [&>svg]:h-2 [&>svg]:w-2 shrink-0 mt-0.5" />
                         <span className="text-[11px] text-gray-300 leading-tight font-light">{feature}</span>
                       </div>
                     ))}
@@ -651,8 +655,8 @@ export default function FeaturesPage() {
                     onClick={() => toggleFeatureVideo('sponsors-main')}
                   >
                     <video
-                      ref={(el) => { videoRefs.current['sponsors-main'] = el; }}
-                      src="/sponsors-demo.mp4"
+                      ref={sponsorsMainRef}
+                      src="https://assets.mixkit.co/videos/26787/26787-720.mp4"
                       className="w-full h-full object-cover"
                       autoPlay
                       loop
@@ -701,8 +705,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('agencies-small-2')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['agencies-small-2'] = el; }}
-                        src="/agencies-demo.mp4"
+                        ref={agenciesSmall2Ref}
+                        src="https://assets.mixkit.co/videos/4809/4809-1080.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -747,8 +751,8 @@ export default function FeaturesPage() {
                       onClick={() => toggleFeatureVideo('talents-small-2')}
                     >
                       <video
-                        ref={(el) => { videoRefs.current['talents-small-2'] = el; }}
-                        src="/talents-demo.mp4"
+                        ref={talentsSmall2Ref}
+                        src="https://assets.mixkit.co/videos/52270/52270-1080.mp4"
                         className="w-full h-full object-cover"
                         autoPlay
                         loop
@@ -789,7 +793,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* Business Inquiry Form Section */}
-      <section className="relative bg-zinc-950 py-24 lg:py-32 border-t border-white/5">
+      <section className="relative section-bg-warm py-24 lg:py-32 border-t border-white/5">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-bebas text-5xl font-bold text-white sm:text-7xl uppercase tracking-tight mb-6">
@@ -842,7 +846,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-black border-t border-white/5 relative overflow-hidden">
+      <section className="py-32 section-bg-rich border-t border-white/5 relative overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.1),transparent 70%)] opacity-50" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-bebas text-5xl font-bold text-white sm:text-8xl tracking-tight uppercase leading-none mb-8">

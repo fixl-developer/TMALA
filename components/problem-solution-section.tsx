@@ -1,6 +1,7 @@
 "use client"
 
 import { X, Check, Globe, Award, Zap, Binary } from "lucide-react"
+import { IconBox } from "@/components/ui/icon-box"
 import { useState } from "react"
 
 const challenges = [
@@ -9,32 +10,32 @@ const challenges = [
     solution: "Real-time Discovery in 100+ Regions",
     icon: Globe,
     category: "Reach",
-    image: "/feature-scouting.webp",
-    hoverImage: "/talent-agency.jpg"
+    image: "https://assets.mixkit.co/videos/23116/23116-720.mp4",
+    hoverImage: "https://assets.mixkit.co/videos/52041/52041-1080.mp4"
   },
   {
     problem: "Exploitive Sponsorship Deals",
     solution: "Transparent Brand-Direct Collaborations",
     icon: Award,
     category: "Trust",
-    image: "/feature-sponsorship.jpg",
-    hoverImage: "/feature-security.jpg"
+    image: "https://assets.mixkit.co/videos/36897/36897-720.mp4",
+    hoverImage: "https://assets.mixkit.co/videos/31497/31497-720.mp4"
   },
   {
     problem: "Manual Bureaucracy",
     solution: "Instant Multi-Currency Payouts",
     icon: Zap,
     category: "Velocity",
-    image: "/feature-subscription.jpg",
-    hoverImage: "/feature-agency-control.jpg"
+    image: "https://assets.mixkit.co/videos/15716/15716-720.mp4",
+    hoverImage: "https://assets.mixkit.co/videos/22961/22961-720.mp4"
   },
   {
     problem: "Siloed Data Ecosystems",
     solution: "360° Intelligent Agency Analytics",
     icon: Binary,
     category: "Intelligence",
-    image: "/feature-judging.jpg",
-    hoverImage: "/eature-pageants.jpg"
+    image: "https://assets.mixkit.co/videos/17994/17994-720.mp4",
+    hoverImage: "https://assets.mixkit.co/videos/30548/30548-720.mp4"
   },
 ]
 
@@ -42,11 +43,11 @@ export function ProblemSolutionSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative overflow-hidden bg-black z-10 py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden section-bg-slate z-10 py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
-          src="/background-video.mp4"
+          src="https://assets.mixkit.co/videos/31562/31562-720.mp4"
           autoPlay
           loop
           muted
@@ -60,14 +61,14 @@ export function ProblemSolutionSection() {
       <div className="relative mx-auto max-w-7xl z-10">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="text-[10px] font-bebas uppercase tracking-[0.5em] text-montra-red mb-3">
+          <p className="text-[10px] font-bebas uppercase tracking-[0.5em] text-montra-amber mb-3">
             Solving Real Challenges
           </p>
           <h2 className="font-bebas text-4xl font-bold text-white sm:text-5xl lg:text-6xl uppercase tracking-normal">
             Bridging the gap to <br />
-            <span className="text-white/30 italic font-light">Unified Excellence</span>
+            <span className="text-white/80 italic font-light">Unified Excellence</span>
           </h2>
-          <p className="mt-4 text-sm lg:text-base text-gray-500 max-w-xl mx-auto leading-relaxed font-light opacity-80">
+          <p className="mt-4 text-sm lg:text-base text-gray-300 max-w-xl mx-auto leading-relaxed font-light">
             From fragmented management to a single, high-performance ecosystem.
           </p>
         </div>
@@ -99,20 +100,20 @@ export function ProblemSolutionSection() {
                   <div className={`absolute inset-0 transition-opacity duration-700 ${
                     isHovered ? 'opacity-0' : 'opacity-100'
                   }`}>
-                    <img
+                    <video
                       src={item.image}
-                      alt={item.category}
                       className="w-full h-full object-cover grayscale"
+                      autoPlay loop muted playsInline
                     />
                   </div>
                   {/* Hover Image */}
                   <div className={`absolute inset-0 transition-opacity duration-700 ${
                     isHovered ? 'opacity-100' : 'opacity-0'
                   }`}>
-                    <img
+                    <video
                       src={item.hoverImage}
-                      alt={item.category}
                       className="w-full h-full object-cover"
+                      autoPlay loop muted playsInline
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
@@ -132,7 +133,7 @@ export function ProblemSolutionSection() {
                   {/* Top: Number & Category */}
                   <div className="flex justify-between items-start">
                     <span className={`font-bebas text-2xl transition-colors duration-500 ${
-                      isHovered ? 'text-montra-red' : 'text-white/20'
+                      isHovered ? 'text-montra-red' : 'text-white/55'
                     }`}>
                       {(index + 1).toString().padStart(2, '0')}
                     </span>
@@ -142,7 +143,7 @@ export function ProblemSolutionSection() {
                         : 'bg-white/5 border border-white/10'
                     }`}>
                       <span className={`text-[9px] uppercase font-bebas tracking-[0.3em] transition-colors duration-500 ${
-                        isHovered ? 'text-montra-red' : 'text-white/60'
+                        isHovered ? 'text-montra-red' : 'text-white/80'
                       }`}>
                         {item.category}
                       </span>
@@ -183,9 +184,7 @@ export function ProblemSolutionSection() {
                     <div className={`flex items-center justify-center transition-all duration-700 ${
                       isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
-                      <div className="p-3 rounded-full bg-montra-red/10 border border-montra-red/30">
-                        <item.icon className="w-6 h-6 text-montra-red" />
-                      </div>
+                      <IconBox icon={item.icon} size="md" variant="solid" accentColor="amber" />
                     </div>
                   </div>
                 </div>

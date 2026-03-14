@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import {
   User,
   Sparkles,
@@ -11,168 +10,478 @@ import {
   Search,
   Trophy,
   Zap,
-  CheckCircle2,
-  ChevronDown
+  ChevronRight,
+  ArrowRight,
+  ArrowDown,
+  Users,
+  Building2,
+  Smartphone,
+  Bell,
+  BarChart3,
+  Plus,
+  Mic,
+  Palette,
+  Heart,
 } from "lucide-react"
-import { RadialVideoMenu } from "@/components/radial-video-menu";
+import { HowItWorksSection } from "@/components/how-it-works-section"
+import { VideoBannerSlider } from "@/components/video-banner-slider"
 
 const features = [
   {
     icon: User,
     title: "Verified Profiles",
-    description: "Create professional, verified profiles with ID verification and authenticity badges.",
-    video: "/talents-demo.mp4",
-    gradient: "linear-gradient(135deg, #c026d3 0%, #7e22ce 100%)",
+    description:
+      "ID-verified profiles with authenticity badges that agencies and casting directors trust instantly.",
+    color: "#8b5cf6",
+    pattern: "diagonal",
   },
   {
     icon: Sparkles,
     title: "AI-Enhanced Portfolios",
-    description: "Automatically enhance your photos and organize your portfolio with AI assistance.",
-    video: "/generate-step.mp4",
-    gradient: "linear-gradient(135deg, #1d4ed8 0%, #312e81 100%)",
+    description:
+      "AI auto-enhances your photos, scores quality, and organizes your entire portfolio by category.",
+    color: "#f472b6",
+    pattern: "dots",
   },
   {
     icon: Camera,
     title: "Professional Showcase",
-    description: "Beautiful, mobile-responsive portfolios that showcase your best work.",
-    video: "/result-step.mp4",
-    gradient: "linear-gradient(135deg, #0d9488 0%, #155e75 100%)",
+    description:
+      "Mobile-responsive portfolio pages that display your best work with cinematic presentation.",
+    color: "#f97316",
+    pattern: "crosses",
   },
   {
     icon: Search,
     title: "Agency Discovery",
-    description: "Get discovered by top agencies actively scouting for new talent.",
-    video: "/agencies-demo.mp4",
-    gradient: "linear-gradient(135deg, #be123c 0%, #831843 100%)",
+    description:
+      "Get discovered by top agencies actively scouting for new talent across all categories.",
+    color: "#10b981",
+    pattern: "waves",
   },
   {
     icon: Trophy,
     title: "Opportunity Access",
-    description: "Direct access to casting calls, pageants, and exclusive opportunities.",
-    video: "/sponsors-demo.mp4",
-    gradient: "linear-gradient(135deg, #b45309 0%, #c2410c 100%)",
+    description:
+      "Direct casting calls, pageant entries, brand deals, and exclusive gigs — all in one feed.",
+    color: "#6366f1",
+    pattern: "grid",
   },
   {
     icon: Shield,
     title: "Secure Platform",
-    description: "Your data and images are protected with enterprise-grade security.",
-    video: "/background-video.mp4",
-    gradient: "linear-gradient(135deg, #047857 0%, #0f766e 100%)",
+    description:
+      "Enterprise-grade encryption, consent management, and full control over your data and media.",
+    color: "#0ea5e9",
+    pattern: "rings",
   },
 ]
 
+function PatternGraphic({ pattern, color }: { pattern: string; color: string }) {
+  if (pattern === "diagonal") {
+    return (
+      <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <rect key={i} x={-5 + i * 38} y={-20 + i * 10} width={28} height={110} rx={14} fill={color} transform={`rotate(-40 ${9 + i * 38} ${35 + i * 10})`} />
+        ))}
+      </svg>
+    )
+  }
+  if (pattern === "dots") {
+    return (
+      <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+        {[0, 1, 2, 3].map((row) =>
+          [0, 1, 2, 3].map((col) => {
+            const cx = 15 + col * 48 + (row % 2 ? 24 : 0)
+            const cy = 10 + row * 44
+            const r = 16 + Math.sin(row * 2 + col) * 4
+            return <circle key={`${row}-${col}`} cx={cx} cy={cy} r={r} fill={color} opacity={0.75 + row * 0.06} />
+          })
+        )}
+      </svg>
+    )
+  }
+  if (pattern === "crosses") {
+    return (
+      <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+        {[0, 1, 2].map((row) =>
+          [0, 1, 2, 3].map((col) => {
+            const x = 20 + col * 52 + (row % 2 ? 26 : 0)
+            const y = 20 + row * 56
+            const s = 22 + col * 3
+            const t = 10
+            return (
+              <g key={`${row}-${col}`}>
+                <rect x={x - t / 2} y={y - s / 2} width={t} height={s} rx={t / 2} fill={color} />
+                <rect x={x - s / 2} y={y - t / 2} width={s} height={t} rx={t / 2} fill={color} />
+              </g>
+            )
+          })
+        )}
+      </svg>
+    )
+  }
+  if (pattern === "waves") {
+    return (
+      <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path key={i} d={`M-10 ${18 + i * 35} Q55 ${-2 + i * 35} 110 ${18 + i * 35} T230 ${18 + i * 35}`} stroke={color} strokeWidth={10} fill="none" opacity={0.4 + i * 0.12} strokeLinecap="round" />
+        ))}
+      </svg>
+    )
+  }
+  if (pattern === "grid") {
+    return (
+      <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+        {[0, 1, 2, 3].map((row) =>
+          [0, 1, 2, 3, 4].map((col) => (
+            <rect key={`${row}-${col}`} x={5 + col * 42} y={5 + row * 42} width={32} height={32} rx={8} fill={color} opacity={(row + col) % 2 === 0 ? 0.85 : 0.3} />
+          ))
+        )}
+      </svg>
+    )
+  }
+  // rings
+  return (
+    <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+      <circle cx="110" cy="85" r="75" stroke={color} strokeWidth={8} fill="none" opacity={0.2} />
+      <circle cx="110" cy="85" r="52" stroke={color} strokeWidth={8} fill="none" opacity={0.4} />
+      <circle cx="110" cy="85" r="30" stroke={color} strokeWidth={8} fill="none" opacity={0.65} />
+      <circle cx="110" cy="85" r={10} fill={color} opacity={0.85} />
+    </svg>
+  )
+}
+
+function PatternGraphicInline({ pattern, color }: { pattern: string; color: string }) {
+  if (pattern === "diagonal") {
+    return (
+      <>
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <rect key={i} x={-5 + i * 38} y={-20 + i * 10} width={28} height={110} rx={14} fill={color} opacity={0.7 + i * 0.05} transform={`rotate(-40 ${9 + i * 38} ${35 + i * 10})`} />
+        ))}
+      </>
+    )
+  }
+  if (pattern === "dots") {
+    return (
+      <>
+        {[0, 1, 2, 3].map((row) =>
+          [0, 1, 2, 3].map((col) => {
+            const cx = 15 + col * 48 + (row % 2 ? 24 : 0)
+            const cy = 10 + row * 44
+            const r = 16 + Math.sin(row * 2 + col) * 4
+            return <circle key={`${row}-${col}`} cx={cx} cy={cy} r={r} fill={color} opacity={0.55 + row * 0.1} />
+          })
+        )}
+      </>
+    )
+  }
+  if (pattern === "crosses") {
+    return (
+      <>
+        {[0, 1, 2].map((row) =>
+          [0, 1, 2, 3].map((col) => {
+            const x = 20 + col * 52 + (row % 2 ? 26 : 0)
+            const y = 20 + row * 56
+            const s = 22 + col * 3
+            const t = 10
+            return (
+              <g key={`${row}-${col}`}>
+                <rect x={x - t / 2} y={y - s / 2} width={t} height={s} rx={t / 2} fill={color} opacity={0.85} />
+                <rect x={x - s / 2} y={y - t / 2} width={s} height={t} rx={t / 2} fill={color} opacity={0.85} />
+              </g>
+            )
+          })
+        )}
+      </>
+    )
+  }
+  if (pattern === "waves") {
+    return (
+      <>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path key={i} d={`M-10 ${18 + i * 35} Q55 ${-2 + i * 35} 110 ${18 + i * 35} T230 ${18 + i * 35}`} stroke={color} strokeWidth={12} fill="none" opacity={0.45 + i * 0.12} strokeLinecap="round" />
+        ))}
+      </>
+    )
+  }
+  if (pattern === "grid") {
+    return (
+      <>
+        {[0, 1, 2, 3].map((row) =>
+          [0, 1, 2, 3, 4].map((col) => (
+            <rect key={`${row}-${col}`} x={5 + col * 42} y={5 + row * 42} width={32} height={32} rx={8} fill={color} opacity={(row + col) % 2 === 0 ? 0.8 : 0.35} />
+          ))
+        )}
+      </>
+    )
+  }
+  // rings
+  return (
+    <>
+      <circle cx="110" cy="85" r="75" stroke={color} strokeWidth={10} fill="none" opacity={0.3} />
+      <circle cx="110" cy="85" r="52" stroke={color} strokeWidth={10} fill="none" opacity={0.5} />
+      <circle cx="110" cy="85" r="30" stroke={color} strokeWidth={10} fill="none" opacity={0.7} />
+      <circle cx="110" cy="85" r={12} fill={color} opacity={0.9} />
+    </>
+  )
+}
+
 const benefits = [
-  "Self-onboarding with guided profile creation",
-  "AI-powered photo enhancement and organization",
-  "Direct messaging with verified agencies",
-  "Real-time notifications for new opportunities",
-  "Mobile app for on-the-go portfolio management",
-  "Analytics on profile views and engagement"
+  {
+    icon: User,
+    title: "Guided Onboarding",
+    description:
+      "Go live in under 10 minutes with our step-by-step profile creation wizard.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI Photo Enhancement",
+    description:
+      "AI automatically enhances, tags, and organizes every photo you upload.",
+  },
+  {
+    icon: Building2,
+    title: "Direct Agency Messaging",
+    description:
+      "Message verified agencies directly — no middlemen, no gatekeeping.",
+  },
+  {
+    icon: Bell,
+    title: "Real-Time Alerts",
+    description:
+      "Instant notifications the moment a new matching opportunity is posted.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Portfolio App",
+    description:
+      "Manage and update your portfolio from anywhere, on any device.",
+  },
+  {
+    icon: BarChart3,
+    title: "Profile Analytics",
+    description:
+      "See who viewed your profile, which photos perform best, and how to improve.",
+  },
 ]
 
 const talentTypes = [
   {
+    icon: User,
     title: "Models",
-    description: "Fashion, commercial, fitness, and specialty modeling. Create stunning portfolios that capture every angle.",
-    video: "/talents-demo.mp4"
+    subtitle: "Your next big break starts here",
+    tagline: "Look stunning. Get discovered.",
+    perks: [
+      "AI-enhanced portfolio photos",
+      "Instant comp card builder",
+      "Direct agency connections",
+      "Casting alerts that match you",
+    ],
+    badge: "Most Popular",
+    bg: "#a78bfa",
+    avatar: "/avatars/model.svg",
   },
   {
+    icon: Camera,
     title: "Actors",
-    description: "Film, television, theater, and commercial acting. Showcase your range and headshots to casting directors.",
-    video: "/agencies-demo.mp4"
+    subtitle: "Get cast, not overlooked",
+    tagline: "Your talent. The right stage.",
+    perks: [
+      "Showreel & self-tape hosting",
+      "Auto-matched casting calls",
+      "Audition tracking dashboard",
+      "Verified director connections",
+    ],
+    badge: null,
+    bg: "#c4b5fd",
+    avatar: "/avatars/actor.svg",
   },
   {
+    icon: Heart,
     title: "Dancers",
-    description: "Contemporary, classical, commercial, and cultural dance. Upload performance videos and action shots.",
-    video: "/sponsors-demo.mp4"
+    subtitle: "Let your moves do the talking",
+    tagline: "Dance more. Hustle less.",
+    perks: [
+      "Performance reel showcase",
+      "Event & brand gig alerts",
+      "Choreography portfolio",
+      "One-click applications",
+    ],
+    badge: null,
+    bg: "#10b981",
+    avatar: "/avatars/dancer.svg",
   },
   {
+    icon: Mic,
     title: "Musicians",
-    description: "Vocalists, instrumentalists, and music performers. Share your tracks and live session recordings.",
-    video: "/background-video.mp4"
+    subtitle: "Your sound deserves a stage",
+    tagline: "Play. Get heard. Get booked.",
+    perks: [
+      "Track & live clip hosting",
+      "Event organizer discovery",
+      "Brand campaign matching",
+      "Gig booking made simple",
+    ],
+    badge: null,
+    bg: "#fbbf24",
+    avatar: "/avatars/musician.svg",
   },
   {
+    icon: Sparkles,
     title: "Influencers",
-    description: "Social media personalities and content creators. Track your engagement and brand collaboration history.",
-    video: "/generate-step.mp4"
+    subtitle: "Grow your brand, land bigger deals",
+    tagline: "Your audience. Better deals.",
+    perks: [
+      "Social analytics sync",
+      "Brand deal marketplace",
+      "Collab portfolio showcase",
+      "Direct brand offers",
+    ],
+    badge: null,
+    bg: "#f472b6",
+    avatar: "/avatars/influencer.svg",
   },
   {
+    icon: Palette,
     title: "Artists",
-    description: "Visual artists, designers, and creative professionals. Display your digital art and physical installations.",
-    video: "/result-step.mp4"
-  }
+    subtitle: "Show the world what you create",
+    tagline: "Create. Exhibit. Get noticed.",
+    perks: [
+      "Digital gallery builder",
+      "Exhibition documentation",
+      "Curator & brand connections",
+      "AI-powered art tagging",
+    ],
+    badge: null,
+    bg: "#818cf8",
+    avatar: "/avatars/artist.svg",
+  },
 ]
 
-const SEGMENT_ANGLES = [0, 60, 120, 180, 240, 300] // degrees for 6 segments
+const stats = [
+  { value: "10K+", label: "Talents Onboarded" },
+  { value: "500+", label: "Verified Agencies" },
+  { value: "3K+", label: "Bookings Made" },
+]
 
-function SegmentVideo({
-  src,
-  isPlaying,
-  isVisible,
-  className,
-}: {
-  src: string
-  isPlaying: boolean
-  isVisible: boolean
-  className?: string
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  useEffect(() => {
-    if (!isVisible || !videoRef.current) return
-    if (isPlaying) videoRef.current.play().catch(() => { })
-    else videoRef.current.pause()
-  }, [isPlaying, isVisible])
-  if (!isVisible) return null
+function SpectrumCard({ item }: { item: typeof talentTypes[0] }) {
+  const Icon = item.icon
+  const [hovered, setHovered] = useState(false)
+
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      className={className}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-    />
+    <div
+      className="group rounded-3xl p-8 pb-7 flex flex-col relative overflow-hidden cursor-default"
+      style={{ background: item.bg, height: 340 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Default state — title, subtitle + 3D avatar */}
+      <div
+        className="flex-1 flex flex-col transition-all duration-500 ease-out"
+        style={{
+          opacity: hovered ? 0 : 1,
+          transform: hovered ? "translateY(-30px)" : "translateY(0)",
+          pointerEvents: hovered ? "none" : "auto",
+        }}
+      >
+        <div className="pt-4">
+          <h3
+            className="text-[2rem] sm:text-[2.2rem] font-bold leading-[1.05] mb-2"
+            style={{ color: "#111" }}
+          >
+            {item.title}
+          </h3>
+          <p className="text-[14px] leading-relaxed" style={{ color: "rgba(0,0,0,0.6)" }}>
+            {item.subtitle}
+          </p>
+        </div>
+      </div>
+
+      {/* 3D Character avatar — bottom right */}
+      <div
+        className="absolute bottom-0 right-0 pointer-events-none transition-all duration-500 ease-out"
+        style={{
+          transform: hovered ? "translateY(20px) scale(0.9)" : "translateY(0) scale(1)",
+          opacity: hovered ? 0.3 : 1,
+        }}
+      >
+        <img
+          src={item.avatar}
+          alt={item.title}
+          className="w-[180px] h-[200px] object-contain object-bottom drop-shadow-xl"
+        />
+      </div>
+
+      {/* Hover state — rich content */}
+      <div
+        className="absolute inset-0 p-8 pb-7 flex flex-col transition-all duration-500 ease-out"
+        style={{
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? "translateY(0)" : "translateY(30px)",
+          pointerEvents: hovered ? "auto" : "none",
+        }}
+      >
+        <div className="flex-1 flex flex-col">
+          {/* Tagline */}
+          <p
+            className="text-[18px] font-bold mb-5 leading-tight"
+            style={{ color: "#111" }}
+          >
+            {item.tagline}
+          </p>
+
+          {/* Perks */}
+          <div className="space-y-3">
+            {item.perks.map((perk, idx) => (
+              <div key={idx} className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(0,0,0,0.1)" }}>
+                  <ChevronRight className="w-3 h-3" style={{ color: "#111" }} />
+                </div>
+                <span className="text-[14px] font-medium" style={{ color: "#111" }}>{perk}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Badge */}
+          {item.badge && (
+            <div className="mt-auto pt-4 inline-flex items-center gap-2">
+              <Trophy className="w-5 h-5" style={{ color: "#333" }} />
+              <span className="text-sm font-bold" style={{ color: "#111" }}>
+                {item.badge}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Toggle icon — bottom right */}
+      <div className="absolute bottom-6 right-7 z-10">
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+          style={{ background: "rgba(0,0,0,0.12)" }}
+        >
+          <Plus
+            className="w-5 h-5 transition-transform duration-300"
+            style={{
+              color: "rgba(0,0,0,0.65)",
+              transform: hovered ? "rotate(45deg)" : "rotate(0deg)",
+            }}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 
 export default function TalentsPage() {
   const [benefitsVisible, setBenefitsVisible] = useState(false)
-  const [hoveredVideo, setHoveredVideo] = useState<number | null>(null)
-  const [careerHoveredIndex, setCareerHoveredIndex] = useState<number | null>(null)
-  const [careerVideosLoaded, setCareerVideosLoaded] = useState<Set<number>>(new Set())
-  const [careerSectionInView, setCareerSectionInView] = useState(false)
   const benefitsSectionRef = useRef<HTMLElement>(null)
   const nextSectionRef = useRef<HTMLElement>(null)
-  const careerSectionRef = useRef<HTMLElement>(null)
-  const heroVideoRef = useRef<HTMLVideoElement>(null)
 
   const scrollToNext = () => {
     if (nextSectionRef.current) {
-      const targetPosition = nextSectionRef.current.offsetTop
-      const startPosition = window.pageYOffset
-      const distance = targetPosition - startPosition
-      const duration = 2000 // 2 seconds for slow scroll
-      let start: number | null = null
-
-      const animation = (currentTime: number) => {
-        if (start === null) start = currentTime
-        const timeElapsed = currentTime - start
-        const progress = Math.min(timeElapsed / duration, 1)
-
-        // Easing function for smooth animation
-        const ease = progress < 0.5
-          ? 4 * progress * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 3) / 2
-
-        window.scrollTo(0, startPosition + (distance * ease))
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation)
-        }
-      }
-
-      requestAnimationFrame(animation)
+      nextSectionRef.current.scrollIntoView({ behavior: "smooth" })
     }
   }
 
@@ -180,298 +489,371 @@ export default function TalentsPage() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setBenefitsVisible(true)
-          }
+          if (entry.isIntersecting) setBenefitsVisible(true)
         })
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     )
-
-    if (benefitsSectionRef.current) {
+    if (benefitsSectionRef.current)
       observer.observe(benefitsSectionRef.current)
-    }
-
     return () => {
-      if (benefitsSectionRef.current) {
+      if (benefitsSectionRef.current)
         observer.unobserve(benefitsSectionRef.current)
-      }
     }
   }, [])
-
-  // Career features circle: only consider "in view" for lazy behavior (phase-wise load)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setCareerSectionInView(entry.isIntersecting)
-        })
-      },
-      { threshold: 0.2, rootMargin: "50px" }
-    )
-    if (careerSectionRef.current) observer.observe(careerSectionRef.current)
-    return () => {
-      if (careerSectionRef.current) observer.unobserve(careerSectionRef.current)
-    }
-  }, [])
-
-  const handleCareerSegmentHover = (index: number | null) => {
-    setCareerHoveredIndex(index)
-    if (index !== null) {
-      setCareerVideosLoaded((prev) => new Set(prev).add(index))
-    }
-  }
 
   return (
-    <main className="min-h-screen bg-zinc-950">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Video with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <video
-            ref={heroVideoRef}
-            src="/background-video.mp4#t=3,35"
-            className="h-full w-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
-        </div>
+    <main className="min-h-screen">
+      {/* ───── VIDEO BANNER SLIDER ───── */}
+      <VideoBannerSlider />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <Badge variant="outline" className="mb-6 border-montra-red text-montra-red animate-fade-in px-4 py-1 uppercase tracking-[0.3em] font-bebas text-sm">
-              FOR CREATIVE TALENTS
-            </Badge>
-            <h1 className="font-bebas text-4xl font-bold text-white uppercase sm:text-5xl lg:text-6xl mb-6" style={{ letterSpacing: '0.05em' }}>
-              Elevate <span className="text-transparent italic" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.8)' }}>Your Art</span>
-            </h1>
-            <p className="mt-8 max-w-md text-lg text-gray-300 lg:text-xl leading-loose font-light">
-              Professionalize your career with TMA. Connect with top agencies, showcase your talent to the world, and unlock opportunities that elevate your creative journey. Build your portfolio, get discovered by industry leaders, and take control of your artistic future with our comprehensive platform designed specifically for creative professionals.
-            </p>
-          </div>
-        </div>
+      {/* ───── SECTION 1: Intro — Light ───── */}
+      <section className="relative w-full overflow-hidden py-20 lg:py-28" style={{ background: "#fff" }}>
+        {/* Subtle ambient glow */}
+        <div
+          className="absolute z-[1] rounded-full pointer-events-none"
+          style={{ width: 800, height: 800, top: -200, right: -200, background: "radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)", filter: "blur(60px)" }}
+        />
+        <div
+          className="absolute z-[1] rounded-full pointer-events-none"
+          style={{ width: 600, height: 600, bottom: -100, left: -100, background: "radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)", filter: "blur(60px)" }}
+        />
 
-        {/* Circular Button - Bottom Right */}
-        <div className="absolute bottom-12 right-12 z-20 hidden lg:flex items-center gap-8">
-          <div>
-            <ChevronDown className="w-16 h-16 text-white/20 rotate-45" />
-          </div>
-          <button
-            onClick={scrollToNext}
-            className="group relative w-32 h-32 rounded-full bg-montra-red flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer overflow-hidden shadow-xl shadow-montra-red/30"
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 text-center">
+          {/* Badge */}
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-7"
+            style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.15)", color: "#6366f1" }}
           >
-            <div className="relative z-10 flex flex-col items-center group-hover:opacity-0 transition-opacity duration-300">
-              <span className="font-bebas text-lg leading-none text-black">EXPLORE</span>
-              <span className="font-bebas text-lg leading-none text-black">TALENTS</span>
-            </div>
-            <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex items-center justify-center">
-              <ChevronDown className="w-10 h-10 text-white" />
-            </div>
-          </button>
-        </div>
+            <Sparkles className="w-3 h-3" />
+            For Creative Talents
+          </div>
 
-        {/* Scroll Arrow - Removed duplicate, now using circle button */}
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+            <span style={{ color: "#111" }}>Accelerate your talent career</span>
+            <br />
+            <span style={{ color: "#6366f1" }}>from profile to booking.</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p
+            className="text-[16px] leading-relaxed mb-8 max-w-lg mx-auto"
+            style={{ color: "#555" }}
+          >
+            Create a verified portfolio, connect directly with top
+            agencies, and unlock casting and pageant opportunities — all
+            in one intelligent platform.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-3 justify-center mb-10">
+            <Button
+              className="font-bold px-7 py-3.5 text-sm rounded-full h-auto text-white hover:scale-[1.02] transition-all duration-200"
+              style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
+            >
+              Create Talent Profile
+            </Button>
+            <Button
+              variant="outline"
+              className="font-semibold px-7 py-3.5 text-sm rounded-full h-auto inline-flex items-center gap-2 hover:bg-gray-50 transition-all duration-200"
+              style={{ color: "#333", background: "#fff", border: "1px solid #e5e7eb" }}
+              onClick={scrollToNext}
+            >
+              Explore Opportunities
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Button>
+          </div>
+
+          {/* Trust bar */}
+          <div className="flex items-center gap-6 flex-wrap justify-center">
+            {stats.map((s, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="text-sm font-bold" style={{ color: "#111" }}>{s.value}</span>
+                <span className="text-xs" style={{ color: "#888" }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Talent Spectrum Grid Section */}
+      {/* ───── SECTION 2: Talent Spectrum — Monday.com style ───── */}
       <section
         ref={nextSectionRef}
-        className="relative bg-zinc-950 py-24 lg:py-32"
+        className="relative py-24 lg:py-28"
+        style={{ background: "#fff" }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20 lg:mb-24">
-            <p className="text-sm font-bebas uppercase tracking-[0.4em] text-montra-red mb-4">The Spectrum</p>
-            <h2 className="font-bebas text-5xl font-bold text-white sm:text-6xl lg:text-8xl uppercase tracking-tighter">
-              A Stage for <span className="text-white/30 italic">Everyone</span>
+          <div className="text-center mb-14">
+            <h2
+              className="text-3xl sm:text-4xl lg:text-[3.2rem] font-bold leading-tight max-w-3xl mx-auto"
+              style={{ color: "#111" }}
+            >
+              One platform for every creative profession
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-            {talentTypes.slice(0, 5).map((type, index) => (
-              <div
-                key={index}
-                className={`group relative h-[450px] overflow-hidden bg-[#0a0a0a] border border-white/10 transition-all duration-500 hover:border-white/20 ${index < 2 ? 'md:col-span-3' : 'md:col-span-2'
-                  }`}
-                onMouseEnter={() => setHoveredVideo(index)}
-                onMouseLeave={() => setHoveredVideo(null)}
-              >
-                {/* Background Video/Image Layer */}
-                <div className="absolute inset-0 z-0">
-                  <video
-                    src={type.video}
-                    className={`h-full w-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105 ${hoveredVideo === index ? "opacity-100" : "opacity-0"
-                      }`}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                  <div className="absolute inset-0 bg-black transition-all duration-700 group-hover:bg-black/40" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {talentTypes.map((type, index) => (
+              <SpectrumCard key={index} item={type} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-                  {/* 3D-like Text Placeholder (visible when not hovering) */}
-                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 pointer-events-none ${hoveredVideo === index ? 'opacity-0' : 'opacity-100'}`}>
-                    <h3 className="font-bebas text-[120px] md:text-[160px] leading-none text-zinc-800/10 uppercase tracking-tighter whitespace-nowrap select-none">
-                      {type.title.split(' ')[0]}
+      {/* ───── SECTION 3: Career Features — Light ───── */}
+      <section
+        className="relative py-24 lg:py-28 overflow-hidden"
+        style={{ background: "#f5f5f7" }}
+      >
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-14 text-center">
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.4em] mb-3"
+              style={{ color: "#6366f1" }}
+            >
+              The Toolkit
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-4" style={{ color: "#111" }}>
+              Career-defining
+              <br />
+              <span style={{ color: "#555" }}>
+                features built in.
+              </span>
+            </h2>
+            <p
+              className="text-sm max-w-lg mx-auto leading-relaxed"
+              style={{ color: "#555" }}
+            >
+              Every tool you need to capture attention, stay organized,
+              and convert opportunities into bookings.
+            </p>
+          </div>
+
+          {/* Feature Cards — Gartner style */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {features.map((f) => {
+              const FIcon = f.icon
+              return (
+                <div
+                  key={f.title}
+                  className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col"
+                  style={{ background: "#fff", border: "1px solid #e8e8ec", minHeight: 340 }}
+                >
+                  {/* Top — clean white with icon top-left, pattern top-right clipping */}
+                  <div className="relative flex-1 overflow-hidden">
+                    {/* Icon top-left */}
+                    <div className="absolute top-6 left-6 z-10">
+                      <FIcon className="w-7 h-7" style={{ color: f.color }} strokeWidth={1.8} />
+                    </div>
+                    {/* Pattern — top right, bold, clipping off edges */}
+                    <div
+                      className="absolute transition-transform duration-500 group-hover:scale-105"
+                      style={{ top: -30, right: -40 }}
+                    >
+                      <svg width="260" height="220" viewBox="0 0 220 180" fill="none">
+                        <PatternGraphicInline pattern={f.pattern} color={f.color} />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Bottom — title + description */}
+                  <div className="px-6 pb-6">
+                    <h3 className="text-[18px] font-bold leading-snug mb-1.5" style={{ color: "#111" }}>
+                      {f.title}
                     </h3>
+                    <p className="text-[13px] leading-relaxed" style={{ color: "#555" }}>
+                      {f.description}
+                    </p>
                   </div>
                 </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
-                {/* Content */}
-                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-between">
-                  {/* Top: Number */}
-                  <div className="flex justify-between items-start">
-                    <span className="font-bebas text-2xl text-white/30 group-hover:text-montra-red transition-colors duration-500">
-                      {(index + 1).toString().padStart(2, '0')}
-                    </span>
-                  </div>
+      {/* ───── The Journey ───── */}
+      <HowItWorksSection />
 
-                  {/* Bottom: Text */}
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="font-bebas text-4xl md:text-5xl text-white uppercase tracking-wide group-hover:text-montra-red transition-colors duration-500 drop-shadow-lg">
-                      {type.title}
-                    </h3>
+      {/* ───── SECTION 4: Benefits — White ───── */}
+      <section
+        ref={benefitsSectionRef}
+        className="py-24 lg:py-28"
+        style={{ background: "#fff" }}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
+            {/* LEFT: heading + stats + CTA */}
+            <div className="lg:sticky lg:top-24">
+              <p
+                className="text-[11px] font-bold uppercase tracking-[0.4em] mb-4"
+                style={{ color: "#6366f1" }}
+              >
+                Why TalentOS
+              </p>
+              <h2
+                className="text-4xl sm:text-5xl font-bold leading-tight mb-5"
+                style={{ color: "#111" }}
+              >
+                Everything you need
+                <br />
+                <span style={{ color: "#555" }}>to succeed as a talent.</span>
+              </h2>
+              <p
+                className="text-[15px] leading-relaxed mb-10"
+                style={{ color: "#555" }}
+              >
+                Join a global ecosystem of creative professionals and get the
+                tools, visibility, and connections that move careers forward.
+              </p>
 
-                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500">
-                      <div className="overflow-hidden">
-                        <p className="text-gray-300 text-sm leading-relaxed font-light pb-2 drop-shadow-md">
-                          {type.description}
-                        </p>
+              {/* Stat cards */}
+              <div className="flex flex-col gap-3 mb-10">
+                {[
+                  {
+                    value: "10,000+",
+                    label: "Talents onboarded worldwide",
+                    color: "#8b5cf6",
+                  },
+                  {
+                    value: "500+",
+                    label: "Verified agencies & casting directors",
+                    color: "#38bdf8",
+                  },
+                  {
+                    value: "3,000+",
+                    label: "Successful bookings facilitated",
+                    color: "#10b981",
+                  },
+                ].map((stat) => (
+                  <div
+                    key={stat.value}
+                    className="flex items-center gap-4 p-4 rounded-xl"
+                    style={{
+                      background: "#fafafa",
+                      border: "1px solid #eee",
+                    }}
+                  >
+                    <div
+                      className="w-1 self-stretch rounded-full shrink-0"
+                      style={{ background: stat.color, minHeight: 36 }}
+                    />
+                    <div>
+                      <div
+                        className="text-2xl font-bold leading-none mb-0.5"
+                        style={{ color: "#111" }}
+                      >
+                        {stat.value}
+                      </div>
+                      <div className="text-[13px]" style={{ color: "#555" }}>
+                        {stat.label}
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+
+              <Button
+                size="lg"
+                className="font-bold px-8 h-12 rounded-full text-sm text-white"
+                style={{ background: "#6366f1" }}
+              >
+                Create Your Profile
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+
+            {/* RIGHT: 2×3 benefit cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon
+                return (
+                  <div
+                    key={index}
+                    className="group flex flex-col gap-3 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300"
+                    style={{
+                      background: "#fafafa",
+                      border: "1px solid #eee",
+                      opacity: benefitsVisible ? 1 : 0,
+                      transform: benefitsVisible
+                        ? "translateY(0)"
+                        : "translateY(20px)",
+                      transition: `opacity 0.5s ease ${index * 80}ms, transform 0.5s ease ${index * 80}ms, border-color 0.25s ease`,
+                    }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                      style={{
+                        background: "#f0f0f0",
+                        border: "1px solid #e5e7eb",
+                      }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color: "#555" }} />
+                    </div>
+                    <div>
+                      <h3
+                        className="font-semibold text-[14px] mb-1"
+                        style={{ color: "#222" }}
+                      >
+                        {benefit.title}
+                      </h3>
+                      <p
+                        className="text-[13px] leading-relaxed"
+                        style={{ color: "#555" }}
+                      >
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Career-Defining Features Section - Circular hover-to-play */}
-      <section ref={careerSectionRef} className="relative bg-black text-white py-24 lg:py-32 z-10 overflow-hidden">
-        {/* Fixed Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            src="/robot.mp4"
-            className="w-full h-full object-cover opacity-20"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 lg:mb-20">
-            <p className="text-sm font-bebas uppercase tracking-[0.4em] text-montra-red mb-4">The Toolkit</p>
-            <h2 className="font-bebas text-5xl font-bold sm:text-7xl uppercase tracking-tighter text-white mb-6">
-              Career-Defining <span className="text-white/30 italic">Features</span>
-            </h2>
-            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
-              Professional tools designed to empower creators and simplify discovery workflows.
-            </p>
-          </div>
-
-          {/* Replaced manual implementation with RadialVideoMenu */}
-          <div className="w-full">
-            <RadialVideoMenu
-              segments={features.map((f, idx) => ({
-                id: f.title.toLowerCase().replace(/\s+/g, '-'),
-                label: f.title,
-                videoUrl: f.video,
-                icon: <f.icon className="w-6 h-6 text-white" />,
-                ringId: idx === 0 || idx === 5 ? "ring-3" : (idx === 1 || idx === 2 ? "ring-2" : "ring-1")
-              }))}
-              centralRings={[
-                { id: "ring-1", label: "OMNI SYNDICATION", radius: 110, width: 30, videoUrl: "/agencies-demo.mp4" },
-                { id: "ring-2", label: "VIDEO & AI INFRA", radius: 80, width: 30, videoUrl: "/generate-step.mp4" },
-                { id: "ring-3", label: "VIDEO CMS", radius: 50, width: 30, videoUrl: "/result-step.mp4" }
-              ]}
-              centerLabel={
-                <span className="text-white text-3xl drop-shadow-lg">∞</span>
-              }
-            />
-          </div>
-
-          {/* Feature descriptions list (below circle, for context) */}
-          <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 p-4 rounded-lg border border-white/5 bg-white/[0.02] hover:border-white/10 transition-colors"
-              >
-                <feature.icon className="h-5 w-5 text-montra-red shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bebas text-white uppercase tracking-widest text-sm mb-1">{feature.title}</h3>
-                  <p className="text-gray-400 text-xs font-light leading-relaxed">{feature.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits & CTA - Final Section */}
-      <section ref={benefitsSectionRef} className="py-24 lg:py-32 bg-zinc-950 border-t border-white/5">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="font-bebas text-5xl font-bold text-white sm:text-7xl tracking-tighter uppercase leading-tight mb-6">
-              Ready to take the <br />
-              <span className="text-montra-red italic">next step?</span>
-            </h2>
-            <p className="text-lg text-gray-400 font-light leading-relaxed">
-              Join a global ecosystem of creative professionals today.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="relative flex items-center gap-6 p-6 bg-zinc-900/50 border border-white/5 hover:border-montra-red/20 transition-all duration-500 group overflow-hidden"
-              >
-                <div
-                  className={`h-12 w-12 rounded-full bg-montra-red/10 flex items-center justify-center shrink-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${benefitsVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-                    }`}
-                  style={{
-                    transitionDelay: `${400 + index * 100}ms`
-                  }}
-                >
-                  <CheckCircle2 className="h-6 w-6 text-montra-red" />
-                </div>
-                <span
-                  className={`text-white text-lg font-bebas uppercase tracking-widest transition-all duration-700 ${benefitsVisible ? 'opacity-100 translate-x-0' : 'opacity-30 -translate-x-4'
-                    }`}
-                  style={{
-                    transitionDelay: `${500 + index * 100}ms`
-                  }}
-                >
-                  {benefit}
-                </span>
-                <div
-                  className={`absolute left-0 top-0 bottom-0 w-1 bg-montra-red transition-all duration-1000 ${benefitsVisible ? 'h-full opacity-100' : 'h-0 opacity-0'
-                    }`}
-                  style={{
-                    transitionDelay: `${600 + index * 100}ms`
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-20 text-center">
-            <Button size="lg" className="bg-montra-red text-white hover:bg-red-700 shadow-2xl shadow-montra-red/20 h-16 px-12 text-xl font-bebas uppercase tracking-widest rounded-none">
-              Create Your Profile
+      {/* ───── SECTION 5: CTA — Light ───── */}
+      <section className="relative py-24 lg:py-28" style={{ background: "#f8f8fa" }}>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#111" }}>
+            Your career starts{" "}
+            <span style={{ color: "#6366f1" }}>here</span>.
+          </h2>
+          <p
+            className="text-sm leading-relaxed mb-8"
+            style={{ color: "#555" }}
+          >
+            Join thousands of creative professionals already using TalentOS
+            to land bookings, grow their portfolio, and connect with top
+            agencies.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button
+              size="lg"
+              className="rounded-full px-8 py-6 text-sm font-bold text-white hover:scale-[1.02] transition-all duration-200"
+              style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
+            >
+              Create Free Profile
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 py-6 text-sm font-semibold hover:bg-gray-50 transition-all duration-200"
+              style={{
+                borderColor: "#e5e7eb",
+                color: "#333",
+                background: "#fff",
+              }}
+            >
+              Explore Agencies
+              <ChevronRight className="ml-1 w-4 h-4" />
             </Button>
           </div>
         </div>
       </section>
-
     </main>
   )
 }

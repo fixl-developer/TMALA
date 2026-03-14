@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Building2, Users, Handshake } from "lucide-react"
+import { IconBox } from "@/components/ui/icon-box"
 
 const userTypes = [
   {
@@ -9,7 +10,7 @@ const userTypes = [
     icon: Building2,
     title: "Agencies",
     description: "Complete management tools for talent agencies",
-    video: "/agencies-demo.mp4",
+    video: "https://assets.mixkit.co/videos/4809/4809-1080.mp4",
     features: [
       "Multi-tenant agency control",
       "Talent roster management",
@@ -22,7 +23,7 @@ const userTypes = [
     icon: Users,
     title: "Talents",
     description: "Showcase your portfolio and get discovered",
-    video: "/talents-demo.mp4",
+    video: "https://assets.mixkit.co/videos/52270/52270-1080.mp4",
     features: [
       "Portfolio management",
       "Agency connections",
@@ -35,7 +36,7 @@ const userTypes = [
     icon: Handshake,
     title: "Sponsors",
     description: "Connect with talent and agencies for brand partnerships",
-    video: "/sponsors-demo.mp4",
+    video: "https://assets.mixkit.co/videos/26787/26787-720.mp4",
     features: [
       "Brand visibility",
       "Sponsorship opportunities",
@@ -72,7 +73,7 @@ export function UserTypeFeaturesSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-500">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gray-800">
             Features by User Type
           </p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
@@ -100,17 +101,14 @@ export function UserTypeFeaturesSection() {
                   }`}
                 >
                   <div className="flex items-start gap-4">
-                    <div
-                      className={`p-3 rounded-lg ${
-                        isActive ? "bg-white/20" : "bg-purple-100"
-                      }`}
-                    >
-                      <Icon
-                        className={`w-6 h-6 ${
-                          isActive ? "text-white" : "text-purple-600"
-                        }`}
-                      />
-                    </div>
+                    <IconBox
+                      icon={Icon}
+                      size="md"
+                      variant={isActive ? "solid" : "outline"}
+                      accentColor="purple"
+                      iconClassName={isActive ? "text-white" : "text-purple-600"}
+                      className={isActive ? "bg-white/20 border-white/30" : "bg-purple-100 border-purple-200"}
+                    />
                     
                     <div className="flex-1">
                       <h3 className="text-xl font-bold mb-2">{type.title}</h3>

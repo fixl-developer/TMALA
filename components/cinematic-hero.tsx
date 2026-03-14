@@ -60,7 +60,7 @@ export function CinematicHero({
 
                         <Button
                             size="lg"
-                            className="bg-white text-montra-red hover:bg-zinc-100 font-bebas text-2xl px-12 py-8 rounded-none transition-transform hover:scale-105 shadow-xl uppercase tracking-widest"
+                            className="bg-white text-montra-red hover:bg-zinc-100 font-bebas text-2xl px-12 py-8 rounded-xl transition-transform hover:scale-105 shadow-xl uppercase tracking-widest"
                         >
                             {buttonText}
                         </Button>

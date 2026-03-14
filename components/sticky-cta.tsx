@@ -1,19 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { ChevronUp } from "lucide-react"
+import Link from "next/link"
+import { ChevronUp, Sparkles } from "lucide-react"
+import { useAuthModal } from "@/components/auth-modal"
 
 export function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false)
+  const { openAuth } = useAuthModal()
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past the hero section (approximately 100vh)
       setIsVisible(window.scrollY > window.innerHeight * 0.8)
     }
-
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -24,16 +24,21 @@ export function StickyCTA() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <Button
-        variant="outline"
-        size="icon"
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {/* Primary CTA */}
+      <button onClick={() => openAuth("signup")} className="flex items-center gap-2 px-4 py-3 rounded-full bg-cinematic-amber text-black font-bebas text-sm uppercase tracking-widest shadow-[0_8px_32px_rgba(245,158,11,0.35)] hover:bg-cinematic-amber/90 hover:scale-105 transition-all duration-200 cursor-pointer">
+        <Sparkles className="h-4 w-4" />
+        Get Started Free
+      </button>
+
+      {/* Scroll to top */}
+      <button
         onClick={scrollToTop}
-        className="h-12 w-12 rounded-full border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white bg-gray-800/80 backdrop-blur-sm shadow-lg"
+        aria-label="Scroll to top"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white/80 hover:text-cinematic-amber hover:border-cinematic-amber/40 hover:bg-white/15 transition-all duration-200 shadow-lg"
       >
-        <ChevronUp className="h-5 w-5" />
-        <span className="sr-only">Scroll to top</span>
-      </Button>
+        <ChevronUp className="h-4 w-4" />
+      </button>
     </div>
   )
 }

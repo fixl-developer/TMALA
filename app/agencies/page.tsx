@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Film, CheckCircle2 } from "lucide-react"
 import { AGENCY_CATEGORIES, AGENCY_ACCENTS } from "@/lib/agencies-data"
+import { DynamicGridBackground } from "@/components/dynamic-grid-background"
 
 const benefits = [
   "Multi-tenant architecture with complete data isolation",
@@ -15,7 +16,7 @@ const benefits = [
 
 export default function AgenciesPage() {
   return (
-    <main className="min-h-screen bg-black selection:bg-montra-red/30">
+    <main className="min-h-screen section-bg-charcoal selection:bg-montra-red/30">
       {/* Hero — cinematic */}
       <section
         className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-white/5"
@@ -29,7 +30,7 @@ export default function AgenciesPage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-40"
           >
-            <source src="/creative.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/52270/52270-1080.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
@@ -72,7 +73,12 @@ export default function AgenciesPage() {
       </section>
 
       {/* Explore by focus — category cards with different palettes */}
-      <section className="py-24 sm:py-32 bg-black relative">
+      <DynamicGridBackground 
+        pattern="squares" 
+        accent="crimson" 
+        opacity={0.08}
+      >
+        <section className="py-24 sm:py-32 section-bg-cool relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 lg:mb-20">
             <p className="text-[10px] font-bebas uppercase tracking-[0.5em] text-red-500 mb-3">
@@ -93,7 +99,7 @@ export default function AgenciesPage() {
                 <Link
                   key={cat.key}
                   href="/agencies/all"
-                  className="group relative block overflow-hidden border border-white/5 bg-zinc-950/80 backdrop-blur-sm transition-all duration-300 hover:border-white/15"
+                  className="group relative block overflow-hidden border border-white/5 bg-zinc-900/60 backdrop-blur-sm transition-all duration-300 hover:border-cinematic-amber/30"
                 >
                   <div
                     className={`absolute top-0 left-0 w-1 h-full ${accent.bg} opacity-80 group-hover:opacity-100 transition-opacity`}
@@ -128,9 +134,16 @@ export default function AgenciesPage() {
           </div>
         </div>
       </section>
+      </DynamicGridBackground>
 
       {/* Why choose us — different palette (amber/violet feel) */}
-      <section className="py-24 sm:py-32 bg-zinc-950 border-t border-white/5 relative overflow-hidden">
+      <DynamicGridBackground 
+        pattern="mesh" 
+        accent="amber" 
+        opacity={0.06}
+        className="border-t border-white/5"
+      >
+      <section className="py-24 sm:py-32 section-bg-purple-tint relative overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_30%_50%,rgba(251,146,60,0.06),transparent_50%)]" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -189,6 +202,7 @@ export default function AgenciesPage() {
           </div>
         </div>
       </section>
+      </DynamicGridBackground>
     </main>
   )
 }

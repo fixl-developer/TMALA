@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <ellipse cx="100" cy="235" rx="55" ry="18" fill="#10b981" opacity="0.18"/>
+  <!-- Legs - dance pose -->
+  <rect x="78" y="168" width="14" height="62" rx="7" fill="#6ee7b7" transform="rotate(-10 85 168)"/>
+  <rect x="110" y="168" width="14" height="62" rx="7" fill="#6ee7b7" transform="rotate(15 117 168)"/>
+  <!-- Torso -->
+  <rect x="68" y="100" width="64" height="76" rx="20" fill="#10b981"/>
+  <!-- Arms - dance pose -->
+  <rect x="38" y="88" width="14" height="58" rx="7" fill="#6ee7b7" transform="rotate(-40 45 88)"/>
+  <rect x="148" y="88" width="14" height="58" rx="7" fill="#6ee7b7" transform="rotate(40 155 88)"/>
+  <!-- Neck -->
+  <rect x="90" y="82" width="20" height="24" rx="10" fill="#d1fae5"/>
+  <!-- Head -->
+  <circle cx="100" cy="62" r="34" fill="#d1fae5"/>
+  <!-- Hair - bun -->
+  <path d="M68 52c2-22 15-36 32-36s30 14 32 36c0 0 1-30-32-30S68 52 68 52z" fill="#047857"/>
+  <circle cx="100" cy="26" r="12" fill="#047857"/>
+  <!-- Eyes -->
+  <circle cx="87" cy="58" r="4" fill="#064e3b"/>
+  <circle cx="113" cy="58" r="4" fill="#064e3b"/>
+  <circle cx="89" cy="56.5" r="1.5" fill="white"/>
+  <circle cx="115" cy="56.5" r="1.5" fill="white"/>
+  <!-- Happy smile -->
+  <path d="M88 72c5 7 19 7 24 0" stroke="#047857" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Music notes -->
+  <text x="148" y="60" font-size="18" fill="#10b981" opacity="0.6">♪</text>
+  <text x="42" y="50" font-size="14" fill="#10b981" opacity="0.5">♫</text>
+</svg>

@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Video, Sparkles, ShieldCheck, Search } from "lucide-react"
+import { IconBox } from "@/components/ui/icon-box"
 
 const soonFeatures = [
     {
@@ -40,16 +41,14 @@ export function ComingSoonFeatures() {
             {soonFeatures.map((feature, index) => (
                 <div
                     key={index}
-                    className="group relative bg-zinc-900/20 backdrop-blur-sm border border-white/5 p-6 rounded-xl hover:bg-zinc-900/40 hover:border-white/10 transition-all duration-500 overflow-hidden"
+                    className="group relative bg-zinc-900/30 backdrop-blur-sm border border-white/5 p-6 rounded-xl hover:bg-zinc-900/50 hover:border-cinematic-amber/20 transition-all duration-500 overflow-hidden"
                 >
                     {/* Background Glow */}
                     <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-500" />
 
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-4">
-                            <div className={`p-2 rounded-lg bg-black/40 border border-white/5 group-hover:border-white/10 transition-all ${feature.color}`}>
-                                <feature.icon className="w-5 h-5" />
-                            </div>
+                            <IconBox icon={feature.icon} size="sm" variant="gradient" accentColor="amber" iconClassName={feature.color} />
                             <span className="text-[10px] font-bebas uppercase tracking-widest text-zinc-500 bg-zinc-800/30 px-2 py-0.5 rounded border border-white/5">
                                 {feature.badge}
                             </span>

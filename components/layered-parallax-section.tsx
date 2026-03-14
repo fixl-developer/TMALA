@@ -176,7 +176,7 @@ export function LayeredParallaxSection() {
 
                   {/* Title */}
                   <h2 
-                    className={`font-serif text-5xl sm:text-6xl lg:text-7xl font-bold ${section.textColor}`}
+                    className={`font-sans text-3xl sm:text-4xl lg:text-5xl font-bold ${section.textColor}`}
                     style={{
                       opacity: isActive ? 1 : 0,
                       transform: isActive ? 'translateY(0)' : 'translateY(30px)',

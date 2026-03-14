@@ -34,7 +34,7 @@ export function AgenciesDropdown() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 text-lg font-bebas uppercase tracking-widest transition-all duration-300 outline-none ${isAgenciesSection ? "text-montra-red" : "text-white hover:text-montra-red"}`}
+        className={`flex items-center gap-2 text-sm font-bebas uppercase tracking-widest transition-all duration-300 outline-none py-2 px-4 rounded-lg nav-pill z-10 ${isAgenciesSection ? "text-cinematic-amber" : "text-white hover:text-cinematic-amber"}`}
         aria-expanded={open}
         aria-haspopup="true"
       >
@@ -48,10 +48,10 @@ export function AgenciesDropdown() {
       <div
         className={`absolute left-1/2 top-full -translate-x-1/2 pt-2 transition-all duration-500 ease-out ${open ? "opacity-100 visible translate-y-0" : "invisible opacity-0 pointer-events-none -translate-y-4"}`}
       >
-        <div className="w-[min(90vw,720px)] rounded-none border border-white/10 bg-zinc-950/95 backdrop-blur-xl shadow-2xl overflow-hidden">
+        <div className="w-[min(90vw,720px)] rounded-2xl border border-white/10 bg-cinematic-base/98 backdrop-blur-2xl shadow-2xl overflow-hidden">
           {/* Top strip */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/40">
-            <Film className="h-4 w-4 text-montra-red" />
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-gradient-to-r from-cinematic-amber/10 to-cinematic-cyan/10">
+            <Film className="h-4 w-4 text-cinematic-amber" />
             <span className="text-[10px] font-bebas uppercase tracking-[0.35em] text-white/70">
               Agency types
             </span>
@@ -73,7 +73,7 @@ export function AgenciesDropdown() {
                   >
                     {cat.label}
                   </div>
-                  <p className="text-xs text-white/50 font-light mb-3 leading-snug">
+                  <p className="text-xs text-white/80 font-light mb-3 leading-snug">
                     {cat.tagline}
                   </p>
                   <ul className="space-y-0.5">
@@ -97,13 +97,13 @@ export function AgenciesDropdown() {
             })}
           </div>
 
-          <div className="border-t border-white/10 bg-black/40 px-4 py-3 flex items-center justify-between">
-            <span className="text-xs text-white/50 font-light">
+          <div className="border-t border-white/10 bg-gradient-to-r from-cinematic-amber/5 to-cinematic-cyan/5 px-4 py-3 flex items-center justify-between">
+            <span className="text-xs text-white/80 font-light">
               All types in one place
             </span>
             <Link
               href="/agencies/all"
-              className="flex items-center gap-2 text-sm font-bebas uppercase tracking-widest text-montra-red hover:text-red-400 transition-colors"
+              className="flex items-center gap-2 text-sm font-bebas uppercase tracking-widest text-cinematic-amber hover:text-cinematic-amber/80 transition-colors"
               onClick={() => setOpen(false)}
             >
               View all

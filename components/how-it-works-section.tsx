@@ -8,113 +8,146 @@ import {
   Trophy,
   Star,
   Wallet,
+  ArrowRight,
 } from "lucide-react"
+import { useAuthModal } from "@/components/auth-modal"
 
 const steps = [
   {
     icon: Upload,
     title: "Talent Onboards",
-    description: "Self-register with ID proof & portfolio upload, AI verifies basics automatically",
+    description:
+      "Self-register with ID proof & portfolio upload, AI verifies basics automatically.",
   },
   {
     icon: UserCheck,
     title: "Agency Reviews",
-    description: "Agency reviews application and approves talent to their roster with one click",
+    description:
+      "Agency reviews application and approves talent to their roster with one click.",
   },
   {
     icon: Sparkles,
     title: "AI Enhancement",
-    description: "Talent uses AI tools to perfect, enhance, and organize their portfolio",
+    description:
+      "Talent uses AI tools to perfect, enhance, and organize their portfolio.",
   },
   {
     icon: Search,
     title: "Scout & Match",
-    description: "Agency scouts, invites, or AI-matches talent to relevant opportunities",
+    description:
+      "Agency scouts, invites, or AI-matches talent to relevant opportunities.",
   },
   {
     icon: Trophy,
     title: "Create Events",
-    description: "Agency creates branded pageant or show, talents register and compete",
+    description:
+      "Agency creates branded pageant or show, talents register and compete.",
   },
   {
     icon: Star,
     title: "Judge & Score",
-    description: "Judges assign marks, results are calculated, winners notified",
+    description:
+      "Judges assign marks, results are calculated, winners notified instantly.",
   },
   {
     icon: Wallet,
     title: "Sponsor & Payout",
-    description: "Sponsors fund events, agencies manage deals and process payouts",
+    description:
+      "Sponsors fund events, agencies manage deals and process payouts securely.",
   },
 ]
 
 export function HowItWorksSection() {
+  const { openAuth } = useAuthModal()
   return (
-    <section className="relative overflow-hidden bg-black z-10 py-24">
-      {/* Background Video Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <video
-          src="/creative.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale contrast-125"
-        />
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-      </div>
+    <section id="how-it-works" className="py-24 lg:py-28" style={{ background: "#f8f8fa" }}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Light rounded container like Monday.com */}
+        <div
+          className="rounded-3xl px-6 sm:px-10 lg:px-16 py-16 lg:py-20"
+          style={{ background: "#f0f0f4" }}
+        >
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-start">
+            {/* LEFT — sticky heading + CTA */}
+            <div className="lg:sticky lg:top-28">
+              <h2
+                className="text-[2.2rem] sm:text-[2.6rem] lg:text-[2.9rem] font-bold leading-[1.12] tracking-tight mb-8"
+                style={{ color: "#111" }}
+              >
+                Onboard faster,
+                <br />
+                match smarter, and
+                <br />
+                scale every talent
+                <br />
+                journey.
+              </h2>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <p className="text-sm font-bebas uppercase tracking-widest text-montra-red">
-            The Journey
-          </p>
-          <h2 className="mt-4 font-bebas text-4xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-normal text-balance">
-            WHERE EXPERTISE <br />
-            MEETS <span className="text-white/40 italic">INNOVATION</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-400 font-light">
-            From Onboarding to Stardom – Seamless Flow
-          </p>
-        </div>
+              <button
+                onClick={() => openAuth()}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
+                style={{
+                  background: "#111",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                }}
+              >
+                Join Waitlist
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-          {steps.slice(0, 5).map((step, index) => (
-            <div
-              key={index}
-              className={`group relative h-80 bg-[#0a0a0a] border border-white/10 overflow-hidden transition-all duration-500 hover:border-white/20 ${index < 2 ? 'md:col-span-3' : 'md:col-span-2'
-                }`}
-            >
-              {/* 3D Icon Watermark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-                <step.icon
-                  className={`w-48 h-48 text-zinc-800/20 stroke-[0.5] transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12 ${index % 2 === 0 ? 'translate-x-12' : '-translate-x-12'
-                    }`}
-                />
-              </div>
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-
-              {/* Content Integration */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
-                {/* Top: Number */}
-                <span className="font-bebas text-2xl text-white/20 group-hover:text-[#ccff00] transition-colors duration-500">
-                  {(index + 1).toString().padStart(2, '0')}
-                </span>
-
-                {/* Bottom: Text */}
-                <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="font-bebas text-3xl md:text-4xl text-white uppercase tracking-wide mb-3 group-hover:text-[#ccff00] transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 font-light leading-relaxed max-w-[90%] opacity-80 group-hover:opacity-100 transition-opacity">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
+              <p
+                className="mt-4 text-[13px]"
+                style={{ color: "#888" }}
+              >
+                A clear end-to-end flow connecting onboarding, casting, events, judging & payouts.
+              </p>
             </div>
-          ))}
+
+            {/* RIGHT — 2-column cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {steps.map((step, index) => {
+                const Icon = step.icon
+                // Left column cards are taller style, right column shorter
+                // Alternate between white bg cards
+                return (
+                  <div
+                    key={index}
+                    className="group rounded-2xl p-6 lg:p-7 transition-all duration-300 hover:-translate-y-0.5"
+                    style={{
+                      background: "#fff",
+                      border: "1px solid #e8e8ec",
+                    }}
+                  >
+                    {/* Icon */}
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                      style={{
+                        color: "#6366f1",
+                      }}
+                    >
+                      <Icon className="w-7 h-7" strokeWidth={1.5} />
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                      className="text-lg font-bold leading-tight mb-2"
+                      style={{ color: "#111" }}
+                    >
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p
+                      className="text-[13px] leading-relaxed"
+                      style={{ color: "#555" }}
+                    >
+                      {step.description}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

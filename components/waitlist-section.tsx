@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,32 +11,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { CheckCircle2, Gift, Zap, Star } from "lucide-react"
-
-const perks = [
-  {
-    icon: Zap,
-    title: "Instant Access",
-    description: "Get started immediately with our platform",
-  },
-  {
-    icon: Gift,
-    title: "Free Trial Period",
-    description: "Try premium features risk-free",
-  },
-  {
-    icon: Star,
-    title: "Premium Support",
-    description: "Get help from our expert team",
-  },
-]
+import { CheckCircle2, Shield, Users, Zap, HeadphonesIcon } from "lucide-react"
 
 export function WaitlistSection() {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     role: "",
+    companyName: "",
+    interest: "",
+    message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -47,141 +32,198 @@ export function WaitlistSection() {
     if (!formData.email || !formData.role) return
 
     setIsSubmitting(true)
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
 
   return (
-    <section id="waitlist" className="relative overflow-hidden section-diagonal-top section-diagonal-bottom bg-black z-10 py-32">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Floating Elements */}
-        <div className="absolute top-20 right-10 w-32 h-32 bg-montra-red/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-10 w-40 h-40 bg-montra-red/5 rounded-full blur-3xl animate-float animation-delay-200" />
-        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-montra-red/5 rounded-full blur-3xl animate-float animation-delay-400" />
-      </div>
+    <section id="waitlist" className="relative overflow-hidden z-10">
+      {/* Purple/Lavender Background */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #e8dff5 0%, #d8cceb 50%, #e8dff5 100%)" }} />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+
           {/* Left Column - Content */}
-          <div className="flex flex-col justify-center">
-            <p className="text-sm font-bebas uppercase tracking-widest text-montra-red">
-              Join the Platform
-            </p>
-            <h2 className="mt-4 font-bebas text-5xl sm:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tight text-balance">
-              Ready to Transform Your Talent Management?
+          <div className="flex flex-col justify-center pt-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.15] tracking-tight mb-5" style={{ color: "#1a1a2e" }}>
+              Ready to transform how you manage{" "}
+              <span style={{ color: "#7c3aed" }}>talent</span>?
             </h2>
-            <p className="mt-6 text-xl text-gray-400 leading-relaxed">
-              Join thousands of agencies, talents, and sponsors already using our platform to revolutionize the talent industry.
+
+            <p className="text-base leading-relaxed mb-10 max-w-lg" style={{ color: "#1a1a2e" }}>
+              Request a callback from our team to explore custom plans based on your unique needs and goals.
             </p>
 
-            {/* Perks */}
-            <div className="mt-8 space-y-4">
-              {perks.map((perk, index) => (
-                <div key={index} className="flex items-start gap-4 animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-montra-red/10 border border-montra-red/20 glass-effect animate-float" style={{ animationDelay: `${index * 100}ms` }}>
-                    <perk.icon className="h-6 w-6 text-montra-red" />
+            {/* Feature highlights */}
+            <div className="grid grid-cols-2 gap-4 mb-10">
+              {[
+                { icon: Zap, title: "Instant Access", desc: "Get started immediately — no setup delays" },
+                { icon: Users, title: "Unified Platform", desc: "Agencies, talents & sponsors in one place" },
+                { icon: Shield, title: "Secure Escrow", desc: "Protected payments for every transaction" },
+                { icon: HeadphonesIcon, title: "Premium Support", desc: "Dedicated help from our expert team" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: "rgba(255,255,255,0.4)" }}>
+                  <div className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "rgba(124,58,237,0.12)" }}>
+                    <item.icon className="w-4 h-4" style={{ color: "#7c3aed" }} />
                   </div>
                   <div>
-                    <h3 className="font-bebas text-lg uppercase tracking-widest text-white">{perk.title}</h3>
-                    <p className="text-sm text-gray-400">{perk.description}</p>
+                    <p className="text-sm font-semibold" style={{ color: "#1a1a2e" }}>{item.title}</p>
+                    <p className="text-xs leading-snug mt-0.5" style={{ color: "#3d3d5c" }}>{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Bottom reassurance */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" style={{ color: "#7c3aed" }} />
+                <span className="text-sm font-medium" style={{ color: "#1a1a2e" }}>Free to try</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" style={{ color: "#7c3aed" }} />
+                <span className="text-sm font-medium" style={{ color: "#1a1a2e" }}>No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" style={{ color: "#7c3aed" }} />
+                <span className="text-sm font-medium" style={{ color: "#1a1a2e" }}>Cancel anytime</span>
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-md rounded-2xl glass-effect p-8 border border-white/5 animate-glow bg-zinc-900/50">
+          <div className="flex items-start justify-center">
+            <div className="w-full max-w-md rounded-2xl p-8 bg-white shadow-xl" style={{ border: "1px solid rgba(0,0,0,0.06)" }}>
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center space-y-4 py-8 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-montra-red shadow-[0_0_20px_rgba(255,0,0,0.5)]">
-                    <CheckCircle2 className="h-8 w-8 text-white" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full" style={{ background: "#7c3aed", boxShadow: "0 0 30px rgba(124,58,237,0.3)" }}>
+                    <CheckCircle2 className="h-7 w-7 text-white" strokeWidth={2.5} />
                   </div>
-                  <h3 className="font-bebas text-3xl uppercase tracking-widest text-white">
+                  <h3 className="text-2xl font-bold" style={{ color: "#111827" }}>
                     {"You're all set!"}
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-sm" style={{ color: "#4b5563" }}>
                     {"Welcome to the platform! We'll get you set up right away."}
                   </p>
                 </div>
               ) : (
                 <>
-                  <div className="mb-6 space-y-2 text-center">
-                    <h3 className="font-bebas text-3xl uppercase tracking-widest text-white">
-                      Get Started Now
+                  <div className="mb-6 space-y-1.5 text-center">
+                    <h3 className="text-xl font-bold" style={{ color: "#111827" }}>
+                      Contact our team
                     </h3>
-                    <p className="text-sm text-gray-400">
-                      Choose your role and begin your journey
+                    <p className="text-sm" style={{ color: "#4b5563" }}>
+                      Get started with TMA for your organization
                     </p>
                   </div>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
+
+                  <form onSubmit={handleSubmit} className="space-y-3.5">
+                    {/* First + Last Name Row */}
+                    <div className="grid grid-cols-2 gap-3">
                       <Input
                         type="text"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="h-12 border-border/50 bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                        placeholder="First name*"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                        required
                       />
-                    </div>
-                    <div>
                       <Input
-                        type="email"
-                        placeholder="Your email address"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="h-12 border-border/50 bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                        type="text"
+                        placeholder="Last name*"
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
                         required
                       />
                     </div>
-                    <div>
-                      <Input
-                        type="tel"
-                        placeholder="Phone number (optional)"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="h-12 border-border/50 bg-background/50 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
-                      />
-                    </div>
-                    <div>
+
+                    <Input
+                      type="email"
+                      placeholder="Work email*"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                      required
+                    />
+
+                    <Input
+                      type="text"
+                      placeholder="Company / Agency name"
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                    />
+
+                    <Input
+                      type="tel"
+                      placeholder="Phone number"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                    />
+
+                    {/* Company Size + Role Row */}
+                    <div className="grid grid-cols-2 gap-3">
                       <Select
                         value={formData.role}
-                        onValueChange={(value) =>
-                          setFormData({ ...formData, role: value })
-                        }
+                        onValueChange={(value) => setFormData({ ...formData, role: value })}
                         required
                       >
-                        <SelectTrigger className="h-12 border-border/50 bg-background/50 text-foreground focus:border-primary focus:ring-primary">
-                          <SelectValue placeholder="I am primarily a..." />
+                        <SelectTrigger className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
+                          <SelectValue placeholder="I am a...*" />
                         </SelectTrigger>
-                        <SelectContent className="border-border bg-card">
-                          <SelectItem value="agency">Agency Owner</SelectItem>
-                          <SelectItem value="talent">
-                            Talent (Model/Actor/etc.)
-                          </SelectItem>
-                          <SelectItem value="sponsor">Sponsor</SelectItem>
-                          <SelectItem value="judge">Judge</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                        <SelectContent className="border-gray-200 bg-white text-gray-900">
+                          <SelectItem value="agency" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">Agency Owner</SelectItem>
+                          <SelectItem value="talent" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">Talent</SelectItem>
+                          <SelectItem value="sponsor" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">Sponsor</SelectItem>
+                          <SelectItem value="judge" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">Judge</SelectItem>
+                          <SelectItem value="other" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+
+                      <Select
+                        value={formData.interest}
+                        onValueChange={(value) => setFormData({ ...formData, interest: value })}
+                      >
+                        <SelectTrigger className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
+                          <SelectValue placeholder="Team size" />
+                        </SelectTrigger>
+                        <SelectContent className="border-gray-200 bg-white text-gray-900">
+                          <SelectItem value="1-10" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">1-10</SelectItem>
+                          <SelectItem value="11-50" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">11-50</SelectItem>
+                          <SelectItem value="51-200" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">51-200</SelectItem>
+                          <SelectItem value="201-500" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">201-500</SelectItem>
+                          <SelectItem value="500+" className="text-gray-900 focus:bg-gray-100 focus:text-gray-900">500+</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
+
+                    {/* Message Textarea */}
+                    <textarea
+                      placeholder="Tell us about your team and what you'd like to manage with TMA"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={3}
+                      className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20 focus:outline-none resize-none"
+                    />
+
                     <Button
                       type="submit"
                       disabled={isSubmitting || !formData.email || !formData.role}
-                      className="h-14 w-full bg-montra-red text-white hover:bg-montra-red-dark font-bebas text-xl uppercase tracking-widest animate-glow"
+                      className="h-12 w-full rounded-full text-sm font-semibold text-white"
+                      style={{ background: "#7c3aed" }}
                     >
-                      {isSubmitting ? "Getting Started..." : "Start Your Journey"}
+                      {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
+
+                    <p className="text-[11px] text-center leading-relaxed" style={{ color: "#6b7280" }}>
+                      By submitting this form, I accept TMA&apos;s{" "}
+                      <a href="#" className="underline" style={{ color: "#7c3aed" }}>Privacy Policy</a>{" "}
+                      and consent to be contacted for marketing and promotional purposes via email, phone, SMS, and other means.
+                    </p>
                   </form>
                 </>
               )}

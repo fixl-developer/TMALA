@@ -47,7 +47,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
 
     const textStyle: React.CSSProperties = outline
         ? {
-            WebkitTextStroke: '1px rgba(255,255,255,0.3)',
+            WebkitTextStroke: '1px rgba(255,255,255,0.5)',
             color: 'transparent'
         }
         : {

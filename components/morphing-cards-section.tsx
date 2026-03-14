@@ -1,179 +1,152 @@
 "use client"
 
-import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
+import { Globe, Handshake, Zap, ArrowRight } from "lucide-react"
 
-const cards = [
-    {
-        title: "REACH",
-        problem: "Invisible Global Talent",
-        solution: "Real-time Discovery in 100+ Regions",
-        images: [
-            "/feature-scouting.webp",
-            "/talent-agency.jpg",
-            "/feature-onboarding.jpg"
-        ]
-    },
-    {
-        title: "TRUST",
-        problem: "Exploitive Sponsorship Deals",
-        solution: "Transparent Brand-Direct Collaborations",
-        images: [
-            "/feature-sponsorship.jpg",
-            "/feature-security.jpg",
-            "/feature-agency-control.jpg"
-        ]
-    },
-    {
-        title: "VELOCITY",
-        problem: "Manual Bureaucracy",
-        solution: "Instant Multi-Currency Payouts",
-        images: [
-            "/feature-subscription.jpg",
-            "/feature-agency-control.jpg",
-            "/imagine-step.jpg"
-        ]
-    },
-    {
-        title: "INTELLIGENCE",
-        problem: "Siloed Data Ecosystems",
-        solution: "360° Intelligent Agency Analytics",
-        images: [
-            "/feature-judging.jpg",
-            "/eature-pageants.jpg",
-            "/feature-onboarding.jpg"
-        ]
-    }
+const pillars = [
+  {
+    icon: Globe,
+    stat: "100+",
+    statLabel: "Regions Covered",
+    title: "Global Reach",
+    subtitle: "Discover talent everywhere",
+    description: "Your next booking could come from anywhere. Our AI-powered discovery engine connects you with verified agencies and casting directors across 100+ regions in real time — no cold outreach needed.",
+    features: ["Cross-border talent matching", "Multi-language profiles", "Timezone-aware scheduling"],
+    accentColor: "#6366f1",
+    cardBg: "#f5f3ff",
+    borderColor: "#e0dff8",
+  },
+  {
+    icon: Handshake,
+    stat: "98%",
+    statLabel: "Retention Rate",
+    title: "Deep Trust",
+    subtitle: "Transparent partnerships",
+    description: "Every agency, brand, and talent on the platform is verified. Contracts are auditable, payments are escrowed, and deals are structured to protect both sides — no hidden fees, no exploitation.",
+    features: ["ID-verified agencies & talents", "Escrowed payments", "Auditable contract history"],
+    accentColor: "#0ea5e9",
+    cardBg: "#f0f9ff",
+    borderColor: "#d6eef8",
+  },
+  {
+    icon: Zap,
+    stat: "<24h",
+    statLabel: "Payout Time",
+    title: "Pure Velocity",
+    subtitle: "From booking to payment",
+    description: "Manual bureaucracy kills momentum. Automate every step — booking confirmation, contract signing, invoice generation, and multi-currency payouts — so you move at the speed of opportunity.",
+    features: ["Automated contract workflows", "Multi-currency instant payouts", "Zero manual hand-offs"],
+    accentColor: "#10b981",
+    cardBg: "#f0fdf7",
+    borderColor: "#d1f0e2",
+  },
 ]
 
 export function MorphingCardsSection() {
-    return (
-        <section className="relative w-full bg-black py-20 px-4 overflow-visible border-t border-white/5 z-10">
-            {/* Header */}
-            <div className="text-center mb-16 lg:mb-20">
-                <p className="text-[10px] font-bebas uppercase tracking-[0.5em] text-red-500 mb-3">
-                    Solving Real Challenges
-                </p>
-                <h2 className="font-bebas text-4xl font-bold text-white sm:text-5xl lg:text-6xl uppercase tracking-normal">
-                    Bridging the gap to <br />
-                    <span className="text-white/30 italic font-light">Unified Excellence</span>
-                </h2>
-                <p className="mt-4 text-sm lg:text-base text-gray-500 max-w-xl mx-auto leading-relaxed font-light opacity-80">
-                    From fragmented management to a single, high-performance ecosystem.
-                </p>
-            </div>
+  return (
+    <section className="relative w-full py-28 overflow-hidden" style={{ background: "#fafafa" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
-                {cards.map((card, idx) => (
-                    <MorphingCard key={idx} card={card} />
-                ))}
-            </div>
-        </section>
-    )
-}
-
-function MorphingCard({ card }: { card: typeof cards[0] }) {
-    const [isHovered, setIsHovered] = useState(false)
-
-    return (
-        <div
-            className="relative h-[600px] border border-white/5 flex flex-col items-center justify-center cursor-pointer overflow-visible group"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            {/* Background Circle on Hover */}
-            <AnimatePresence>
-                {isHovered && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none"
-                    >
-                        <div className="w-[80%] aspect-square rounded-full bg-zinc-900/40 border border-white/5" />
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* Pop-up Images */}
-            <AnimatePresence>
-                {isHovered && (
-                    <div className="absolute inset-0 z-20 pointer-events-none">
-                        {card.images.map((img, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{
-                                    opacity: 0,
-                                    scale: 0.5,
-                                    x: 0,
-                                    y: 0
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                    scale: 1,
-                                    x: i === 0 ? -120 : i === 1 ? 140 : -80,
-                                    y: i === 0 ? -150 : i === 1 ? -100 : 180,
-                                    rotate: i === 0 ? -15 : i === 1 ? 10 : -5
-                                }}
-                                exit={{ opacity: 0, scale: 0.5 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 100,
-                                    damping: 15,
-                                    delay: i * 0.1
-                                }}
-                                className="absolute left-1/2 top-1/2 w-48 h-64 border-4 border-black shadow-2xl overflow-hidden"
-                            >
-                                <img src={img} alt="" className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-500" />
-                            </motion.div>
-                        ))}
-                    </div>
-                )}
-            </AnimatePresence>
-
-            {/* Content Container */}
-            <div className="relative z-30 text-center px-6">
-                <motion.h2
-                    animate={{
-                        color: isHovered ? "#ef4444" : "#ffffff",
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="font-bebas text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase"
-                >
-                    {card.title}
-                </motion.h2>
-
-                <AnimatePresence>
-                    {!isHovered && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="mt-4"
-                        >
-                            <p className="text-gray-400 text-sm line-through decoration-red-500/40">
-                                {card.problem}
-                            </p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {isHovered && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            className="mt-6 flex flex-col items-center"
-                        >
-                            <p className="text-white font-bebas text-xl mb-2">
-                                {card.solution}
-                            </p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] mb-3" style={{ color: "#6366f1" }}>
+            Core Capabilities
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-2xl mx-auto mb-4" style={{ color: "#111" }}>
+            Reach wider, build trust,
+            <br />
+            <span style={{ color: "#999" }}>move faster.</span>
+          </h2>
+          <p className="text-sm max-w-lg mx-auto leading-relaxed" style={{ color: "#666" }}>
+            Three pillars that power every successful talent business — built into one platform.
+          </p>
         </div>
-    )
+
+        {/* 3-column pillar cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {pillars.map((p) => {
+            const Icon = p.icon
+            return (
+              <div
+                key={p.title}
+                className="group relative rounded-2xl overflow-hidden cursor-pointer flex flex-col"
+                style={{
+                  background: p.cardBg,
+                  border: `1px solid ${p.borderColor}`,
+                  transition: "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
+                  minHeight: 480,
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget
+                  el.style.borderColor = p.accentColor + "40"
+                  el.style.boxShadow = `0 24px 60px ${p.accentColor}12`
+                  el.style.transform = "translateY(-4px)"
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget
+                  el.style.borderColor = p.borderColor
+                  el.style.boxShadow = "none"
+                  el.style.transform = "translateY(0)"
+                }}
+              >
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full p-7">
+                  {/* Top: icon + tag */}
+                  <div className="flex items-start justify-between mb-8">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                      style={{ background: p.accentColor + "12", border: `1px solid ${p.accentColor}20` }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: p.accentColor }} />
+                    </div>
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                      style={{ background: p.accentColor + "10", color: p.accentColor, border: `1px solid ${p.accentColor}18` }}
+                    >
+                      {p.subtitle}
+                    </span>
+                  </div>
+
+                  {/* Big stat */}
+                  <div className="mb-6">
+                    <div className="text-5xl lg:text-6xl font-bold leading-none mb-1" style={{ color: p.accentColor }}>
+                      {p.stat}
+                    </div>
+                    <div className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#555" }}>
+                      {p.statLabel}
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-3 leading-snug" style={{ color: "#111" }}>{p.title}</h3>
+
+                  {/* Description */}
+                  <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "#666" }}>
+                    {p.description}
+                  </p>
+
+                  {/* Feature pills */}
+                  <div className="flex flex-col gap-2 mb-5">
+                    {p.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2">
+                        <div className="w-1 h-1 rounded-full shrink-0" style={{ background: p.accentColor }} />
+                        <span className="text-xs" style={{ color: "#555" }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <button
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold self-start opacity-60 group-hover:opacity-100 transition-all duration-300"
+                    style={{ color: p.accentColor }}
+                  >
+                    Explore <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
 }

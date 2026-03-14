@@ -164,14 +164,24 @@ export function PhysicsFeatures() {
         Composite.add(world, mouseConstraint)
         render.mouse = mouse
 
-        // Handle clicks
-        Events.on(mouseConstraint, 'mousedown', (event: any) => {
-            const mousePosition = event.mouse.position
-            // Check if any body is clicked
-            const bodies = Composite.allBodies(world)
-            // Filter out walls/ground
-            const featureBodies = bodies.filter((b: any) => b.plugin && b.plugin.featureIndex !== undefined)
+        // Handle clicks — distinguish click vs drag by tracking mouse movement
+        let mouseDownPos = { x: 0, y: 0 }
 
+        Events.on(mouseConstraint, 'mousedown', (event: any) => {
+            mouseDownPos = { x: event.mouse.position.x, y: event.mouse.position.y }
+        })
+
+        Events.on(mouseConstraint, 'mouseup', (event: any) => {
+            const mousePosition = event.mouse.position
+            const dx = mousePosition.x - mouseDownPos.x
+            const dy = mousePosition.y - mouseDownPos.y
+            const dist = Math.sqrt(dx * dx + dy * dy)
+
+            // Only treat as click if mouse moved less than 5px (not a drag)
+            if (dist > 5) return
+
+            const bodies = Composite.allBodies(world)
+            const featureBodies = bodies.filter((b: any) => b.plugin && b.plugin.featureIndex !== undefined)
             const clickedBodies = Query.point(featureBodies, mousePosition)
 
             if (clickedBodies.length > 0) {
@@ -227,9 +237,9 @@ export function PhysicsFeatures() {
     }, [isLoaded])
 
     return (
-        <div className="w-full bg-black py-12 relative">
+        <div className="w-full section-bg-navy py-12 relative">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h2 className="font-bebas text-center text-4xl mb-8 uppercase tracking-widest text-white/20">
+                <h2 className="font-bebas text-center text-4xl mb-8 uppercase tracking-widest text-white/55">
                     Explore Our <span className="text-white">Features</span>
                 </h2>
 
@@ -260,7 +270,7 @@ export function PhysicsFeatures() {
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
-                                <p className="text-gray-300 text-sm leading-relaxed font-light">
+                                <p className="text-gray-200 text-sm leading-relaxed font-light">
                                     {selectedFeature.description}
                                 </p>
                             </div>

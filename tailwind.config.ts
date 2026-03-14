@@ -84,9 +84,33 @@ const config: Config = {
           DEFAULT: '#ff0000',
           dark: '#cc0000',
         },
+        'montra-amber': {
+          DEFAULT: '#f59e0b',
+          dark: '#d97706',
+          light: '#fbbf24',
+        },
+        'montra-gold': {
+          DEFAULT: '#eab308',
+          dark: '#ca8a04',
+        },
+        'montra-warm': {
+          charcoal: '#1a1816',
+          slate: '#27272a',
+          stone: '#292524',
+        },
         'neon-green': {
           DEFAULT: '#00ff00',
           dark: '#00cc00',
+        },
+        /* Cinematic Film Strip */
+        cinematic: {
+          base: '#0B0F1A',
+          warm: '#111827',
+          amber: '#f59e0b',
+          cyan: '#22d3ee',
+          magenta: '#ec4899',
+          purple: '#8B5CF6',
+          indigo: '#6366F1',
         },
       },
       borderRadius: {
@@ -94,13 +118,20 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      letterSpacing: {
+        tightest: '-0.04em',
+        display: '-0.03em',
+      },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+        sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        jakarta: ['var(--font-jakarta)', 'sans-serif'],
         bebas: ['var(--font-bebas)', 'sans-serif'],
-        orbitron: ['var(--font-orbitron)', 'sans-serif'],
       },
       keyframes: {
+        'flow': {
+          'from': { backgroundPosition: '0 0' },
+          'to': { backgroundPosition: '44px 0' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -119,6 +150,7 @@ const config: Config = {
         },
       },
       animation: {
+        'flow': 'flow 2s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
