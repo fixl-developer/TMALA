@@ -12,7 +12,7 @@ const featurePills = [
   { label: "AI Generation", href: "/ai-features/generate" },
   { label: "Brand Kit", href: "/ai-features/brand-kit" },
   { label: "Casting Studio", href: "/ai-features/casting" },
-  { label: "Cinema Studio 2.0", href: "/ai-features/cinema-studio" },
+  { label: "Cinema Studio", href: "/ai-features/cinema-studio" },
   { label: "AI Influence", href: "/ai-features/ai-influence" },
   { label: "My AI Assets", href: "/ai-features/ai-assets" },
   { label: "Settings & Safety", href: "/ai-features/settings-safety" },

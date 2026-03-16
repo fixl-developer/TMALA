@@ -84,13 +84,13 @@ export function AIStudioPhotoGallery() {
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#c8ff00" }}>
                 <Camera className="w-4 h-4 text-black" />
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/50">AI Photo Analysis</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/50">Exclusively on AI Studio</span>
             </div>
             <h2 className="font-bebas text-3xl sm:text-5xl uppercase tracking-[0.08em] text-white mb-2">
-              AI Studio Soul 2.0
+              Media Lab
             </h2>
             <p className="text-sm text-white/70 max-w-md">
-              A culture-native photo model built for fashion, aesthetics, and creative expression. Hover to scan.
+              AI-powered quality scoring, fix plans, and rights management for every photo and video in your portfolio. Hover to scan.
             </p>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5">

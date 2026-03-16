@@ -40,8 +40,6 @@ export function AIStudioExclusiveSection() {
               CINEMA
               <br />
               STUDIO
-              <br />
-              2.0
             </h2>
             <p className="text-sm text-white/50 leading-relaxed mb-8">
               Explore AI Studio community gallery for stunning cinematic creations powered by multi-provider AI.
@@ -53,7 +51,7 @@ export function AIStudioExclusiveSection() {
               Get Exclusive Offer
             </button>
             <button onClick={() => openAuth()} className="mt-4 text-sm font-semibold text-white/70 hover:text-white underline underline-offset-4 transition-colors">
-              Explore Cinema Studio 2.0
+              Explore Cinema Studio
             </button>
           </div>
 

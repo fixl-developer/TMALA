@@ -14,10 +14,9 @@ const featured = [
   },
   {
     title: "CINEMA\nSTUDIO",
-    subtitle: "CINEMA STUDIO 2.0 IS HERE",
+    subtitle: "CINEMA STUDIO",
     desc: "Create film-style content with cinematic lighting and color.",
     img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=500&fit=crop",
-    badge: "2.0",
     href: "/ai-features/cinema-studio",
     wide: true,
   },

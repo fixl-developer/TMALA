@@ -5,7 +5,7 @@ import { AIStudioSubLayout } from "@/components/ai-studio-sub-layout"
 export default function CinemaStudioPage() {
   return (
     <AIStudioSubLayout
-      badge="Cinema Studio 2.0"
+      badge="Cinema Studio"
       title="CINEMATIC AI VIDEO PRODUCTION"
       subtitle="Film-grade quality powered by the best AI models."
       description="Runway Gen4 Aleph and Veo 3 deliver cinema-quality output for showreels, brand campaigns, final delivery, and presentations. Multi-provider routing with health-based failover. Enterprise-exclusive."

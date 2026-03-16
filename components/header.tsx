@@ -128,7 +128,7 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-0 z-40 w-full transition-all duration-300 ease-out"
+        className="fixed top-0 z-[100] w-full transition-all duration-300 ease-out"
         style={{
           background: isAIStudio
             ? (scrolled ? "rgba(10,10,10,0.97)" : "#0a0a0a")
