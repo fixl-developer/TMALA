@@ -1,0 +1,678 @@
+{
+  "categories": [
+    {
+      "id": "career-hub",
+      "label": "Career Hub",
+      "slug": "career-hub",
+      "description": "For talent — models, creators, actors",
+      "color": "#E8FF47",
+      "count": 5
+    },
+    {
+      "id": "agency-playbook",
+      "label": "Agency Playbook",
+      "slug": "agency-playbook",
+      "description": "For agency owners and operators",
+      "color": "#FF6B35",
+      "count": 5
+    },
+    {
+      "id": "ai-studio",
+      "label": "AI Studio",
+      "slug": "ai-studio",
+      "description": "Technology and AI tools for talent",
+      "color": "#00D4FF",
+      "count": 4
+    },
+    {
+      "id": "brand-hub",
+      "label": "Brand Hub",
+      "slug": "brand-hub",
+      "description": "For brands and marketing teams",
+      "color": "#A855F7",
+      "count": 2
+    },
+    {
+      "id": "insights",
+      "label": "Industry Insights",
+      "slug": "insights",
+      "description": "Reports, data, and market analysis",
+      "color": "#F59E0B",
+      "count": 2
+    },
+    {
+      "id": "stories",
+      "label": "Success Stories",
+      "slug": "stories",
+      "description": "Case studies and talent journeys",
+      "color": "#10B981",
+      "count": 3
+    }
+  ],
+
+  "posts": [
+    {
+      "id": "1",
+      "slug": "10-things-every-new-model-must-do-first-30-days",
+      "category": "career-hub",
+      "categoryLabel": "Career Hub",
+      "categoryColor": "#E8FF47",
+      "title": "10 Things Every New Model Must Do in Their First 30 Days",
+      "excerpt": "Your first month as a model sets the foundation for everything that follows. Here is the exact checklist casting directors wish every new talent would complete before applying.",
+      "readTime": "6 min read",
+      "publishedAt": "2026-03-15",
+      "publishedAtFormatted": "March 15, 2026",
+      "author": {
+        "name": "Priya Sharma",
+        "role": "Senior Talent Coach",
+        "avatar": "PS"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=800&h=450&fit=crop&q=80",
+      "featured": true,
+      "tags": ["new model", "career start", "portfolio", "India modelling"],
+      "seoTitle": "10 Things Every New Model Must Do in Their First 30 Days | TalentOS",
+      "seoDescription": "Starting your modelling career? Follow this exact checklist to build your profile, get verified, and land your first casting in 30 days.",
+      "content": {
+        "intro": "Your first 30 days as a model are the most important. Agencies, casting directors, and brands form their first impression of you during this window. Here is the exact list of actions that separate talent who get booked from talent who get overlooked.",
+        "sections": [
+          {
+            "heading": "1. Create and complete your TalentOS profile",
+            "body": "A half-finished profile tells casting directors you are not serious. Fill every field: full legal name, verified measurements (height, bust, waist, hips, shoe size), date of birth, city, languages, and a professional bio. A complete profile scores higher in the AI match algorithm and appears first in shortlists."
+          },
+          {
+            "heading": "2. Get professional headshots — not phone selfies",
+            "body": "You need three photos minimum: a clean casting headshot (white or neutral background, natural light, no heavy makeup), a full-body shot, and one editorial or lifestyle shot. These three cover 80% of what casting calls require in the first review."
+          },
+          {
+            "heading": "3. Add verified measurements",
+            "body": "Unverified measurements are ignored by serious agencies. Book a verification session through your agency or visit a TalentOS verification partner. Verified data carries a badge that appears on every casting submission you make."
+          },
+          {
+            "heading": "4. Link your social profiles",
+            "body": "Instagram and YouTube are the minimum. Casting directors for brand deals check follower counts, engagement rates, and content style before shortlisting. Linking them to your TalentOS profile lets the platform calculate your influencer tier automatically (Nano / Micro / Mid / Macro)."
+          },
+          {
+            "heading": "5. Apply to 3 open castings in your first week",
+            "body": "Action creates momentum. Apply to three castings that match your current profile — not the most prestigious, but ones you are genuinely suitable for. This starts your booking history, which improves your AI match score over time."
+          },
+          {
+            "heading": "6. Complete your bio with AI Studio",
+            "body": "TalentOS AI Studio generates three types of bios automatically: casting bio (credential-led), pageant bio (achievement-led), and brand bio (personality-led). Use the AI to draft all three, review them, and publish the casting version to your profile first."
+          },
+          {
+            "heading": "7. Enroll in one academy course",
+            "body": "Even experienced talent benefit from structured training. Academy courses on TalentOS are linked to your profile — completing one adds a verified skill tag that appears in casting searches. Walk technique, self-tape skills, and brand pitching are the three highest-impact courses for new talent."
+          },
+          {
+            "heading": "8. Set your availability calendar",
+            "body": "Casting coordinators filter by availability before contacting talent. If your calendar is blank, you will not appear in date-filtered searches. Set your available days for the next 30 days immediately."
+          },
+          {
+            "heading": "9. Request agency verification",
+            "body": "Unverified talent accounts have limited access to premium castings. Contact your agency to initiate the verification process, or apply for independent verification if you are self-managed. Verified accounts receive a trust badge that increases shortlist rates by an average of 2.4 times."
+          },
+          {
+            "heading": "10. Understand how your commission works",
+            "body": "Read your representation agreement before you accept a booking. TalentOS uses clearly labelled commission structures from C1 to C8. Ask your agency which model applies to your contract. Knowing this prevents payment surprises and builds trust with your team."
+          }
+        ],
+        "conclusion": "Thirty days is enough time to transform from a new signee into a credible, bookable talent on the platform. Do all ten of these before you apply to your first major casting."
+      }
+    },
+
+    {
+      "id": "2",
+      "slug": "what-casting-directors-actually-look-at-in-your-profile",
+      "category": "career-hub",
+      "categoryLabel": "Career Hub",
+      "categoryColor": "#E8FF47",
+      "title": "What Casting Directors Actually Look at in Your Profile (And What They Skip)",
+      "excerpt": "A behind-the-scenes look at exactly how casting coordinators review talent profiles — and the three mistakes that cost models the most bookings.",
+      "readTime": "7 min read",
+      "publishedAt": "2026-03-12",
+      "publishedAtFormatted": "March 12, 2026",
+      "author": {
+        "name": "Arjun Mehta",
+        "role": "Casting Director",
+        "avatar": "AM"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1604514628550-37477afdf4e3?w=800&h=450&fit=crop&q=80",
+      "featured": true,
+      "tags": ["casting", "profile tips", "modelling India", "portfolio"],
+      "seoTitle": "What Casting Directors Look at in Your Model Profile | TalentOS",
+      "seoDescription": "A casting director reveals exactly what they check first in a talent profile — and the three portfolio mistakes that lose you the booking.",
+      "content": {
+        "intro": "As a casting director, I review between 80 and 200 profiles per casting call. Here is the honest truth about what I actually look at — and what I skip entirely.",
+        "sections": [
+          {
+            "heading": "The first 5 seconds: name, headshot, category",
+            "body": "I see your name, your primary headshot, and your category badge in the first card view. If the headshot is a selfie, too dark, or shows heavy makeup for a commercial casting, I move on. You have one image to make me click. Make it count."
+          },
+          {
+            "heading": "The AI match score tells me your fit instantly",
+            "body": "TalentOS shows me your match score for this specific casting before I open your profile. A score above 80 means I will open you. Below 60 means I probably will not unless I am desperate for options. The match score is calculated from your measurements, verified credits, skill tags, and media quality — not follower count."
+          },
+          {
+            "heading": "Why measurements matter more than you think",
+            "body": "Most brands specify exact size requirements. If your measurements are not in your profile, or worse, unverified, I cannot confirm you fit the brief. I will skip you and go to someone with verified data. Add verified measurements today."
+          },
+          {
+            "heading": "A missing walk video costs you runway roles",
+            "body": "For any runway or fashion show casting, I need to see you walk. If there is no walk video in your portfolio, you are not considered — regardless of how good your headshots are. This is the single most common reason strong-looking talent get passed over."
+          },
+          {
+            "heading": "Verified credits build trust faster than anything else",
+            "body": "Unverified credits (where you just type a brand name) carry zero weight. Verified credits — where the brand or agency has confirmed the booking — are treated as fact. Three verified credits from mid-size brands are more valuable than ten unverified big-name claims."
+          },
+          {
+            "heading": "The three most common portfolio mistakes",
+            "body": "First: only one headshot and nothing else. Second: all photos from the same shoot in the same outfit, which tells me nothing about your range. Third: including photos that are technically poor — blurry, badly lit, or with distracting backgrounds. Quality over quantity, always."
+          }
+        ],
+        "conclusion": "Fix your headshot, add your walk video, get your measurements verified, and earn at least three verified credits. Do those four things and your shortlist rate will improve significantly within one month."
+      }
+    },
+
+    {
+      "id": "3",
+      "slug": "complete-guide-winning-pageant-india",
+      "category": "career-hub",
+      "categoryLabel": "Career Hub",
+      "categoryColor": "#E8FF47",
+      "title": "The Complete Guide to Winning a Pageant in India — From Registration to Crown",
+      "excerpt": "A stage-by-stage guide covering everything from registration strategy and documentation to Q&A coaching and post-pageant career moves.",
+      "readTime": "12 min read",
+      "publishedAt": "2026-03-10",
+      "publishedAtFormatted": "March 10, 2026",
+      "author": {
+        "name": "Sunita Rao",
+        "role": "Pageant Coach",
+        "avatar": "SR"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["pageant", "India pageant", "Q&A coaching", "grooming", "pageant tips 2026"],
+      "seoTitle": "Complete Guide to Winning a Pageant in India 2026 | TalentOS",
+      "seoDescription": "Stage-by-stage guide to winning a pageant in India — registration, Q&A coaching, walk technique, grooming, and post-pageant career strategy.",
+      "content": {
+        "intro": "Winning a pageant in India is not luck. It is preparation, strategy, and execution. This guide covers every stage from the moment you decide to register to the moment you walk off stage with results — and what to do the morning after.",
+        "sections": [
+          {
+            "heading": "Stage 1: Registration strategy",
+            "body": "Choose your first pageant at the right level. City and state pageants are ideal for first-time participants — they are more accessible, less expensive, and give you stage experience that improves your national pageant performance dramatically. Read the eligibility requirements carefully: age brackets, marital status rules, and category restrictions vary widely."
+          },
+          {
+            "heading": "Stage 2: Documentation — get this right",
+            "body": "Most pageants in India require: a valid government ID, 6-12 professional photos in specified formats, a bio (typed, specific word count), measurements on letterhead from your agency, and in some cases a guardian consent form if you are under 18. Missing one document disqualifies you. Create a pageant document folder and keep it updated."
+          },
+          {
+            "heading": "Stage 3: Grooming and presentation",
+            "body": "Pageant grooming is a separate skill from everyday grooming. You need a consistent skincare routine running for at least 60 days before the pageant. Hair care, posture training, and walk coaching should begin immediately after registration. The way you carry yourself in casual moments — arrival, waiting areas, meal times — is observed and evaluated."
+          },
+          {
+            "heading": "Stage 4: Q&A preparation with STAR and PREP frameworks",
+            "body": "The Q&A round eliminates more contestants than any other stage. Use STAR (Situation, Task, Action, Result) for experience-based questions and PREP (Point, Reason, Example, Point) for opinion questions. Practice out loud — not in your head. Record yourself and review the footage. TalentOS AI Studio's Q&A Coach generates pageant-specific questions and scores your answers for confidence, conciseness, and social awareness."
+          },
+          {
+            "heading": "Stage 5: Walk technique by category",
+            "body": "Commercial runway walk is different from editorial, which is different from haute couture. Know which category your pageant emphasises. Commercial walk is confident, approachable, and grounded. Editorial walk is longer, more dramatic, and expressive. Your turn — the pivot at the end of the runway — is where most contestants lose marks. Practice it 200 times before the pageant."
+          },
+          {
+            "heading": "Stage 6: Finale day preparation",
+            "body": "Arrive 90 minutes before call time. Know your outfit change order. Have a backup for every accessory. Do not eat anything that risks bloating or discomfort. Stay away from social media during the event. Focus on connecting with the judges, not the audience. Smile with your eyes — judges can tell the difference between a performance and genuine confidence."
+          },
+          {
+            "heading": "Stage 7: Post-pageant career moves",
+            "body": "Whether you win or not, the pageant circuit leaves you with stage photos, connections, and credibility. Update your TalentOS profile immediately with your participation, placement, and any awards. These become verified credits. Winning agencies scout post-pageant talent heavily — a strong second-place finish with excellent Q&A often generates more agency interest than a weak win."
+          }
+        ],
+        "conclusion": "The pageant is six weeks away but the winner is decided by what you do in the six weeks before. Start today."
+      }
+    },
+
+    {
+      "id": "4",
+      "slug": "commission-structure-modelling-agency-c1-through-c8",
+      "category": "agency-playbook",
+      "categoryLabel": "Agency Playbook",
+      "categoryColor": "#FF6B35",
+      "title": "The Commission Structure Every Modelling Agency Should Know — C1 Through C8 Explained",
+      "excerpt": "A complete breakdown of every TalentOS commission model with worked examples in INR — and guidance on when to use each structure.",
+      "readTime": "9 min read",
+      "publishedAt": "2026-03-14",
+      "publishedAtFormatted": "March 14, 2026",
+      "author": {
+        "name": "Vikram Nair",
+        "role": "Agency Operations Lead",
+        "avatar": "VN"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=450&fit=crop&q=80",
+      "featured": true,
+      "tags": ["commission", "agency", "modelling agency India", "talent management"],
+      "seoTitle": "Modelling Agency Commission Structure C1-C8 Explained | TalentOS",
+      "seoDescription": "Complete guide to TalentOS commission models C1 through C8 — with INR worked examples and guidance on when to use each structure.",
+      "content": {
+        "intro": "Commission structures are the financial engine of every talent agency. Get them wrong and you lose money, lose talent, or both. TalentOS supports eight commission models, each designed for a different agency type and talent relationship.",
+        "sections": [
+          {
+            "heading": "C1: Standard modelling agency (20% + 25%)",
+            "body": "C1 is the most common structure for traditional modelling agencies. The agency takes 20% of the gross booking fee. The agent (booker) receives an additional 25% of the agency's portion. Example: ₹1,00,000 booking. Agency receives ₹20,000. Booker receives ₹5,000 from the agency portion. Talent receives ₹80,000. Use C1 when you are running a standard modelling agency with dedicated bookers."
+          },
+          {
+            "heading": "C2: Talent agency (15% + 5%)",
+            "body": "C2 applies a lower rate for agencies that represent talent across multiple entertainment verticals — actors, dancers, musicians. The agency takes 15% and the agent takes 5% of the agency portion. Example: ₹1,00,000 booking. Agency: ₹15,000. Agent: ₹750. Talent: ₹85,000. Use C2 for multi-discipline talent agencies where bookings are diverse and higher-volume."
+          },
+          {
+            "heading": "C3: Influencer agency (15% + 5% manager)",
+            "body": "C3 is designed for influencer and creator management agencies. The agency takes 15% and the influencer's manager (not the booker) takes an additional 5%. This reflects the relationship-heavy nature of creator representation. Example: ₹50,000 brand deal. Agency: ₹7,500. Manager: ₹375. Creator: ₹42,125."
+          },
+          {
+            "heading": "C4: Finder's fee model",
+            "body": "C4 is used when an agency introduces a brand to a talent without managing the full booking. The agency receives a flat finder's fee — typically 10% of the deal value — with no ongoing commission. Use C4 for one-time introductions, referral arrangements, and situations where you are not the primary representative."
+          },
+          {
+            "heading": "C7: Academy trainer split (70/30)",
+            "body": "C7 governs revenue splits for academy training programmes. The trainer receives 70% of the session fee and the academy/platform takes 30%. Example: ₹5,000 training session. Trainer: ₹3,500. Academy: ₹1,500. Use C7 when you operate an academy alongside your agency and want to compensate trainers fairly while sustaining the academy operation."
+          },
+          {
+            "heading": "C8: Tiered commission model",
+            "body": "C8 applies variable commission rates based on booking value thresholds. Below ₹50,000: 20% commission. ₹50,000 to ₹2,00,000: 18% commission. Above ₹2,00,000: 15% commission. This incentivises high-value bookings while remaining competitive for smaller deals. Use C8 for premium agencies where large-budget bookings are common."
+          },
+          {
+            "heading": "How TalentOS automates commission splits",
+            "body": "Once you configure your agency's commission model in TalentOS, every booking settlement is calculated and split automatically. The platform generates a settlement statement for every booking, showing gross fee, commission calculation, agent portion, and talent net. This eliminates manual spreadsheet errors and the disputes that follow them."
+          }
+        ],
+        "conclusion": "Choose your commission model based on your agency type and talent relationships — not what sounds highest. The right structure retains talent and scales with your business."
+      }
+    },
+
+    {
+      "id": "5",
+      "slug": "how-talentos-ai-studio-scores-your-portfolio",
+      "category": "ai-studio",
+      "categoryLabel": "AI Studio",
+      "categoryColor": "#00D4FF",
+      "title": "How TalentOS AI Studio Scores Your Portfolio — And How to Get a Perfect 100",
+      "excerpt": "A complete breakdown of how the AI portfolio scoring system works, what each factor is weighted, and the exact actions that move your score from 61 to 88 in three days.",
+      "readTime": "6 min read",
+      "publishedAt": "2026-03-13",
+      "publishedAtFormatted": "March 13, 2026",
+      "author": {
+        "name": "Rahul Gupta",
+        "role": "AI Product Lead",
+        "avatar": "RG"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop&q=80",
+      "featured": true,
+      "tags": ["AI", "portfolio scoring", "AI Studio", "profile tips"],
+      "seoTitle": "How AI Portfolio Scoring Works — Get to 100 | TalentOS",
+      "seoDescription": "Complete guide to TalentOS AI portfolio scoring — how it works, what is weighted, and the exact steps to improve your score fast.",
+      "content": {
+        "intro": "Your TalentOS profile score is not a vanity number. It is the primary factor in whether you appear in casting searches, get shortlisted, and receive AI-matched opportunities. Here is exactly how it is calculated and how to maximise it.",
+        "sections": [
+          {
+            "heading": "What the score measures (0-100 composite)",
+            "body": "The profile score is a weighted composite across five dimensions: profile completeness (30%), media quality (25%), skills verification (20%), social profile linking (15%), and booking history (10%). Each dimension has its own sub-score. A talent can have an overall score of 75 but a media quality sub-score of only 45 — that gap reveals exactly where to focus."
+          },
+          {
+            "heading": "Profile completeness — the fastest 30 points",
+            "body": "Completeness is the most immediately actionable dimension. Missing fields are flagged with their exact score impact. Common gaps: measurements not entered (-8 points), bio under 100 characters (-5 points), availability not set (-4 points), no social profiles linked (-6 points). Adding these in one session can move you from 55 to 75 immediately."
+          },
+          {
+            "heading": "Media quality — where most talent plateau",
+            "body": "Media quality is scored by AI on every uploaded photo and video. Each item is assessed for framing, lighting, sharpness, background, and face visibility. The average of your top 5 media items determines your media quality score. One excellent headshot does not compensate for four low-quality shots — you need consistent quality across your portfolio."
+          },
+          {
+            "heading": "Real example: from 61 to 88 in 3 days",
+            "body": "A real TalentOS talent (anonymised) started at a profile score of 61. Day 1: Added verified measurements (+6), linked Instagram and YouTube (+8), set availability calendar (+4) — moved to 79. Day 2: Uploaded a professional headshot and full-body shot, removing two low-quality phone photos — media quality improved from 52 to 71, moving overall score to 84. Day 3: Completed AI Studio bio, got two booking credits verified by her agency — moved to 88. Total time invested: approximately 4 hours."
+          },
+          {
+            "heading": "The gap analysis output",
+            "body": "Every time you run a profile scan in AI Studio, you receive a gap analysis: a ranked list of missing items with their exact score impact. The list is sorted by score impact — highest-impact fixes first. This is your to-do list. Work through it in order and your score improves predictably."
+          },
+          {
+            "heading": "What 100 requires",
+            "body": "A perfect score of 100 requires: full profile completion, at least 8 high-quality media items (scoring above 80 each), all measurements verified, minimum 5 verified booking credits, all social profiles linked and verified, and at least 3 months of consistent platform activity. It is achievable — approximately 4% of active talent on the platform have scores above 90."
+          }
+        ],
+        "conclusion": "Run your profile scan now. Look at your gap analysis. Do the top three items on the list today. Your score will improve before the day is over."
+      }
+    },
+
+    {
+      "id": "6",
+      "slug": "your-bio-is-losing-you-bookings-ai-studio-fixes-it",
+      "category": "ai-studio",
+      "categoryLabel": "AI Studio",
+      "categoryColor": "#00D4FF",
+      "title": "Your Bio Is Losing You Bookings — Here's How AI Studio Fixes It",
+      "excerpt": "Casting directors read your bio before they view your photos. If it is generic, too long, or missing key credentials, you are already out. Here is what AI Studio generates instead.",
+      "readTime": "5 min read",
+      "publishedAt": "2026-03-11",
+      "publishedAtFormatted": "March 11, 2026",
+      "author": {
+        "name": "Deepika Menon",
+        "role": "Content Strategist",
+        "avatar": "DM"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["bio", "AI Studio", "casting", "profile writing"],
+      "seoTitle": "Your Bio Is Losing Bookings — AI Studio Fixes It | TalentOS",
+      "seoDescription": "Learn why your model bio is costing you castings and how TalentOS AI Studio generates a better bio in three types and four tones.",
+      "content": {
+        "intro": "Your bio is the first text a casting director reads. Before they look at a single photo, they have already formed an impression from your bio. Most talent bios are either too long, too generic, or simply wrong for the type of casting. AI Studio solves this with three purpose-built bio formats.",
+        "sections": [
+          {
+            "heading": "Why bios matter to casting directors",
+            "body": "In a shortlist of 150 talent, a casting coordinator spends approximately 8 seconds on the first review of each profile. The bio is the fastest way to filter: does this person understand what this casting needs? A generic bio that says 'passionate model who loves fashion and travel' communicates nothing and makes you forgettable. A casting bio that leads with credentials — verified credits, specific skills, measurable experience — makes you credible in 8 seconds."
+          },
+          {
+            "heading": "The 3 bio types AI Studio creates",
+            "body": "Casting bio: formal, credential-led. Leads with your most relevant verified credits and quantifiable experience. Designed for submissions to agency castings and brand shoots. Pageant bio: achievement-led with a purpose statement. Emphasises your community work, personal achievements, and articulated goals. Brand collaboration bio: personality-led and niche-first. Highlights your content niche, audience, and brand compatibility."
+          },
+          {
+            "heading": "The 4 tone options",
+            "body": "Professional: structured, restrained, credential-focused. Bold: confident, direct, high-energy language. Elegant: refined vocabulary, measured sentence rhythm, understated confidence. Minimal: short, factual, no adjectives. Each tone adapts the same profile facts into a different voice. The right tone depends on the category and the specific brand or casting you are applying to."
+          },
+          {
+            "heading": "Three length outputs for different contexts",
+            "body": "Short (80-120 characters): for social bios, email signatures, and quick intro cards. Exact example: 'Mumbai-based commercial model. 6 years. Vogue India featured. Open to editorial and brand campaigns.' Medium (300-500 characters): for platform profiles and most casting submissions. Full bio (unlimited): for agency submissions, media kits, and pageant applications where a detailed narrative is expected."
+          },
+          {
+            "heading": "Localization for Hindi and regional markets",
+            "body": "AI Studio generates your bio in Hindi, Marathi, Tamil, and Telugu from the same profile facts. Each localisation adapts to the tone conventions of that language — not just a translation. For talent targeting regional markets and local brands, this is a significant competitive advantage."
+          }
+        ],
+        "conclusion": "Generate all three bio types now. Use your casting bio for every submission this week and compare your shortlist rate to last month. The difference is measurable."
+      }
+    },
+
+    {
+      "id": "7",
+      "slug": "why-influencer-campaign-failed-verified-talent",
+      "category": "brand-hub",
+      "categoryLabel": "Brand Hub",
+      "categoryColor": "#A855F7",
+      "title": "Why Your Influencer Campaign Failed — And How Verified Talent Fixes It",
+      "excerpt": "The five most common reasons influencer campaigns underperform in India — and how TalentOS's verification and content approval system prevents each one.",
+      "readTime": "7 min read",
+      "publishedAt": "2026-03-09",
+      "publishedAtFormatted": "March 9, 2026",
+      "author": {
+        "name": "Karan Bajaj",
+        "role": "Brand Partnerships Director",
+        "avatar": "KB"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["influencer marketing", "brand deals", "India campaigns", "verified talent"],
+      "seoTitle": "Why Influencer Campaigns Fail in India — And How to Fix It | TalentOS",
+      "seoDescription": "The 5 most common reasons influencer campaigns underperform in India and how TalentOS's verified talent and content approval system prevents each failure.",
+      "content": {
+        "intro": "India's influencer marketing industry is growing at 25% annually. But the failure rate of individual campaigns remains high. Most failures come from the same five causes — and all five are preventable.",
+        "sections": [
+          {
+            "heading": "Failure 1: Fake follower counts",
+            "body": "The most common and most damaging problem. A creator with 500,000 followers and 0.3% engagement is not reaching 500,000 people — they are reaching 1,500. TalentOS verifies creator metrics against platform APIs and displays a real engagement rate alongside follower counts. Brand safety scores are calculated before you see a creator's profile. You cannot book a creator without seeing their verified metrics."
+          },
+          {
+            "heading": "Failure 2: Brand safety violations",
+            "body": "A creator who posted political content, explicit material, or competitor endorsements in the past is a liability — even if their recent feed looks clean. TalentOS's brand safety scoring analyses historical content and assigns a 0-100 brand safety score. Anything below 70 triggers a review flag before the brand can proceed with booking."
+          },
+          {
+            "heading": "Failure 3: Missed deadlines",
+            "body": "Without a formal content approval workflow, missed deadlines cascade. Creator submits late, brand review takes 3 days, creator is unavailable for revisions, content goes live a week after the campaign window. TalentOS's content approval workflow (Creator submits → Agency reviews → Brand approves) has SLA timers built in. Silent approval kicks in automatically if the brand does not respond within the configured window."
+          },
+          {
+            "heading": "Failure 4: Unclear usage rights",
+            "body": "Brand teams frequently assume that paying for an Instagram post means they can use the content in paid ads, on their website, and in retail materials. They cannot — without an explicit usage rights clause. TalentOS's campaign agreement templates include usage rights as a mandatory field. Whitelisting and paid media rights are a separate addendum, priced accordingly."
+          },
+          {
+            "heading": "Failure 5: No ASCI disclosure compliance",
+            "body": "ASCI (Advertising Standards Council of India) requires mandatory disclosure on all paid partnerships. Non-compliant content exposes both the brand and the creator to penalties. TalentOS's brand safety checker flags missing disclosure language in every draft before submission. It suggests the correct disclosure format per platform automatically."
+          }
+        ],
+        "conclusion": "Every one of these failures is a process problem, not a people problem. The right platform prevents them at the system level before they reach your campaign."
+      }
+    },
+
+    {
+      "id": "8",
+      "slug": "state-of-india-talent-industry-2026",
+      "category": "insights",
+      "categoryLabel": "Industry Insights",
+      "categoryColor": "#F59E0B",
+      "title": "State of India Talent Industry 2026 — TalentOS Annual Report",
+      "excerpt": "Our flagship annual report on the India talent industry: market size, pageant statistics, influencer marketing spend, tier-2 city emergence, and the impact of AI tools.",
+      "readTime": "15 min read",
+      "publishedAt": "2026-03-01",
+      "publishedAtFormatted": "March 1, 2026",
+      "author": {
+        "name": "TalentOS Research",
+        "role": "Platform Intelligence Team",
+        "avatar": "TR"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80",
+      "featured": true,
+      "tags": ["India talent", "market report", "influencer marketing", "modelling industry 2026"],
+      "seoTitle": "State of India Talent Industry 2026 — Annual Report | TalentOS",
+      "seoDescription": "TalentOS's 2026 annual report on the India talent industry — market size, pageant data, influencer spend, tier-2 emergence, and AI impact.",
+      "content": {
+        "intro": "India's talent industry is at an inflection point. The convergence of verified digital platforms, AI-powered career tools, and tier-2 city talent markets is creating opportunities that did not exist three years ago. This is our second annual state of the industry report.",
+        "sections": [
+          {
+            "heading": "Market size: India modelling industry",
+            "body": "The India modelling and talent management industry is estimated at ₹8,400 crore for 2026, growing at 18% year-on-year. This includes modelling agency revenues, pageant registration and sponsorship revenues, influencer agency fees, and talent training academy revenues. The influencer marketing segment alone accounts for approximately ₹3,200 crore — 38% of total market value."
+          },
+          {
+            "heading": "Pageant statistics: participation and economics",
+            "body": "Pageant participation in India has grown 34% in the last two years, driven by accessible city and state level events with lower entry barriers. The average city pageant in India now attracts 150-400 participants. Registration revenues per event range from ₹8 lakh to ₹25 lakh. Sponsorship revenue for top-tier state pageants ranges from ₹40 lakh to ₹2 crore. Digital-first pageants — where preliminary rounds are conducted virtually — have reduced organisational costs by 40-60%."
+          },
+          {
+            "heading": "Influencer marketing spend in India",
+            "body": "Indian brands spent an estimated ₹3,200 crore on influencer marketing in 2025, growing to a projected ₹4,100 crore in 2026. FMCG and beauty dominate spend (combined 44%), followed by fashion and lifestyle (28%), and fintech and edtech (18%). Micro-influencers (10K-100K followers) are the fastest-growing segment by deal volume, with brands increasingly preferring higher engagement rates over raw reach."
+          },
+          {
+            "heading": "The tier-2 city talent market",
+            "body": "Perhaps the most significant structural shift in 2026 is the emergence of tier-2 city talent markets. Jaipur, Indore, Coimbatore, Kochi, Bhopal, and Nagpur are all producing commercially significant talent that agencies in Mumbai and Delhi are actively sourcing. Platform data shows that talent from tier-2 cities have 23% higher engagement rates on average than their metro counterparts — a factor brands are beginning to value explicitly."
+          },
+          {
+            "heading": "AI tools: impact on talent career outcomes",
+            "body": "TalentOS platform data shows that talent actively using AI Studio tools have measurably better career outcomes. Talent using AI bio generation have 31% higher shortlist rates on their first applications compared to talent who write their own bios. Talent using AI self-tape coaching improve their callback rate by an average of 18% within 30 days. Profile scores above 80 (achievable primarily through AI Studio guidance) correlate with 2.7x more bookings per quarter."
+          }
+        ],
+        "conclusion": "The India talent industry is professionalising rapidly. The gap between talent and agencies who use modern platforms and AI tools versus those who rely on informal networks and spreadsheets is widening every quarter."
+      }
+    },
+
+    {
+      "id": "9",
+      "slug": "how-riya-went-from-unknown-to-booked",
+      "category": "stories",
+      "categoryLabel": "Success Stories",
+      "categoryColor": "#10B981",
+      "title": "From Unknown to Booked: How Riya Used TalentOS to Land Her First Commercial Campaign",
+      "excerpt": "Riya had been modelling for two years with minimal results. Three months after joining TalentOS and completing her profile properly, she landed her first paid commercial campaign.",
+      "readTime": "5 min read",
+      "publishedAt": "2026-03-08",
+      "publishedAtFormatted": "March 8, 2026",
+      "author": {
+        "name": "Editorial Team",
+        "role": "TalentOS Stories",
+        "avatar": "ET"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["success story", "model career", "first booking", "TalentOS"],
+      "seoTitle": "How Riya Landed Her First Commercial Campaign Using TalentOS | Stories",
+      "seoDescription": "Riya had been modelling for two years with zero bookings. Three months after properly completing her TalentOS profile, she landed her first paid campaign.",
+      "content": {
+        "intro": "Riya (name changed) had been trying to break into commercial modelling in Pune for two years. She had done a few unpaid shoots for photographer portfolios, had an Instagram with 4,200 followers, and had applied to approximately 30 castings through various WhatsApp groups. She had received zero callbacks.",
+        "sections": [
+          {
+            "heading": "The challenge: invisible in search results",
+            "body": "When Riya joined TalentOS, her profile score was 34 out of 100. She had not added her measurements, had no verified credits, had three low-resolution selfies as her portfolio, and had not linked her social accounts. In every casting search, she was not appearing at all — the platform's match algorithm was filtering her out before a coordinator ever saw her name."
+          },
+          {
+            "heading": "The discovery: the gap analysis",
+            "body": "Riya ran her first AI Studio profile scan. The gap analysis returned 11 specific items with their score impact. The top three: add verified measurements (+8 points), replace portfolio photos with quality images (+12 points estimated), link Instagram and verify follower count (+6 points). Total unlockable score: +38 points if all 11 items were completed."
+          },
+          {
+            "heading": "The setup: 4 focused days",
+            "body": "Day 1: Riya booked a 2-hour professional shoot (₹3,500 at a local studio) and got 3 quality images: a casting headshot, a full-body commercial shot, and a lifestyle image. Day 2: Added all measurements, linked her social profiles, completed her bio using AI Studio. Profile score moved to 71. Day 3: Her agency verified two past informal credits she had (a local brand shoot and a regional magazine feature). Score moved to 79. Day 4: Completed the AI Studio 7-day preparation plan — recorded a 90-second self-tape intro, received coaching feedback, reshot it."
+          },
+          {
+            "heading": "The results: first paid booking 11 weeks later",
+            "body": "Eleven weeks after completing her profile, Riya received her first shortlisting notification from a FMCG brand campaign through TalentOS. Her match score for the casting was 78 — she was in the top 15% of applicants. After an online callback, she was selected. The booking was for a regional television commercial: two days of shoot in Pune, total talent fee ₹22,000. Her agency commission was ₹4,400. She received ₹17,600."
+          },
+          {
+            "heading": "Her advice",
+            "body": "Do not apply to castings until your profile is complete. I spent two years applying with a broken profile and got nothing. I fixed my profile in four days and got booked within three months. The platform can only match you to opportunities if you have given it the information it needs to find you."
+          }
+        ],
+        "conclusion": "Riya has since received two more bookings and is now a verified talent at her agency with an active casting pipeline. Her profile score today is 84."
+      }
+    },
+
+    {
+      "id": "10",
+      "slug": "self-tape-mistakes-to-avoid",
+      "category": "career-hub",
+      "categoryLabel": "Career Hub",
+      "categoryColor": "#E8FF47",
+      "title": "Self-Tape That Gets You Shortlisted — 12 Mistakes to Avoid",
+      "excerpt": "The 12 most common self-tape mistakes that cost talent callbacks — and exactly how to fix each one before you submit.",
+      "readTime": "6 min read",
+      "publishedAt": "2026-03-07",
+      "publishedAtFormatted": "March 7, 2026",
+      "author": {
+        "name": "Nisha Kapoor",
+        "role": "Casting Coach",
+        "avatar": "NK"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["self tape", "audition", "casting tips", "India actors"],
+      "seoTitle": "12 Self-Tape Mistakes That Cost You Callbacks | TalentOS",
+      "seoDescription": "The 12 most common self-tape mistakes that cost talent callbacks in India — and exactly how to fix each one before your next submission.",
+      "content": {
+        "intro": "Self-tape submissions have become the primary first-round filter for most commercial and film castings in India. A technically poor self-tape eliminates you before a casting director has heard a word you say. Here are the 12 mistakes I see most often — and exactly how to fix them.",
+        "sections": [
+          {
+            "heading": "Mistakes 1-4: Technical failures that disqualify you immediately",
+            "body": "Mistake 1: Phone audio without an external mic. The hum and echo from phone audio is distracting and reads as unprofessional. A ₹500 lapel mic eliminates this. Mistake 2: Backlit setup — standing in front of a window. The light source must be in front of you, not behind. Mistake 3: Portrait orientation on a landscape casting brief. Always check the submission format. Mistake 4: Reading off cue cards with visible eye movement. Memorise your sides. If you cannot, write them on a piece of paper taped just above your camera lens."
+          },
+          {
+            "heading": "Mistakes 5-8: Content mistakes that reduce your impact",
+            "body": "Mistake 5: No slate at the start. A slate is your introduction: name, agency, height, and the role you are reading for. It should be 10-15 seconds, confident, and directly to camera. Mistake 6: Wrong framing — too far away or too close. For most commercial self-tapes, frame from the chest up. Leave one hand-width of space above your head. Mistake 7: Wrong background. A busy, cluttered, or personally identifying background is distracting. Use a plain wall or a simple backdrop. Mistake 8: Not following the brief format. If the casting brief specifies a 90-second maximum, your tape must be under 90 seconds. Going over is an automatic disqualification at many agencies."
+          },
+          {
+            "heading": "Mistakes 9-12: Submission mistakes that waste good work",
+            "body": "Mistake 9: Wrong file format. Most submissions require MP4 (H.264). MOV files are not universally accepted. Check before you export. Mistake 10: Sending too many clips. If the brief asks for one take, send one take. Sending three to show range reads as insecurity, not generosity. Mistake 11: Bad file naming. Name your file: FIRSTNAME_LASTNAME_ROLE_AGENCYNAME.mp4. A file named IMG_4738.MOV tells the coordinator nothing. Mistake 12: Not using AI Studio self-tape coach feedback. Upload your tape to AI Studio before you submit. The coach analyses pacing, diction, eyeline, and framing — and gives you timestamped improvement notes. Reshoot the specific moments it flags."
+          }
+        ],
+        "conclusion": "Record your self-tape, upload it to AI Studio, read the feedback, make the specific changes it recommends, reshoot those moments, then submit. This process takes an extra 40 minutes and dramatically improves your callback rate."
+      }
+    },
+
+    {
+      "id": "11",
+      "slug": "ai-scam-protection-for-talent",
+      "category": "ai-studio",
+      "categoryLabel": "AI Studio",
+      "categoryColor": "#00D4FF",
+      "title": "AI Scam Protection for Talent — How TalentOS Keeps You Safe",
+      "excerpt": "The Indian talent industry has a documented problem with fake castings. Here is exactly how TalentOS's Application Assistant detects and flags suspicious opportunities before you apply.",
+      "readTime": "5 min read",
+      "publishedAt": "2026-03-06",
+      "publishedAtFormatted": "March 6, 2026",
+      "author": {
+        "name": "Ananya Singh",
+        "role": "Trust & Safety Lead",
+        "avatar": "AS"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["safety", "scam protection", "casting scams India", "AI Studio"],
+      "seoTitle": "AI Scam Protection for Models and Talent | TalentOS",
+      "seoDescription": "How TalentOS's AI Application Assistant detects fake castings and protects talent from the 5 most common casting scams in India.",
+      "content": {
+        "intro": "Fake casting scams are a serious and documented problem in the Indian talent industry. They range from agencies asking for upfront fees to fraudulent brand partnerships that harvest personal data. TalentOS's Application Assistant flags suspicious castings automatically before you apply.",
+        "sections": [
+          {
+            "heading": "The 5 most common casting scams in India",
+            "body": "Scam 1: Upfront payment demand. Legitimate castings never ask talent to pay a fee to apply or participate. Any casting that requires payment before selection is fraudulent. Scam 2: Unverified organiser with a prestigious name. Using fake brand logos and fabricated casting briefs from well-known companies. Scam 3: Personal data collection without verification. Fake casting forms collecting Aadhaar numbers, bank details, and home addresses under the guise of 'background check.' Scam 4: Extreme pressure deadlines. 'You have been selected but must confirm within 2 hours or lose the spot.' Scam 5: No contract, verbal-only agreement. Legitimate bookings always have written contracts."
+          },
+          {
+            "heading": "How AI detection works",
+            "body": "TalentOS's Application Assistant analyses every casting on the platform against a risk model trained on known fraudulent patterns. It checks: organiser verification status (verified badge required for premium castings), payment terms in the casting description (any payment demand flags immediately), contract clause language where accessible (unusual clauses trigger a flag), and deadline pressure (application windows under 24 hours for major commitments are flagged). Risk signals are weighted and combined into a risk score."
+          },
+          {
+            "heading": "What you see as a talent",
+            "body": "When you open a casting that has risk signals, you see a warning banner: 'This casting has 2 risk signals — review before applying.' Each signal is expandable with a plain-language explanation: 'This organiser does not have a verified badge. Verified organisers have had their identity and business credentials confirmed by TalentOS.' You can still apply if you choose to — but you have been informed."
+          },
+          {
+            "heading": "Safe Apply Mode: protect your contact information",
+            "body": "When Safe Apply Mode is enabled, your direct contact details (phone number and email address) are not shared with the organiser at application stage. They remain anonymised until you are officially shortlisted and have accepted the shortlisting. This prevents data harvesting by fake castings who collect applicant databases to sell or spam."
+          }
+        ],
+        "conclusion": "The platform cannot prevent every scam, but it can ensure you are never uninformed. Every risk signal is surfaced before you commit. Use Safe Apply Mode for any casting from an organiser you have not worked with before."
+      }
+    },
+
+    {
+      "id": "12",
+      "slug": "how-to-setup-modelling-agency-talentos-one-week",
+      "category": "agency-playbook",
+      "categoryLabel": "Agency Playbook",
+      "categoryColor": "#FF6B35",
+      "title": "How to Set Up Your Modelling Agency on TalentOS in One Week",
+      "excerpt": "A day-by-day onboarding plan for new agency owners — from tenant setup and branding on Day 1 to payment configuration and your first booking by Day 5.",
+      "readTime": "8 min read",
+      "publishedAt": "2026-03-05",
+      "publishedAtFormatted": "March 5, 2026",
+      "author": {
+        "name": "Ravi Kumar",
+        "role": "Agency Success Manager",
+        "avatar": "RK"
+      },
+      "coverImage": "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=450&fit=crop&q=80",
+      "featured": false,
+      "tags": ["agency setup", "modelling agency India", "talent management software", "TalentOS onboarding"],
+      "seoTitle": "Set Up Your Modelling Agency on TalentOS in One Week | Guide",
+      "seoDescription": "Day-by-day guide to setting up your modelling agency on TalentOS — tenant setup, talent import, contracts, first casting, and payment in 5 days.",
+      "content": {
+        "intro": "Most agencies waste their first two weeks on TalentOS because they do not follow a structured setup sequence. Here is the exact day-by-day plan that gets you operational and making bookings within one week.",
+        "sections": [
+          {
+            "heading": "Day 1: Tenant setup, branding, and roles",
+            "body": "Create your agency tenant on TalentOS. Upload your agency logo and configure your brand colours — these appear on all talent-facing communications, contract headers, and the agency's public profile page. Set up your staff roles: Agency Admin, Booker, Finance Manager, and Casting Coordinator are the four core roles. Assign your team. Enable two-factor authentication for all admin accounts. This takes approximately 3 hours and should not be rushed."
+          },
+          {
+            "heading": "Day 2: Talent import and onboarding",
+            "body": "Import your existing talent roster using TalentOS's bulk CSV import template. The template fields are: legal name, date of birth, email, phone, category, primary measurements, and agency join date. For each imported talent, the system sends an automatic welcome email with instructions to complete their profile. Set your talent onboarding checklist — the minimum profile requirements before a talent appears in casting searches."
+          },
+          {
+            "heading": "Day 3: Contract templates",
+            "body": "TalentOS provides standard contract templates for representation agreements, booking confirmations, brand deal agreements, and settlement statements. Customise the templates with your agency name, commission rates (configured in your commission model settings), notice periods, and jurisdiction. Have your legal advisor review the templates once — after that, they generate automatically for every booking."
+          },
+          {
+            "heading": "Day 4: First casting or booking",
+            "body": "Create your first casting call on the platform. Specify: category, required measurements range, casting date and location, brief description, and media requirements for applications. The platform matches your casting requirements against all talent profiles in your roster and generates a ranked applicant list automatically. Review the top 10. Shortlist your preferred candidates and send callback invitations through the platform."
+          },
+          {
+            "heading": "Day 5: Payment setup and KYC",
+            "body": "Configure your agency bank account for settlement payouts. Complete the KYC (Know Your Customer) verification process — this is required for all financial transactions on the platform and typically takes 24-48 hours to verify. Set your commission model (C1 through C8) in the finance settings. Configure your GST details if applicable. Run a test settlement with a dummy booking to confirm the commission split calculates correctly."
+          },
+          {
+            "heading": "End of week checklist",
+            "body": "Verify: all staff have logged in and completed their profile setup. At least 10 talent profiles are at 70+ score. One contract template has been generated and reviewed. One casting has been created and at least 3 talent have applied. Payment settings are configured and KYC is approved or in progress. You are operational."
+          }
+        ],
+        "conclusion": "One week of focused setup saves months of operational confusion. Follow this sequence and you will be running a professional, digital-first agency from day one."
+      }
+    }
+  ]
+}

@@ -50,7 +50,7 @@ const resourceColumns = [
   {
     title: "Learn",
     items: [
-      { icon: Newspaper, label: "Blog", desc: "Industry insights & updates", href: "/#waitlist" },
+      { icon: Newspaper, label: "Blog", desc: "Industry insights & updates", href: "/blog" },
       { icon: BookOpen, label: "Guides & Docs", desc: "Platform documentation", href: "/#waitlist" },
       { icon: Award, label: "Customer Stories", desc: "How agencies use TalentOS", href: "/#waitlist" },
     ],
