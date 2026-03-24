@@ -97,7 +97,7 @@ export default function PricingPage() {
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back to AI Studio</span>
         </Link>
-        <button onClick={() => openAuth("signup")} className="text-[13px] font-bold px-4 py-2 rounded-lg" style={{ background: "#c8ff00", color: "#000" }}>Sign up</button>
+        <button data-testid="btn-signup" aria-label="Sign up" onClick={() => openAuth("signup")} className="text-[13px] font-bold px-4 py-2 rounded-lg" style={{ background: "#c8ff00", color: "#000" }}>Sign up</button>
       </div>
 
       {/* Hero */}
@@ -158,6 +158,8 @@ export default function PricingPage() {
                 ))}
               </ul>
               <button
+                data-testid={`btn-${plan.name.toLowerCase()}`}
+                aria-label={plan.cta}
                 onClick={() => openAuth()}
                 className="block w-full text-center py-3 rounded-xl text-sm font-bold transition-all"
                 style={plan.highlight

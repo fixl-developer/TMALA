@@ -45,12 +45,14 @@ export function AIStudioExclusiveSection() {
               Explore AI Studio community gallery for stunning cinematic creations powered by multi-provider AI.
             </p>
             <button
+              data-testid="btn-get-exclusive-offer"
+              aria-label="Get Exclusive Offer"
               className="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm font-bold transition-all hover:scale-[1.02]"
               style={{ background: "#c8ff00", color: "#000" }}
             >
               Get Exclusive Offer
             </button>
-            <button onClick={() => openAuth()} className="mt-4 text-sm font-semibold text-white/70 hover:text-white underline underline-offset-4 transition-colors">
+            <button data-testid="btn-explore-cinema-studio" aria-label="Explore Cinema Studio" onClick={() => openAuth()} className="mt-4 text-sm font-semibold text-white/70 hover:text-white underline underline-offset-4 transition-colors">
               Explore Cinema Studio
             </button>
           </div>

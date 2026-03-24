@@ -122,7 +122,7 @@ export function ModularAppsSection() {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <section className="relative py-28" style={{ background: "#fafafa" }}>
+    <section className="relative py-28" style={{ background: "#fafafa" }} data-testid="section-modular-apps" aria-label="Modular Apps">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 gap-6">
@@ -163,6 +163,8 @@ export function ModularAppsSection() {
             return (
               <div
                 key={m.name}
+                data-testid={`link-${m.name.toLowerCase().replace(/\s+&\s+/g, "-").replace(/\s+/g, "-")}`}
+                aria-label={m.name}
                 className="group relative rounded-2xl p-5 flex flex-col cursor-pointer transition-all duration-300"
                 style={{
                   background: m.cardBg,

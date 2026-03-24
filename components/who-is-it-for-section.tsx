@@ -78,7 +78,7 @@ export function WhoIsItForSection() {
   const Icon = current.icon
 
   return (
-    <section className="relative py-28" style={{ background: "#f5f5f7" }}>
+    <section data-testid="section-who-is-it-for" aria-label="Who is it for" className="relative py-28" style={{ background: "#f5f5f7" }}>
       {/* Accent glow */}
       <div
         className="absolute pointer-events-none"
@@ -127,6 +127,8 @@ export function WhoIsItForSection() {
                 <button
                   key={a.title}
                   onClick={() => setActive(i)}
+                  data-testid={`btn-${a.shortTitle.toLowerCase().replace(/\s+/g, "-")}`}
+                  aria-label={`Show ${a.title}`}
                   className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-300 shrink-0 lg:shrink"
                   style={{
                     background: isActive
@@ -254,6 +256,8 @@ export function WhoIsItForSection() {
                 </div>
 
                 <button
+                  data-testid="btn-see-how-it-works"
+                  aria-label={`See how ${current.title} works`}
                   className="inline-flex items-center gap-2 text-sm font-semibold group transition-colors duration-300"
                   style={{ color: current.accent }}
                 >

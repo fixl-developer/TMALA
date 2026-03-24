@@ -180,11 +180,13 @@ const clauseLibraries = [
 export default function ContractsPage() {
   const { openAuth } = useAuthModal()
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" data-testid="page-contracts" aria-label="Contracts page">
       {/* ───── HERO SECTION ───── */}
       <section
         className="relative w-full overflow-hidden py-20 lg:py-28 pt-32"
         style={{ background: "#fff" }}
+        data-testid="section-hero"
+        aria-label="Contracts hero section"
       >
         {/* Subtle ambient glow */}
         <div
@@ -256,6 +258,8 @@ export default function ContractsPage() {
                 background: "#0d9488",
                 boxShadow: "0 4px 16px rgba(13,148,136,0.3)",
               }}
+              data-testid="btn-hero-join-waitlist"
+              aria-label="Join Waitlist"
             >
               Join Waitlist
               <ArrowRight className="w-3.5 h-3.5" />
@@ -268,6 +272,8 @@ export default function ContractsPage() {
       <section
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-key-features"
+        aria-label="Key features"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-14 text-center">
@@ -338,7 +344,7 @@ export default function ContractsPage() {
       </section>
 
       {/* ───── SECTION 3: Process Flow ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section className="py-24 lg:py-28" style={{ background: "#fff" }} data-testid="section-process-flow" aria-label="Process flow">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -408,6 +414,8 @@ export default function ContractsPage() {
       <section
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-template-categories"
+        aria-label="Template categories"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -470,7 +478,7 @@ export default function ContractsPage() {
       </section>
 
       {/* ───── SECTION 5: Clause Libraries ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section className="py-24 lg:py-28" style={{ background: "#fff" }} data-testid="section-clause-libraries" aria-label="Clause libraries">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -543,6 +551,8 @@ export default function ContractsPage() {
       <section
         className="relative py-24 lg:py-28"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-cta"
+        aria-label="Call to action"
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
@@ -566,6 +576,8 @@ export default function ContractsPage() {
               background: "#0d9488",
               boxShadow: "0 4px 16px rgba(13,148,136,0.3)",
             }}
+            data-testid="btn-cta-join-waitlist"
+            aria-label="Join the Waitlist"
           >
             Join the Waitlist
             <ArrowRight className="w-4 h-4" />

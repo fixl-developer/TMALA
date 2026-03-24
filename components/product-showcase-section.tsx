@@ -422,7 +422,7 @@ export function ProductShowcaseSection() {
   const allSlides = [...showcases, ...showcases, ...showcases]
 
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden" style={{ background: "#fff" }}>
+    <section data-testid="section-product-showcase" aria-label="Product showcase" className="relative py-16 lg:py-24 overflow-hidden" style={{ background: "#fff" }}>
       {/* Header */}
       <div className="text-center mb-12 px-6">
         <p className="text-sm font-semibold uppercase tracking-[0.15em] mb-4" style={{ color: "#888" }}>
@@ -483,7 +483,7 @@ export function ProductShowcaseSection() {
                   </h3>
                   <div className="lg:max-w-xs">
                     <p className="text-[14px] leading-relaxed mb-5" style={{ color: "#444" }}>{item.description}</p>
-                    <button onClick={() => openAuth()} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "#111" }}>
+                    <button data-testid={`btn-get-started-${item.label.toLowerCase().replace(/\s+/g, "-")}`} aria-label={`Get started with ${item.label}`} onClick={() => openAuth()} className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ background: "#111" }}>
                       Get Started <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -511,6 +511,7 @@ export function ProductShowcaseSection() {
       {/* Arrows — right aligned */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 mt-8 flex items-center justify-end gap-3">
         <button
+          data-testid="btn-previous"
           onClick={() => goTo("left")}
           className="w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-200 hover:bg-gray-50 active:scale-95"
           style={{ borderColor: "#ddd", color: "#333" }}
@@ -519,6 +520,7 @@ export function ProductShowcaseSection() {
           <ArrowLeft className="w-4.5 h-4.5" />
         </button>
         <button
+          data-testid="btn-next"
           onClick={() => goTo("right")}
           className="w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-200 hover:bg-gray-50 active:scale-95"
           style={{ borderColor: "#ddd", color: "#333" }}

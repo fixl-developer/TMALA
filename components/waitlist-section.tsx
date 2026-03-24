@@ -38,7 +38,7 @@ export function WaitlistSection() {
   }
 
   return (
-    <section id="waitlist" className="relative overflow-hidden z-10">
+    <section id="waitlist" data-testid="section-waitlist" aria-label="Waitlist" className="relative overflow-hidden z-10">
       {/* Purple/Lavender Background */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #e8dff5 0%, #d8cceb 50%, #e8dff5 100%)" }} />
 
@@ -128,6 +128,8 @@ export function WaitlistSection() {
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                         className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                        data-testid="input-first-name"
+                        aria-label="First name"
                         required
                       />
                       <Input
@@ -136,6 +138,8 @@ export function WaitlistSection() {
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                         className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                        data-testid="input-last-name"
+                        aria-label="Last name"
                         required
                       />
                     </div>
@@ -146,6 +150,8 @@ export function WaitlistSection() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                      data-testid="input-email"
+                      aria-label="Work email"
                       required
                     />
 
@@ -155,6 +161,8 @@ export function WaitlistSection() {
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                       className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                      data-testid="input-company-name"
+                      aria-label="Company or agency name"
                     />
 
                     <Input
@@ -163,6 +171,8 @@ export function WaitlistSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
+                      data-testid="input-phone"
+                      aria-label="Phone number"
                     />
 
                     {/* Company Size + Role Row */}
@@ -172,7 +182,7 @@ export function WaitlistSection() {
                         onValueChange={(value) => setFormData({ ...formData, role: value })}
                         required
                       >
-                        <SelectTrigger className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
+                        <SelectTrigger data-testid="input-role" aria-label="Role" className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
                           <SelectValue placeholder="I am a...*" />
                         </SelectTrigger>
                         <SelectContent className="border-gray-200 bg-white text-gray-900">
@@ -188,7 +198,7 @@ export function WaitlistSection() {
                         value={formData.interest}
                         onValueChange={(value) => setFormData({ ...formData, interest: value })}
                       >
-                        <SelectTrigger className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
+                        <SelectTrigger data-testid="input-team-size" aria-label="Team size" className="h-11 rounded-lg border-gray-200 bg-white text-gray-900 focus:border-purple-500 focus:ring-purple-500/20">
                           <SelectValue placeholder="Team size" />
                         </SelectTrigger>
                         <SelectContent className="border-gray-200 bg-white text-gray-900">
@@ -207,6 +217,8 @@ export function WaitlistSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       rows={3}
+                      data-testid="input-message"
+                      aria-label="Message"
                       className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20 focus:outline-none resize-none"
                     />
 
@@ -215,13 +227,15 @@ export function WaitlistSection() {
                       disabled={isSubmitting || !formData.email || !formData.role}
                       className="h-12 w-full rounded-full text-sm font-semibold text-white"
                       style={{ background: "#7c3aed" }}
+                      data-testid="btn-submit"
+                      aria-label="Submit waitlist form"
                     >
                       {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
 
                     <p className="text-[11px] text-center leading-relaxed" style={{ color: "#6b7280" }}>
                       By submitting this form, I accept TMA&apos;s{" "}
-                      <a href="#" className="underline" style={{ color: "#7c3aed" }}>Privacy Policy</a>{" "}
+                      <a href="#" className="underline" style={{ color: "#7c3aed" }} data-testid="btn-privacy-policy" aria-label="Privacy Policy">Privacy Policy</a>{" "}
                       and consent to be contacted for marketing and promotional purposes via email, phone, SMS, and other means.
                     </p>
                   </form>

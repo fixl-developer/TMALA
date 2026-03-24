@@ -29,6 +29,8 @@ export function AIStudioFooterCTA() {
 
         <button
           onClick={() => openAuth()}
+          data-testid="btn-get-started-free"
+          aria-label="Get started for free"
           className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-sm transition-all duration-200 shadow-[0_8px_32px_rgba(124,58,237,0.45)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(124,58,237,0.55)]"
         >
           Get started for free

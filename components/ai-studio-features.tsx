@@ -402,6 +402,8 @@ export function AIStudioFeatures() {
             <button
               onClick={() => openAuth()}
               className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 text-sm text-white/80 hover:bg-white/5 hover:border-white/30 transition-all"
+              data-testid="btn-how-to-start"
+              aria-label="How to start"
             >
               How to start <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -417,6 +419,8 @@ export function AIStudioFeatures() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                data-testid={`btn-tab-${tab.id}`}
+                aria-label={tab.label}
                 className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
                 style={
                   isActive
@@ -540,6 +544,8 @@ export function AIStudioFeatures() {
                   <button
                     className="inline-flex items-center gap-1.5 text-sm font-semibold mt-1 w-fit group-hover:gap-2.5 transition-all duration-200"
                     style={{ color: isGradient ? tool.accentColor : "rgba(255,255,255,0.8)" }}
+                    data-testid={`btn-try-${tool.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                    aria-label={`Try ${tool.title}`}
                   >
                     Try it <ArrowRight className="w-3.5 h-3.5" />
                   </button>
@@ -554,6 +560,8 @@ export function AIStudioFeatures() {
           <button
             onClick={() => openAuth()}
             className="flex items-center gap-2 text-sm text-white/65 hover:text-white/80 transition-colors border border-white/[0.07] hover:border-white/15 px-6 py-3 rounded-full hover:bg-white/[0.03]"
+            data-testid="btn-join-waitlist"
+            aria-label="Join waitlist for full access"
           >
             Join waitlist for full access <ArrowRight className="w-3.5 h-3.5" />
           </button>

@@ -124,6 +124,8 @@ export function AIStudioSpacesSection() {
 
             <button
               onClick={() => openAuth()}
+              data-testid="btn-explore-studio"
+              aria-label="Explore Studio"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-bold hover:from-violet-500 hover:to-indigo-500 transition-all duration-300 hover:scale-105 shadow-[0_8px_28px_rgba(124,58,237,0.45)] w-fit"
             >
               Explore Studio <ArrowRight className="w-4 h-4" />
@@ -156,6 +158,8 @@ export function AIStudioSpacesSection() {
                 {muted && (
                   <button
                     onClick={handleMuteToggle}
+                    data-testid="btn-unmute"
+                    aria-label="Unmute"
                     className="absolute top-3 right-3 z-30 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] text-white/75 border border-white/10 hover:border-violet-500/40 hover:bg-black/80 hover:text-white transition-all duration-200"
                   >
                     Unmute
@@ -168,6 +172,8 @@ export function AIStudioSpacesSection() {
                     {/* Play/Pause */}
                     <button
                       onClick={handlePlayPause}
+                      data-testid="btn-play-pause"
+                      aria-label={playing ? "Pause" : "Play"}
                       className="w-7 h-7 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center hover:bg-violet-500/50 transition-colors flex-shrink-0 border border-white/10"
                     >
                       {playing ? (
@@ -196,6 +202,8 @@ export function AIStudioSpacesSection() {
                     {/* Volume */}
                     <button
                       onClick={handleMuteToggle}
+                      data-testid="btn-mute-toggle"
+                      aria-label={muted ? "Unmute" : "Mute"}
                       className="p-1.5 text-white/70 hover:text-violet-400 transition-colors flex-shrink-0"
                     >
                       {muted ? (
@@ -208,6 +216,8 @@ export function AIStudioSpacesSection() {
                     {/* Fullscreen */}
                     <button
                       onClick={handleFullscreen}
+                      data-testid="btn-fullscreen"
+                      aria-label="Fullscreen"
                       className="p-1.5 text-white/70 hover:text-violet-400 transition-colors flex-shrink-0"
                     >
                       <Maximize2 className="w-3.5 h-3.5" />

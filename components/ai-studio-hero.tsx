@@ -61,6 +61,8 @@ export function AIStudioHero() {
         <div className="anim-slide-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <button
             onClick={() => openAuth()}
+            data-testid="btn-get-started"
+            aria-label="Get started for free"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-semibold text-sm transition-all hover:bg-white/90 hover:-translate-y-0.5"
           >
             Get started for free

@@ -92,10 +92,12 @@ export default function ArticlePage() {
 
   if (!post)
     return (
-      <div style={{ background: "#fff", minHeight: "100vh", textAlign: "center", padding: "120px 40px", color: "#1a1a1a" }}>
+      <div data-testid="section-not-found" aria-label="Article not found" style={{ background: "#fff", minHeight: "100vh", textAlign: "center", padding: "120px 40px", color: "#1a1a1a" }}>
         <h1 style={{ fontSize: "28px", fontWeight: 800 }}>Article not found</h1>
-        <Link href="/blog" style={{ textDecoration: "none" }}>
+        <Link href="/blog" data-testid="link-back-to-blog" style={{ textDecoration: "none" }}>
           <button
+            data-testid="btn-back-to-blog"
+            aria-label="Back to Blog"
             style={{
               marginTop: "20px",
               background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -115,9 +117,11 @@ export default function ArticlePage() {
     )
 
   return (
-    <div className="blog-article-page" style={{ background: "#fff", minHeight: "100vh", color: "#1a1a1a" }}>
+    <div className="blog-article-page" data-testid="section-article-page" aria-label="Blog article page" style={{ background: "#fff", minHeight: "100vh", color: "#1a1a1a" }}>
       {/* Progress bar */}
       <div
+        data-testid="section-reading-progress"
+        aria-label="Reading progress bar"
         style={{
           position: "fixed", top: 0, left: 0, zIndex: 9999, height: "3px",
           width: `${readingProgress}%`,
@@ -128,11 +132,20 @@ export default function ArticlePage() {
       />
 
       {/* Main */}
-      <div className="article-layout" style={{ maxWidth: "1200px", margin: "0 auto", padding: "48px 32px 80px", display: "grid", gridTemplateColumns: "1fr 260px", gap: "64px", alignItems: "start" }}>
+      <div className="article-layout" style={{ maxWidth: "1200px", margin: "0 auto", padding: "120px 32px 80px", display: "grid", gridTemplateColumns: "1fr 260px", gap: "64px", alignItems: "start" }}>
         <article>
+          {/* Back button */}
+          <Link href="/blog" data-testid="link-back-to-blog-article" aria-label="Back to Blog" style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "14px", fontWeight: 600, color: "#6366f1", textDecoration: "none", marginBottom: "20px", padding: "8px 16px", borderRadius: "8px", border: "1px solid #e5e7eb", background: "#fafafa", transition: "all 0.2s ease" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#ede9fe"; e.currentTarget.style.borderColor = "#c4b5fd" }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "#fafafa"; e.currentTarget.style.borderColor = "#e5e7eb" }}
+          >
+            <ArrowLeft size={16} />
+            Back to Blog
+          </Link>
+
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "28px" }}>
-            <Link href="/blog" style={{ fontSize: "13px", color: "#6366f1", textDecoration: "none" }}>Blog</Link>
+          <div data-testid="section-breadcrumb" aria-label="Breadcrumb navigation" style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "28px" }}>
+            <Link href="/blog" data-testid="link-breadcrumb-blog" style={{ fontSize: "13px", color: "#6366f1", textDecoration: "none" }}>Blog</Link>
             <span style={{ color: "#ddd", fontSize: "13px" }}>/</span>
             <span style={{ fontSize: "13px", color: "#6366f1" }}>{post.categoryLabel}</span>
             <span style={{ color: "#ddd", fontSize: "13px" }}>/</span>
@@ -155,7 +168,7 @@ export default function ArticlePage() {
           </p>
 
           {/* Author bar */}
-          <div data-animate style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid #e5e5e5", marginBottom: "36px", flexWrap: "wrap" }}>
+          <div data-animate data-testid="section-author-bar" aria-label="Article author and sharing" style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid #e5e5e5", marginBottom: "36px", flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "#1a1a1a", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 800, color: "#c8f542" }}>
                 {post.author.avatar.charAt(0)}
@@ -169,19 +182,19 @@ export default function ArticlePage() {
             <span style={{ fontSize: "12px", color: "#555" }}>{post.publishedAtFormatted}</span>
             <span style={{ background: "#f0f0f0", borderRadius: "999px", padding: "3px 10px", fontSize: "11px", color: "#555" }}>{post.readTime}</span>
             <div style={{ marginLeft: "auto", display: "flex", gap: "8px" }}>
-              <ShareBtn icon={<Twitter style={{ width: 14, height: 14 }} />} onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`)} />
-              <ShareBtn icon={<Linkedin style={{ width: 14, height: 14 }} />} onClick={() => window.open(`https://linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)} />
-              <ShareBtn icon={copied ? <Check style={{ width: 14, height: 14 }} /> : <LinkIcon style={{ width: 14, height: 14 }} />} onClick={handleCopyLink} />
+              <ShareBtn testId="btn-share-twitter" label="Share on Twitter" icon={<Twitter style={{ width: 14, height: 14 }} />} onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`)} />
+              <ShareBtn testId="btn-share-linkedin" label="Share on LinkedIn" icon={<Linkedin style={{ width: 14, height: 14 }} />} onClick={() => window.open(`https://linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)} />
+              <ShareBtn testId="btn-copy-link" label="Copy link" icon={copied ? <Check style={{ width: 14, height: 14 }} /> : <LinkIcon style={{ width: 14, height: 14 }} />} onClick={handleCopyLink} />
             </div>
           </div>
 
           {/* Cover */}
-          <div data-animate style={{ borderRadius: "14px", overflow: "hidden", marginBottom: "44px", border: "1px solid #e5e5e5" }}>
+          <div data-animate data-testid="section-cover-image" aria-label="Article cover image" style={{ borderRadius: "14px", overflow: "hidden", marginBottom: "44px", border: "1px solid #e5e5e5" }}>
             <img src={post.coverImage} alt={post.title} style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover" }} />
           </div>
 
           {/* Body */}
-          <div id="article-content" ref={articleRef}>
+          <div id="article-content" ref={articleRef} data-testid="section-article-content" aria-label="Article content">
             <p data-animate style={{ fontSize: "18px", color: "#2d2d2d", lineHeight: 1.78, margin: "0 0 36px" }}>{post.content.intro}</p>
 
             {post.content.sections.map((section, i) => (
@@ -204,14 +217,14 @@ export default function ArticlePage() {
             ))}
 
             {/* Key takeaway */}
-            <div data-animate style={{ background: "#f5f3ff", border: "1px solid #ddd6fe", borderLeft: "4px solid #6366f1", borderRadius: "0 12px 12px 0", padding: "20px 24px", margin: "48px 0 40px" }}>
+            <div data-animate data-testid="section-key-takeaway" aria-label="Key takeaway" style={{ background: "#f5f3ff", border: "1px solid #ddd6fe", borderLeft: "4px solid #6366f1", borderRadius: "0 12px 12px 0", padding: "20px 24px", margin: "48px 0 40px" }}>
               <span style={{ fontSize: "10px", fontWeight: 800, color: "#6366f1", textTransform: "uppercase", letterSpacing: "0.1em", display: "block", marginBottom: "8px" }}>Key takeaway</span>
               <p style={{ fontSize: "16px", color: "#3730a3", lineHeight: 1.65, fontWeight: 500, margin: 0 }}>{post.content.conclusion}</p>
             </div>
           </div>
 
           {/* Tags */}
-          <div data-animate style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "40px", alignItems: "center" }}>
+          <div data-animate data-testid="section-tags" aria-label="Article tags" style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "40px", alignItems: "center" }}>
             <span style={{ fontSize: "12px", fontWeight: 700, color: "#999" }}>Topics:</span>
             {post.tags.map((tag: string) => (
               <span key={tag} style={{ border: "1px solid #e5e5e5", borderRadius: "6px", padding: "4px 12px", fontSize: "12px", color: "#555" }}>{tag}</span>
@@ -219,7 +232,7 @@ export default function ArticlePage() {
           </div>
 
           {/* Author card */}
-          <div data-animate style={{ display: "flex", gap: "18px", alignItems: "flex-start", background: "#fafafa", borderRadius: "14px", padding: "24px", marginBottom: "48px" }}>
+          <div data-animate data-testid="section-author-card" aria-label="About the author" style={{ display: "flex", gap: "18px", alignItems: "flex-start", background: "#fafafa", borderRadius: "14px", padding: "24px", marginBottom: "48px" }}>
             <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "#1a1a1a", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", fontWeight: 800, color: "#c8f542" }}>
               {post.author.avatar.charAt(0)}
             </div>
@@ -232,9 +245,9 @@ export default function ArticlePage() {
           </div>
 
           {/* Prev / Next */}
-          <div data-animate style={{ display: "flex", gap: "16px", borderTop: "1px solid #e5e5e5", paddingTop: "32px" }}>
+          <div data-animate data-testid="section-prev-next" aria-label="Previous and next articles" style={{ display: "flex", gap: "16px", borderTop: "1px solid #e5e5e5", paddingTop: "32px" }}>
             {prevPost && (
-              <Link href={`/blog/${prevPost.slug}`} style={{ textDecoration: "none", flex: 1 }}>
+              <Link href={`/blog/${prevPost.slug}`} data-testid="link-prev-post" style={{ textDecoration: "none", flex: 1 }}>
                 <div className="nav-card" style={{ background: "#fafafa", borderRadius: "12px", padding: "18px 20px", cursor: "pointer", transition: "background 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.background = "#f0f0f0")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "#fafafa")}
@@ -245,7 +258,7 @@ export default function ArticlePage() {
               </Link>
             )}
             {nextPost && (
-              <Link href={`/blog/${nextPost.slug}`} style={{ textDecoration: "none", flex: 1 }}>
+              <Link href={`/blog/${nextPost.slug}`} data-testid="link-next-post" style={{ textDecoration: "none", flex: 1 }}>
                 <div className="nav-card" style={{ background: "#fafafa", borderRadius: "12px", padding: "18px 20px", textAlign: "right", cursor: "pointer", transition: "background 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.background = "#f0f0f0")}
                   onMouseLeave={(e) => (e.currentTarget.style.background = "#fafafa")}
@@ -259,14 +272,16 @@ export default function ArticlePage() {
         </article>
 
         {/* Sidebar */}
-        <aside className="article-sidebar" style={{ position: "sticky", top: "80px", display: "flex", flexDirection: "column", gap: "20px" }}>
+        <aside className="article-sidebar" data-testid="section-sidebar" aria-label="Article sidebar" style={{ position: "sticky", top: "80px", display: "flex", flexDirection: "column", gap: "20px" }}>
           {tocItems.length > 0 && (
-            <div style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px" }}>
+            <div data-testid="section-toc" aria-label="Table of contents" style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px" }}>
               <div style={{ fontSize: "10px", fontWeight: 800, color: "#999", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "12px" }}>On this page</div>
               <nav>
                 {tocItems.map((item) => (
                   <button
                     key={item.id}
+                    data-testid={`btn-toc-${item.id}`}
+                    aria-label={`Jump to ${item.label}`}
                     onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth", block: "start" })}
                     style={{
                       display: "block", width: "100%", textAlign: "left",
@@ -289,7 +304,7 @@ export default function ArticlePage() {
           )}
 
           {/* Share */}
-          <div style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px" }}>
+          <div data-testid="section-sidebar-share" aria-label="Share this article" style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px" }}>
             <div style={{ fontSize: "10px", fontWeight: 800, color: "#999", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "12px" }}>Share</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {[
@@ -299,6 +314,8 @@ export default function ArticlePage() {
               ].map((btn) => (
                 <button
                   key={btn.label}
+                  data-testid={`btn-share-${btn.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  aria-label={btn.label}
                   onClick={btn.action}
                   style={{
                     display: "flex", alignItems: "center", gap: "10px",
@@ -318,7 +335,7 @@ export default function ArticlePage() {
           </div>
 
           {/* Author */}
-          <div style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px", textAlign: "center" }}>
+          <div data-testid="section-sidebar-author" aria-label="Article author" style={{ background: "#fafafa", borderRadius: "12px", border: "1px solid #e5e5e5", padding: "18px", textAlign: "center" }}>
             <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "#1a1a1a", margin: "0 auto 10px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: 800, color: "#c8f542" }}>
               {post.author.avatar.charAt(0)}
             </div>
@@ -330,17 +347,17 @@ export default function ArticlePage() {
 
       {/* Related */}
       {relatedPosts.length > 0 && (
-        <section style={{ background: "#fafafa", borderTop: "1px solid #e5e5e5", padding: "56px 0" }}>
+        <section data-testid="section-related-posts" aria-label="Related articles" style={{ background: "#fafafa", borderTop: "1px solid #e5e5e5", padding: "56px 0" }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 32px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "28px", gap: "16px", flexWrap: "wrap" }}>
               <h2 style={{ fontSize: "22px", fontWeight: 700, color: "#1a1a1a", margin: 0 }}>More from {post.categoryLabel}</h2>
-              <Link href="/blog" style={{ textDecoration: "none" }}>
+              <Link href="/blog" data-testid="link-view-all-posts" style={{ textDecoration: "none" }}>
                 <span style={{ fontSize: "13px", color: "#6366f1", fontWeight: 600 }}>View all &rarr;</span>
               </Link>
             </div>
             <div className="related-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "32px" }}>
               {relatedPosts.map((p) => (
-                <Link key={p.id} href={`/blog/${p.slug}`} style={{ textDecoration: "none", display: "block" }}>
+                <Link key={p.id} href={`/blog/${p.slug}`} data-testid={`link-related-${p.slug}`} style={{ textDecoration: "none", display: "block" }}>
                   <article style={{ background: "#fff", borderRadius: "8px", overflow: "hidden", cursor: "pointer", height: "100%", display: "flex", flexDirection: "column" }}>
                     <div style={{ aspectRatio: "16/9", overflow: "hidden", background: "#f5f5f5" }}>
                       <img src={p.coverImage} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -378,9 +395,11 @@ export default function ArticlePage() {
   )
 }
 
-function ShareBtn({ icon, onClick }: { icon: React.ReactNode; onClick: () => void }) {
+function ShareBtn({ icon, onClick, testId, label }: { icon: React.ReactNode; onClick: () => void; testId?: string; label?: string }) {
   return (
     <button
+      data-testid={testId}
+      aria-label={label}
       onClick={onClick}
       style={{
         width: "32px", height: "32px", borderRadius: "8px",
@@ -395,3 +414,4 @@ function ShareBtn({ icon, onClick }: { icon: React.ReactNode; onClick: () => voi
     </button>
   )
 }
+

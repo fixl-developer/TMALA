@@ -640,6 +640,8 @@ function ExpandedModal({
         }}
       >
         <button
+          data-testid="btn-modal-close"
+          aria-label="Close modal"
           onClick={onClose}
           className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
           style={{ background: "rgba(0,0,0,0.06)" }}
@@ -769,6 +771,8 @@ function CarouselCard({
 
       {/* Plus button */}
       <button
+        data-testid="btn-expand-card"
+        aria-label={`Expand ${feature.shortTitle} details`}
         className="absolute bottom-5 right-5 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
         style={{
           background: "#111",
@@ -881,7 +885,7 @@ export function TrustSection() {
 
 
   return (
-    <section className="relative w-full py-24 overflow-hidden" style={{ background: "#fff" }}>
+    <section data-testid="section-trust" aria-label="Trust and features" className="relative w-full py-24 overflow-hidden" style={{ background: "#fff" }}>
       <style>{`
         @keyframes floatBadge {
           0%, 100% { transform: translateY(0); }
@@ -968,6 +972,8 @@ export function TrustSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-end gap-3 mt-4">
           <button
+            data-testid="btn-slide-left"
+            aria-label="Slide carousel left"
             onClick={() => slide("left")}
             className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200"
             style={{ border: "1.5px solid #e5e7eb", color: "#111" }}
@@ -985,6 +991,8 @@ export function TrustSection() {
             <ArrowLeft size={18} />
           </button>
           <button
+            data-testid="btn-slide-right"
+            aria-label="Slide carousel right"
             onClick={() => slide("right")}
             className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200"
             style={{ border: "1.5px solid #e5e7eb", color: "#111" }}

@@ -142,6 +142,8 @@ export default function TemplatesPage() {
     <main className="min-h-screen">
       {/* ───── HERO ───── */}
       <section
+        data-testid="section-hero"
+        aria-label="Hero"
         className="relative w-full overflow-hidden py-20 lg:py-28 pt-32"
         style={{ background: "#fff" }}
       >
@@ -205,6 +207,8 @@ export default function TemplatesPage() {
 
           {/* CTA */}
           <button
+            data-testid="btn-browse-templates"
+            aria-label="Browse Templates"
             onClick={() => openAuth()}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
             style={{ background: "#f59e0b", color: "#fff" }}
@@ -217,6 +221,8 @@ export default function TemplatesPage() {
 
       {/* ───── TEMPLATE CATEGORIES GRID ───── */}
       <section
+        data-testid="section-categories"
+        aria-label="Template Categories"
         className="relative w-full overflow-hidden py-20 lg:py-28"
         style={{ background: "#f5f5f7" }}
       >
@@ -292,6 +298,8 @@ export default function TemplatesPage() {
 
       {/* ───── POPULAR TEMPLATES ───── */}
       <section
+        data-testid="section-popular-templates"
+        aria-label="Popular Templates"
         className="relative w-full overflow-hidden py-20 lg:py-28"
         style={{ background: "#fff" }}
       >
@@ -364,6 +372,8 @@ export default function TemplatesPage() {
 
       {/* ───── HOW TEMPLATES WORK ───── */}
       <section
+        data-testid="section-how-it-works"
+        aria-label="How Templates Work"
         className="relative w-full overflow-hidden py-20 lg:py-28"
         style={{ background: "#f5f5f7" }}
       >
@@ -435,6 +445,8 @@ export default function TemplatesPage() {
 
       {/* ───── CTA ───── */}
       <section
+        data-testid="section-cta"
+        aria-label="Call to Action"
         className="relative w-full overflow-hidden py-20 lg:py-28"
         style={{ background: "#fff" }}
       >
@@ -459,6 +471,8 @@ export default function TemplatesPage() {
             Save hours on every project with ready-made, customizable templates.
           </p>
           <button
+            data-testid="btn-join-waitlist"
+            aria-label="Join the Waitlist"
             onClick={() => openAuth()}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold transition-transform hover:scale-105"
             style={{ background: "#f59e0b", color: "#fff" }}

@@ -97,10 +97,10 @@ function ProfileCompletenessCard() {
         ))}
       </div>
       <div className="mt-4 flex gap-2">
-        <button className="flex-1 py-2 rounded-xl text-xs font-semibold text-black bg-violet-400 hover:bg-violet-300 transition-colors">
+        <button data-testid="btn-fix-my-profile" aria-label="Fix my profile" className="flex-1 py-2 rounded-xl text-xs font-semibold text-black bg-violet-400 hover:bg-violet-300 transition-colors">
           Fix my profile
         </button>
-        <button className="py-2 px-3 rounded-xl text-xs font-semibold text-violet-400 border border-violet-500/30 hover:bg-violet-500/10 transition-colors">
+        <button data-testid="btn-preview" aria-label="Preview" className="py-2 px-3 rounded-xl text-xs font-semibold text-violet-400 border border-violet-500/30 hover:bg-violet-500/10 transition-colors">
           Preview
         </button>
       </div>
@@ -124,6 +124,8 @@ function BioGeneratorCard() {
           <button
             key={t}
             onClick={() => setActive(t)}
+            data-testid={`btn-tone-${t.toLowerCase()}`}
+            aria-label={`Select ${t} tone`}
             className={`text-xs px-2.5 py-1 rounded-lg border transition-all ${active === t ? "bg-violet-500 border-violet-400 text-white" : "border-white/15 text-white/70 hover:border-white/30"}`}
           >
             {t}
@@ -135,7 +137,7 @@ function BioGeneratorCard() {
       </div>
       <div className="flex items-center gap-2">
         <span className="text-[11px] text-white/65">300 chars · Casting Bio</span>
-        <button className="ml-auto flex items-center gap-1.5 text-xs text-violet-400 hover:text-violet-300">
+        <button data-testid="btn-regenerate" aria-label="Regenerate bio" className="ml-auto flex items-center gap-1.5 text-xs text-violet-400 hover:text-violet-300">
           <RefreshCw className="h-3 w-3" /> Regenerate
         </button>
       </div>
@@ -291,10 +293,10 @@ function ExportPacksCard() {
               <div className="text-[11px] text-white/70">{pack.desc}</div>
             </div>
             <div className="flex gap-1.5">
-              <button className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+              <button data-testid={`btn-preview-${pack.name.toLowerCase().replace(/\s+/g, "-")}`} aria-label={`Preview ${pack.name}`} className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                 <Eye className="h-3 w-3 text-white/70" />
               </button>
-              <button className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+              <button data-testid={`btn-download-${pack.name.toLowerCase().replace(/\s+/g, "-")}`} aria-label={`Download ${pack.name}`} className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                 <Download className="h-3 w-3 text-white/70" />
               </button>
             </div>
@@ -453,6 +455,8 @@ export function AIFeaturesSectionsAfterHero() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
+                  data-testid={`btn-tab-${tab.id}`}
+                  aria-label={`Switch to ${tab.label}`}
                   className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-200 shrink-0 ${
                     isActive
                       ? `${tab.color} bg-white/8`
@@ -500,7 +504,7 @@ export function AIFeaturesSectionsAfterHero() {
                 ))}
               </div>
               <div className="flex gap-3">
-                <button onClick={() => openAuth()} className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 hover:scale-105 transition-all shadow-[0_8px_24px_rgba(124,58,237,0.4)]">
+                <button onClick={() => openAuth()} data-testid="btn-try-portfolio-builder" aria-label="Try Portfolio Builder" className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 hover:scale-105 transition-all shadow-[0_8px_24px_rgba(124,58,237,0.4)]">
                   <Sparkles className="h-4 w-4" /> Try Portfolio Builder
                 </button>
               </div>
@@ -785,7 +789,7 @@ export function AIFeaturesSectionsAfterHero() {
                     ))}
                   </div>
 
-                  <button onClick={() => openAuth()} className={`w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] ${plan.ctaStyle}`}>
+                  <button onClick={() => openAuth()} data-testid={`btn-plan-${plan.name.toLowerCase()}`} aria-label={plan.cta} className={`w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] ${plan.ctaStyle}`}>
                     {plan.cta}
                   </button>
                 </div>
@@ -817,13 +821,13 @@ export function AIFeaturesSectionsAfterHero() {
               Join the waitlist and be first to access Portfolio Builder, Audition Coach, Media Lab, and every AI Studio tool when we launch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => openAuth()} className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm hover:from-violet-500 hover:to-purple-500 hover:scale-105 transition-all shadow-[0_8px_32px_rgba(124,58,237,0.4)]">
+              <button onClick={() => openAuth()} data-testid="btn-join-waitlist" aria-label="Join the Waitlist" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm hover:from-violet-500 hover:to-purple-500 hover:scale-105 transition-all shadow-[0_8px_32px_rgba(124,58,237,0.4)]">
                 <Sparkles className="h-4 w-4" />
                 Join the Waitlist
                 <ArrowRight className="h-4 w-4" />
               </button>
               <Link href="/">
-                <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white/60 text-sm font-medium hover:text-white hover:border-white/30 transition-all">
+                <button data-testid="btn-view-platform-overview" aria-label="View Platform Overview" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white/60 text-sm font-medium hover:text-white hover:border-white/30 transition-all">
                   View Platform Overview
                 </button>
               </Link>

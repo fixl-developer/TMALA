@@ -158,10 +158,10 @@ export default function FeaturesPage() {
 
 
   return (
-    <main className="min-h-screen section-bg-charcoal text-white selection:bg-montra-red/30 pt-20">
+    <main className="min-h-screen section-bg-charcoal text-white selection:bg-montra-red/30 pt-20" data-testid="section-features-page" aria-label="Features page">
       {/* 3D Parallax Hero Section */}
       {/* Editorial Hero Section */}
-      <section className="relative h-[90vh] w-full section-bg-charcoal overflow-hidden flex flex-col justify-center items-center">
+      <section className="relative h-[90vh] w-full section-bg-charcoal overflow-hidden flex flex-col justify-center items-center" data-testid="section-hero" aria-label="Features hero">
         {/* Background Subtle Texture */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900/20 via-black to-black opacity-40" />
 
@@ -231,6 +231,8 @@ export default function FeaturesPage() {
         <button
           onClick={scrollToContent}
           className="absolute bottom-10 z-20 p-2 text-white/50 hover:text-white transition-colors"
+          data-testid="btn-scroll-down"
+          aria-label="Scroll down"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-[10px] uppercase tracking-[0.2em] font-light">Scroll</span>
@@ -243,7 +245,7 @@ export default function FeaturesPage() {
       <PhysicsFeatures />
 
       {/* Role-Specific Features */}
-      <section className="relative section-bg-cool border-y border-white/5 py-20 flex items-center min-h-[80vh]">
+      <section className="relative section-bg-cool border-y border-white/5 py-20 flex items-center min-h-[80vh]" data-testid="section-role-features" aria-label="Features by user type">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-4">
             <h2 className="font-bebas text-3xl font-bold text-white sm:text-5xl uppercase tracking-tight">
@@ -254,14 +256,14 @@ export default function FeaturesPage() {
             </p>
           </div>
 
-          <Tabs defaultValue="talents" className="w-full">
+          <Tabs defaultValue="talents" className="w-full" data-testid="section-tabs-role-features" aria-label="Role features tabs">
             <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto bg-zinc-900/50 border border-white/10 p-1 rounded-none">
-              <TabsTrigger value="talents" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white">Talents</TabsTrigger>
-              <TabsTrigger value="agencies" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white">Agencies</TabsTrigger>
-              <TabsTrigger value="sponsors" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white">Sponsors</TabsTrigger>
+              <TabsTrigger value="talents" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white" data-testid="btn-tab-talents" aria-label="Talents tab">Talents</TabsTrigger>
+              <TabsTrigger value="agencies" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white" data-testid="btn-tab-agencies" aria-label="Agencies tab">Agencies</TabsTrigger>
+              <TabsTrigger value="sponsors" className="rounded-none font-bebas uppercase tracking-widest data-[state=active]:bg-montra-red data-[state=active]:text-white" data-testid="btn-tab-sponsors" aria-label="Sponsors tab">Sponsors</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="talents" className="mt-4">
+            <TabsContent value="talents" className="mt-4" data-testid="section-tab-talents" aria-label="Talents features">
               <div className="grid gap-4 lg:grid-cols-[1fr_2fr]">
                 {/* Left Side - Content */}
                 <div className="space-y-3">
@@ -282,7 +284,7 @@ export default function FeaturesPage() {
                     ))}
                   </div>
 
-                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none">
+                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none" data-testid="btn-create-profile" aria-label="Create profile">
                     Create Profile
                   </Button>
                 </div>
@@ -437,7 +439,7 @@ export default function FeaturesPage() {
               </div>
             </TabsContent>
 
-            <TabsContent value="agencies" className="mt-4">
+            <TabsContent value="agencies" className="mt-4" data-testid="section-tab-agencies" aria-label="Agencies features">
               <div className="grid gap-4 lg:grid-cols-[1fr_2fr]">
                 {/* Left Side - Content */}
                 <div className="space-y-3">
@@ -458,7 +460,7 @@ export default function FeaturesPage() {
                     ))}
                   </div>
 
-                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none">
+                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none" data-testid="btn-start-agency-trial" aria-label="Start agency trial">
                     Start Agency Trial
                   </Button>
                 </div>
@@ -613,7 +615,7 @@ export default function FeaturesPage() {
               </div>
             </TabsContent>
 
-            <TabsContent value="sponsors" className="mt-4">
+            <TabsContent value="sponsors" className="mt-4" data-testid="section-tab-sponsors" aria-label="Sponsors features">
               <div className="grid gap-4 lg:grid-cols-[1fr_2fr]">
                 {/* Left Side - Content */}
                 <div className="space-y-3">
@@ -634,7 +636,7 @@ export default function FeaturesPage() {
                     ))}
                   </div>
 
-                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none">
+                  <Button className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest mt-2 text-xs py-1.5 rounded-none" data-testid="btn-start-sponsoring" aria-label="Start sponsoring">
                     Start Sponsoring
                   </Button>
                 </div>
@@ -793,7 +795,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* Business Inquiry Form Section */}
-      <section className="relative section-bg-warm py-24 lg:py-32 border-t border-white/5">
+      <section className="relative section-bg-warm py-24 lg:py-32 border-t border-white/5" data-testid="section-business-inquiry" aria-label="Business inquiry form">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-bebas text-5xl font-bold text-white sm:text-7xl uppercase tracking-tight mb-6">
@@ -809,22 +811,22 @@ export default function FeaturesPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white font-bebas tracking-widest uppercase">Name</Label>
-                  <Input id="name" placeholder="Your Name" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" />
+                  <Input id="name" placeholder="Your Name" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" data-testid="input-name" aria-label="Name" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="company" className="text-white font-bebas tracking-widest uppercase">Company</Label>
-                  <Input id="company" placeholder="Company Name" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" />
+                  <Input id="company" placeholder="Company Name" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" data-testid="input-company" aria-label="Company" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-white font-bebas tracking-widest uppercase">Email</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" />
+                  <Input id="email" type="email" placeholder="john@company.com" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" data-testid="input-email" aria-label="Email" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-white font-bebas tracking-widest uppercase">Phone</Label>
-                  <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" />
+                  <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none h-12" data-testid="input-phone" aria-label="Phone" />
                 </div>
               </div>
 
@@ -834,10 +836,12 @@ export default function FeaturesPage() {
                   id="message"
                   placeholder="Tell us about your specific needs..."
                   className="bg-black/50 border-white/10 text-white placeholder:text-gray-600 focus:border-montra-red/50 rounded-none min-h-[150px] resize-none"
+                  data-testid="input-message"
+                  aria-label="Requirements"
                 />
               </div>
 
-              <Button size="lg" className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest py-8 text-xl rounded-none shadow-xl shadow-montra-red/20 transition-all hover:scale-[1.02]">
+              <Button size="lg" className="w-full bg-montra-red hover:bg-montra-red-dark text-white font-bebas uppercase tracking-widest py-8 text-xl rounded-none shadow-xl shadow-montra-red/20 transition-all hover:scale-[1.02]" data-testid="btn-submit-inquiry" aria-label="Submit inquiry">
                 Submit Inquiry
               </Button>
             </form>
@@ -846,7 +850,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 section-bg-rich border-t border-white/5 relative overflow-hidden">
+      <section className="py-32 section-bg-rich border-t border-white/5 relative overflow-hidden" data-testid="section-cta" aria-label="Call to action">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.1),transparent 70%)] opacity-50" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-bebas text-5xl font-bold text-white sm:text-8xl tracking-tight uppercase leading-none mb-8">
@@ -856,10 +860,10 @@ export default function FeaturesPage() {
             Start your free trial today and discover how our platform can transform your talent management.
           </p>
           <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:justify-center">
-            <Button size="lg" className="bg-montra-red text-white hover:bg-montra-red-dark font-bebas uppercase tracking-widest px-12 py-8 rounded-none transition-transform hover:scale-110 shadow-2xl shadow-montra-red/20">
+            <Button size="lg" className="bg-montra-red text-white hover:bg-montra-red-dark font-bebas uppercase tracking-widest px-12 py-8 rounded-none transition-transform hover:scale-110 shadow-2xl shadow-montra-red/20" data-testid="btn-start-free-trial" aria-label="Start free trial">
               Start Free Trial
             </Button>
-            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5 px-12 py-8 rounded-none font-bebas uppercase tracking-widest">
+            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5 px-12 py-8 rounded-none font-bebas uppercase tracking-widest" data-testid="btn-schedule-demo" aria-label="Schedule demo">
               Schedule Demo
             </Button>
           </div>

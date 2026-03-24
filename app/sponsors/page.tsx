@@ -99,7 +99,7 @@ export default function SponsorsPage() {
   return (
     <main className="min-h-screen section-bg-charcoal text-white">
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 section-bg-cyan-tint overflow-hidden">
+      <section data-testid="section-hero" aria-label="Sponsors hero section" className="relative py-24 lg:py-32 section-bg-cyan-tint overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-cinematic-cyan/5 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -115,10 +115,10 @@ export default function SponsorsPage() {
               high-impact partnerships through our unified neural engine.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" className="bg-cinematic-amber text-black hover:bg-cinematic-amber/90 font-bebas uppercase tracking-widest px-10 py-7 rounded-lg shadow-lg shadow-amber-500/20">
+              <Button data-testid="btn-start-sponsoring-hero" aria-label="Start sponsoring" size="lg" className="bg-cinematic-amber text-black hover:bg-cinematic-amber/90 font-bebas uppercase tracking-widest px-10 py-7 rounded-lg shadow-lg shadow-amber-500/20">
                 Start Sponsoring
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-bebas uppercase tracking-widest px-10 py-7 rounded-lg">
+              <Button data-testid="btn-view-success-stories" aria-label="View success stories" size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-bebas uppercase tracking-widest px-10 py-7 rounded-lg">
                 View Success Stories
               </Button>
             </div>
@@ -127,7 +127,7 @@ export default function SponsorsPage() {
       </section>
 
       {/* Sponsorship Types */}
-      <section className="py-20 lg:py-28 section-bg-purple-tint">
+      <section data-testid="section-sponsorship-types" aria-label="Sponsorship types" className="py-20 lg:py-28 section-bg-purple-tint">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-bebas uppercase tracking-[0.4em] text-cinematic-amber mb-3">Opportunities</p>
@@ -160,7 +160,7 @@ export default function SponsorsPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 lg:py-28 section-bg-warm">
+      <section data-testid="section-features" aria-label="Sponsorship tools and features" className="py-20 lg:py-28 section-bg-warm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-bebas uppercase tracking-[0.4em] text-cinematic-cyan mb-3">Tools</p>
@@ -191,7 +191,7 @@ export default function SponsorsPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 lg:py-28 section-bg-magenta-tint">
+      <section data-testid="section-benefits" aria-label="Benefits of partnering with our platform" className="py-20 lg:py-28 section-bg-magenta-tint">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -220,10 +220,10 @@ export default function SponsorsPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button className="w-full bg-cinematic-amber text-black hover:bg-cinematic-amber/90 font-bebas uppercase" size="lg">
+                  <Button data-testid="btn-start-sponsoring-cta" aria-label="Start sponsoring" className="w-full bg-cinematic-amber text-black hover:bg-cinematic-amber/90 font-bebas uppercase" size="lg">
                     Start Sponsoring
                   </Button>
-                  <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 font-bebas uppercase" size="lg">
+                  <Button data-testid="btn-request-demo" aria-label="Request a demo" variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 font-bebas uppercase" size="lg">
                     Request Demo
                   </Button>
                   <p className="text-center text-xs text-gray-500">

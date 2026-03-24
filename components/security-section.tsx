@@ -79,7 +79,7 @@ const allCards = [
 export function SecuritySection() {
   const { openAuth } = useAuthModal()
   return (
-    <section className="py-24 lg:py-28" style={{ background: "#f8f8fa" }}>
+    <section data-testid="section-security" aria-label="Security features and compliance" className="py-24 lg:py-28" style={{ background: "#f8f8fa" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Light rounded container like Monday.com */}
         <div
@@ -101,6 +101,8 @@ export function SecuritySection() {
               </h2>
 
               <button
+                data-testid="btn-security-learn-more"
+                aria-label="Learn more about security features"
                 onClick={() => openAuth()}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
                 style={{

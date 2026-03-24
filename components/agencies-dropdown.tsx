@@ -37,6 +37,8 @@ export function AgenciesDropdown() {
         className={`flex items-center gap-2 text-sm font-bebas uppercase tracking-widest transition-all duration-300 outline-none py-2 px-4 rounded-lg nav-pill z-10 ${isAgenciesSection ? "text-cinematic-amber" : "text-white hover:text-cinematic-amber"}`}
         aria-expanded={open}
         aria-haspopup="true"
+        aria-label="Agencies dropdown menu"
+        data-testid="btn-agencies-dropdown"
       >
         Agencies
         <ChevronDown
@@ -85,6 +87,8 @@ export function AgenciesDropdown() {
                             href={getAgencyHref(agency.slug)}
                             className={`block py-1.5 px-2 -mx-2 rounded-none font-bebas uppercase tracking-widest text-sm transition-colors ${isActive ? accent.text : "text-white/90 hover:text-white hover:bg-white/5"}`}
                             onClick={() => setOpen(false)}
+                            aria-label={`Navigate to ${agency.name} agency`}
+                            data-testid={`link-agency-${agency.slug}`}
                           >
                             {agency.name}
                           </Link>
@@ -105,6 +109,8 @@ export function AgenciesDropdown() {
               href="/agencies/all"
               className="flex items-center gap-2 text-sm font-bebas uppercase tracking-widest text-cinematic-amber hover:text-cinematic-amber/80 transition-colors"
               onClick={() => setOpen(false)}
+              aria-label="View all agency types"
+              data-testid="link-agencies-view-all"
             >
               View all
               <ArrowRight className="h-4 w-4" />
