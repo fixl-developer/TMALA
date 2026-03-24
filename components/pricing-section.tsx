@@ -135,6 +135,8 @@ export function PricingSection() {
             </span>
             <button
               onClick={() => setAnnual(!annual)}
+              data-testid="btn-billing-toggle"
+              aria-label={annual ? "Switch to monthly billing" : "Switch to annual billing"}
               className="relative w-12 h-6 rounded-full transition-colors duration-300"
               style={{ background: annual ? "#6366f1" : "#d1d5db" }}
             >
@@ -282,6 +284,8 @@ export function PricingSection() {
 
                   {/* CTA button */}
                   <button
+                    data-testid={`btn-${plan.name.toLowerCase()}-cta`}
+                    aria-label={`${plan.cta} - ${plan.name} plan`}
                     className={`w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 mb-6 ${
                       plan.popular ? "" : "hover:bg-[rgba(99,102,241,0.06)]"
                     }`}

@@ -94,9 +94,11 @@ const complianceBadges = [
 export default function TrustSafetyPage() {
   const { openAuth } = useAuthModal()
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" data-testid="page-trust-safety" aria-label="Trust and Safety page">
       {/* ───── HERO ───── */}
       <section
+        data-testid="section-hero"
+        aria-label="Trust and Safety hero"
         className="relative w-full overflow-hidden py-20 lg:py-28 pt-32"
         style={{ background: "#fff" }}
       >
@@ -155,6 +157,8 @@ export default function TrustSafetyPage() {
 
           {/* CTA */}
           <button
+            data-testid="btn-hero-join-waitlist"
+            aria-label="Join the Waitlist"
             onClick={() => openAuth()}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white hover:scale-[1.02] transition-all duration-200"
             style={{
@@ -170,6 +174,8 @@ export default function TrustSafetyPage() {
 
       {/* ───── FEATURES GRID ───── */}
       <section
+        data-testid="section-features"
+        aria-label="Trust and Safety features"
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
       >
@@ -239,7 +245,7 @@ export default function TrustSafetyPage() {
       </section>
 
       {/* ───── HOW DISPUTES WORK ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section data-testid="section-dispute-process" aria-label="Dispute resolution process" className="py-24 lg:py-28" style={{ background: "#fff" }}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
             <p
@@ -311,6 +317,8 @@ export default function TrustSafetyPage() {
 
       {/* ───── COMPLIANCE BADGES ───── */}
       <section
+        data-testid="section-compliance"
+        aria-label="Compliance and certifications"
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
       >
@@ -377,7 +385,7 @@ export default function TrustSafetyPage() {
       </section>
 
       {/* ───── CTA ───── */}
-      <section className="relative py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section data-testid="section-cta" aria-label="Call to action" className="relative py-24 lg:py-28" style={{ background: "#fff" }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold mb-4"
@@ -394,6 +402,8 @@ export default function TrustSafetyPage() {
             enterprise-grade security from the ground up.
           </p>
           <button
+            data-testid="btn-cta-join-waitlist"
+            aria-label="Join the Waitlist"
             onClick={() => openAuth()}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white hover:scale-[1.02] transition-all duration-200"
             style={{

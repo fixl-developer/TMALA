@@ -349,6 +349,8 @@ export function AIStudioAudienceCarousel() {
 
                       {/* CTA */}
                       <button
+                        data-testid={`btn-${a.id}-cta`}
+                        aria-label={a.cta}
                         className="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-full text-sm font-bold text-white hover:opacity-90 hover:scale-[1.02] transition-all duration-200"
                         style={{ background: a.accentColor }}
                       >
@@ -397,6 +399,8 @@ export function AIStudioAudienceCarousel() {
             {audiences.map((a, i) => (
               <button
                 key={a.id}
+                data-testid={`btn-${a.id}-pill`}
+                aria-label={`Select ${a.label}`}
                 onClick={() => setActiveIndex(i)}
                 className="flex-shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
                 style={
@@ -443,7 +447,7 @@ export function AIStudioAudienceCarousel() {
                       <span className="font-bebas text-3xl leading-none" style={{ color: a.accentColor }}>{a.stat.value}</span>
                       <span className="text-xs leading-snug max-w-[80px]" style={{ color: "rgba(255,255,255,0.75)" }}>{a.stat.label}</span>
                     </div>
-                    <button className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-white" style={{ background: a.accentColor }}>
+                    <button data-testid={`btn-${a.id}-mobile-cta`} aria-label={a.cta} className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-white" style={{ background: a.accentColor }}>
                       {a.cta} <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -460,6 +464,8 @@ export function AIStudioAudienceCarousel() {
             return (
               <button
                 key={i}
+                data-testid={`btn-${a.id}-dot`}
+                aria-label={`Go to ${a.label}`}
                 onClick={() => { setActiveIndex(i); setHoveredIndex(null); }}
                 className="h-1.5 rounded-full transition-all duration-300"
                 style={{

@@ -50,21 +50,22 @@ export function AIStudioSubLayout({
   children,
 }: SubPageProps) {
   const { openAuth } = useAuthModal()
+  const slug = badge.toLowerCase().replace(/\s+/g, "-")
   return (
-    <div className="min-h-screen" style={{ background: "#0a0a0a", color: "#fff" }}>
+    <div className="min-h-screen" data-testid={`page-${slug}`} aria-label={`${badge} page`} style={{ background: "#0a0a0a", color: "#fff" }}>
       {/* Feature pills bar — always visible below main header */}
       <AIStudioStickyHeader />
 
       {/* ── Breadcrumb ── */}
-      <div className="px-4 sm:px-8 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-        <Link href="/ai-features" className="inline-flex items-center gap-2 text-sm text-[#b0b0b0] hover:text-white transition-colors">
+      <div className="px-4 sm:px-8 py-3" data-testid="section-breadcrumb" aria-label="Breadcrumb navigation" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <Link href="/ai-features" data-testid="link-back-to-ai-studio" aria-label="Back to AI Studio" className="inline-flex items-center gap-2 text-sm text-[#b0b0b0] hover:text-white transition-colors">
           <ArrowLeft className="w-4 h-4" />
           Back to AI Studio
         </Link>
       </div>
 
       {/* ── Hero Section ── */}
-      <section className="relative overflow-hidden" style={{ minHeight: 480 }}>
+      <section className="relative overflow-hidden" data-testid="section-hero" aria-label="Hero section" style={{ minHeight: 480 }}>
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -85,12 +86,14 @@ export function AIStudioSubLayout({
           <div className="flex items-center gap-4">
             <button
               onClick={() => openAuth()}
+              data-testid="btn-hero-cta"
+              aria-label={ctaText}
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold transition-all hover:scale-[1.02]"
               style={{ background: accentColor, color: "#000" }}
             >
               {ctaText} <ArrowRight className="w-4 h-4" />
             </button>
-            <a href="#features" className="text-sm text-white/50 hover:text-white underline underline-offset-4 transition-colors">
+            <a href="#features" data-testid="link-see-all-features" aria-label="See all features" className="text-sm text-white/50 hover:text-white underline underline-offset-4 transition-colors">
               See all features
             </a>
           </div>
@@ -98,7 +101,7 @@ export function AIStudioSubLayout({
       </section>
 
       {/* ── Features Grid ── */}
-      <section id="features" className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
+      <section id="features" data-testid="section-features" aria-label="Key features" className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
         <div className="max-w-7xl mx-auto">
           <h2 className="font-bebas text-3xl sm:text-4xl uppercase tracking-[0.05em] text-white mb-3">
             Key Features
@@ -111,6 +114,8 @@ export function AIStudioSubLayout({
               return (
                 <div
                   key={i}
+                  data-testid={`section-feature-${i}`}
+                  aria-label={feat.title}
                   className="rounded-2xl border border-white/[0.06] p-6 hover:border-white/[0.12] transition-all group"
                   style={{ background: "#111" }}
                 >
@@ -131,14 +136,14 @@ export function AIStudioSubLayout({
 
       {/* ── How It Works (if provided) ── */}
       {howItWorks && howItWorks.length > 0 && (
-        <section className="py-20 px-4 sm:px-8" style={{ background: "#0d0d0d", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <section data-testid="section-how-it-works" aria-label="How it works" className="py-20 px-4 sm:px-8" style={{ background: "#0d0d0d", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
           <div className="max-w-5xl mx-auto">
             <h2 className="font-bebas text-3xl sm:text-4xl uppercase tracking-[0.05em] text-white mb-10">
               How It Works
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {howItWorks.map((step, i) => (
-                <div key={i} className="flex gap-4">
+                <div key={i} data-testid={`section-step-${i}`} aria-label={`Step ${i + 1}: ${step.step}`} className="flex gap-4">
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-bold"
                     style={{ background: accentColor, color: "#000" }}
@@ -158,7 +163,7 @@ export function AIStudioSubLayout({
 
       {/* ── Showcase Gallery (if provided) ── */}
       {showcase && showcase.length > 0 && (
-        <section className="py-16 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
+        <section data-testid="section-showcase" aria-label="Showcase gallery" className="py-16 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
           <style>{`
             @keyframes showcaseScan {
               0% { top: -2px; opacity: 0; }
@@ -176,7 +181,7 @@ export function AIStudioSubLayout({
             </h2>
             <div className="columns-2 sm:columns-3 md:columns-4 gap-3">
               {showcase.map((item, i) => (
-                <div key={i} className="showcase-card relative mb-3 rounded-xl overflow-hidden group cursor-pointer break-inside-avoid">
+                <div key={i} data-testid={`section-showcase-item-${i}`} aria-label={item.label || `Showcase item ${i + 1}`} className="showcase-card relative mb-3 rounded-xl overflow-hidden group cursor-pointer break-inside-avoid">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={item.img} alt={item.label || ""} loading="lazy" className="w-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
@@ -218,14 +223,14 @@ export function AIStudioSubLayout({
 
       {/* ── Specs Table (if provided) ── */}
       {specs && specs.length > 0 && (
-        <section className="py-16 px-4 sm:px-8" style={{ background: "#0d0d0d", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <section data-testid="section-specifications" aria-label="Specifications" className="py-16 px-4 sm:px-8" style={{ background: "#0d0d0d", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
           <div className="max-w-3xl mx-auto">
             <h2 className="font-bebas text-3xl uppercase tracking-[0.05em] text-white mb-8">
               Specifications
             </h2>
             <div className="rounded-2xl border border-white/[0.06] overflow-hidden" style={{ background: "#111" }}>
               {specs.map((spec, i) => (
-                <div key={i} className="flex items-center justify-between px-6 py-4 border-b border-white/[0.04] last:border-0">
+                <div key={i} data-testid={`section-spec-${i}`} aria-label={`${spec.label}: ${spec.value}`} className="flex items-center justify-between px-6 py-4 border-b border-white/[0.04] last:border-0">
                   <span className="text-sm text-white/50">{spec.label}</span>
                   <span className="text-sm font-semibold text-white">{spec.value}</span>
                 </div>
@@ -239,7 +244,7 @@ export function AIStudioSubLayout({
       {children}
 
       {/* ── CTA Footer ── */}
-      <section className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section data-testid="section-cta-footer" aria-label="Call to action" className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: accentColor }}>
             <Sparkles className="w-6 h-6 text-black" />
@@ -248,6 +253,8 @@ export function AIStudioSubLayout({
           <p className="text-white/40 text-sm mb-8">No credit card required. Free plan always available.</p>
           <button
             onClick={() => openAuth()}
+            data-testid="btn-footer-cta"
+            aria-label={ctaText}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold transition-all hover:scale-[1.03]"
             style={{ background: accentColor, color: "#000" }}
           >
@@ -257,7 +264,7 @@ export function AIStudioSubLayout({
       </section>
 
       {/* ── Lime Footer (Higgsfield-style) ── */}
-      <footer style={{ background: "#c8ff00" }}>
+      <footer data-testid="section-footer" aria-label="Site footer" style={{ background: "#c8ff00" }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] gap-10 mb-12">
             <div>
@@ -280,7 +287,7 @@ export function AIStudioSubLayout({
                 <ul className="space-y-2.5">
                   {links.map((l) => (
                     <li key={l}>
-                      <a href="#" className="text-[13px] text-black/70 hover:text-black transition-colors font-medium">{l}</a>
+                      <a href="#" data-testid={`link-footer-${l.toLowerCase().replace(/\s+/g, "-").replace(/[&]/g, "and")}`} aria-label={l} className="text-[13px] text-black/70 hover:text-black transition-colors font-medium">{l}</a>
                     </li>
                   ))}
                 </ul>
@@ -297,7 +304,7 @@ export function AIStudioSubLayout({
             </div>
             <div className="flex items-center gap-4">
               {["Privacy", "Terms", "Trust & Safety", "Cookies"].map((item) => (
-                <a key={item} href="#" className="text-[11px] text-black/50 hover:text-black transition-colors font-medium">{item}</a>
+                <a key={item} href="#" data-testid={`link-legal-${item.toLowerCase().replace(/\s+/g, "-").replace(/[&]/g, "and")}`} aria-label={item} className="text-[11px] text-black/50 hover:text-black transition-colors font-medium">{item}</a>
               ))}
             </div>
           </div>

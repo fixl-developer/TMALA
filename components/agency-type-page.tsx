@@ -203,7 +203,7 @@ function TeamStructureSection({ roles, agencyName, accentHex }: { roles: string[
   const dashData = roleInfo ? (ROLE_MODULES[roleInfo.level] || ROLE_MODULES["Limited"]) : ROLE_MODULES["Limited"]
 
   return (
-    <section className="relative py-20 lg:py-28" style={{ background: "#fff" }}>
+    <section className="relative py-20 lg:py-28" style={{ background: "#fff" }} data-testid="section-team-structure" aria-label="Team Structure and Access Control">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -236,6 +236,8 @@ function TeamStructureSection({ roles, agencyName, accentHex }: { roles: string[
                 <button
                   key={role}
                   onClick={() => setSelectedIdx(i)}
+                  data-testid={`btn-role-${role.toLowerCase().replace(/[\s\/()]+/g, "-")}`}
+                  aria-label={`Select role ${role}`}
                   className="flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-all duration-200 shrink-0 w-full min-w-[200px] lg:min-w-0"
                   style={{
                     background: isActive ? accentHex + "08" : "transparent",
@@ -462,7 +464,7 @@ function ModuleCarousel({ modules, agencyName, accentHex }: { modules: string[];
   }, [isPaused])
 
   return (
-    <section className="relative py-20 lg:py-28" style={{ background: "#fafafa" }}>
+    <section className="relative py-20 lg:py-28" style={{ background: "#fafafa" }} data-testid="section-modules" aria-label="Module carousel">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <p
           className="text-[10px] font-bold uppercase tracking-[0.4em] mb-3"
@@ -584,10 +586,10 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
   const accentHex = accentHexMap[agency.accent] || "#6366f1"
 
   return (
-    <main className="min-h-screen bg-white" style={{ paddingTop: "4rem" }}>
+    <main className="min-h-screen bg-white" style={{ paddingTop: "4rem" }} data-testid="section-agency-page" aria-label={`${agency.name} agency page`}>
 
       {/* ───── SECTION 1: Hero — White bg ───── */}
-      <section className="relative pt-10 pb-20 lg:pt-14 lg:pb-28" style={{ background: "#fafafa" }}>
+      <section className="relative pt-10 pb-20 lg:pt-14 lg:pb-28" style={{ background: "#fafafa" }} data-testid="section-hero" aria-label="Hero section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — text */}
@@ -634,6 +636,8 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
                   size="lg"
                   className="rounded-xl px-7 py-6 text-sm font-semibold text-white"
                   style={{ background: accentHex }}
+                  data-testid="btn-hero-start-trial"
+                  aria-label="Start Free Trial"
                 >
                   Start Free Trial
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -646,6 +650,8 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
                     borderColor: "#ddd",
                     color: "#222",
                   }}
+                  data-testid="btn-hero-schedule-demo"
+                  aria-label="Schedule Demo"
                 >
                   Schedule Demo
                 </Button>
@@ -714,7 +720,7 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
       <TeamStructureSection roles={agency.roles} agencyName={agency.name} accentHex={accentHex} />
 
       {/* ───── SECTION 4: Why TalentOS — Monday.com style white cards ───── */}
-      <section className="relative py-20 lg:py-28" style={{ background: "#fafafa" }}>
+      <section className="relative py-20 lg:py-28" style={{ background: "#fafafa" }} data-testid="section-why-talentos" aria-label="Why TalentOS">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -842,7 +848,7 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
       </section>
 
       {/* ───── SECTION 5: CTA — White bg ───── */}
-      <section className="relative py-24" style={{ background: "#fafafa" }}>
+      <section className="relative py-24" style={{ background: "#fafafa" }} data-testid="section-cta" aria-label="Call to action">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#111" }}>
             Ready to modernize your{" "}
@@ -859,16 +865,20 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
               size="lg"
               className="rounded-xl px-8 py-6 text-sm font-semibold text-white"
               style={{ background: accentHex }}
+              data-testid="btn-cta-start-trial"
+              aria-label="Start Free Trial"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Link href="/agencies/all">
+            <Link href="/agencies/all" data-testid="link-view-all-agencies">
               <Button
                 size="lg"
                 variant="outline"
                 className="rounded-xl px-8 py-6 text-sm font-semibold w-full sm:w-auto"
                 style={{ borderColor: "#ddd", color: "#222" }}
+                data-testid="btn-view-all-agencies"
+                aria-label="View all agency types"
               >
                 View all agency types
                 <ChevronRight className="ml-1 w-4 h-4" />

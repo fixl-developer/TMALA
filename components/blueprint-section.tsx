@@ -177,7 +177,7 @@ export function BlueprintSection() {
   const activeBlueprint = blueprints.find(b => b.id === active)!
 
   return (
-    <section id="blueprints" className="relative py-28 bg-gray-50 overflow-hidden">
+    <section id="blueprints" data-testid="section-blueprint" aria-label="Blueprint System" className="relative py-28 bg-gray-50 overflow-hidden">
       {/* Subtle grid bg */}
       <div
         className="absolute inset-0 pointer-events-none opacity-40"
@@ -218,6 +218,8 @@ export function BlueprintSection() {
                   <button
                     key={bp.id}
                     onClick={() => setActive(bp.id)}
+                    data-testid={`tab-${bp.id.toLowerCase()}-mobile`}
+                    aria-label={`Select ${bp.name} blueprint`}
                     className={`flex items-center gap-2 px-3 py-2 rounded-xl whitespace-nowrap shrink-0 text-left transition-all duration-200 ${
                       isActive
                         ? `${bp.lightBg} ring-2 ${bp.ring}`
@@ -243,6 +245,8 @@ export function BlueprintSection() {
                     <button
                       key={bp.id}
                       onClick={() => setActive(bp.id)}
+                      data-testid={`tab-${bp.id.toLowerCase()}`}
+                      aria-label={`Select ${bp.name} blueprint`}
                       className={`group relative w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 ${
                         isActive
                           ? `${bp.lightBg} ring-2 ${bp.ring} shadow-sm`
@@ -363,7 +367,7 @@ export function BlueprintSection() {
 
               {/* CTA — pinned to bottom, always visible */}
               <div className="px-6 pb-5 pt-3 shrink-0">
-                <button onClick={() => openAuth()} className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r ${activeBlueprint.gradient} hover:opacity-90 transition-all duration-200 shadow-lg`}>
+                <button onClick={() => openAuth()} data-testid="btn-get-started-blueprint" aria-label={`Get started with ${activeBlueprint.name}`} className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r ${activeBlueprint.gradient} hover:opacity-90 transition-all duration-200 shadow-lg`}>
                   Get Started with {activeBlueprint.name}
                   <ArrowRight className="w-4 h-4" />
                 </button>

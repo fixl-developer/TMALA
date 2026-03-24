@@ -133,6 +133,8 @@ function FAQItem({ item, open, onToggle }: { item: typeof faqs[0]; open: boolean
     <div style={{ borderBottom: "1px solid #e0e0e0" }}>
       <button
         onClick={onToggle}
+        data-testid={`btn-faq-toggle-${item.q.slice(0, 30).replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "").toLowerCase()}`}
+        aria-label={open ? `Collapse: ${item.q}` : `Expand: ${item.q}`}
         className="w-full flex items-center justify-between py-7 text-left"
       >
         <span className="text-lg sm:text-xl font-bold pr-6" style={{ color: "#111" }}>
@@ -167,7 +169,7 @@ function FAQItem({ item, open, onToggle }: { item: typeof faqs[0]; open: boolean
 function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   return (
-    <div style={{ borderTop: "1px solid #e0e0e0" }}>
+    <div data-testid="section-faq-accordion" aria-label="FAQ accordion" style={{ borderTop: "1px solid #e0e0e0" }}>
       {faqs.map((faq, i) => (
         <FAQItem
           key={faq.q}
@@ -205,14 +207,14 @@ export default function PricingPage() {
   const [comparisonOpen, setComparisonOpen] = useState(false)
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" data-testid="section-pricing-page" aria-label="Pricing page">
       {/* Pricing Cards */}
       <div style={{ paddingTop: 80 }}>
         <PricingSection />
       </div>
 
       {/* ── Trust Stats ── */}
-      <section className="py-16" style={{ background: "#fff" }}>
+      <section className="py-16" style={{ background: "#fff" }} data-testid="section-trust-stats" aria-label="Trust statistics">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {trustStats.map((stat) => (
@@ -226,7 +228,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── Feature Comparison Table ── */}
-      <section className="py-20" style={{ background: "#f5f5f7" }}>
+      <section className="py-20" style={{ background: "#f5f5f7" }} data-testid="section-feature-comparison" aria-label="Feature comparison">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <p
@@ -248,6 +250,8 @@ export default function PricingPage() {
 
           <button
             onClick={() => setComparisonOpen(!comparisonOpen)}
+            data-testid="btn-toggle-comparison"
+            aria-label={comparisonOpen ? "Hide feature comparison table" : "Show feature comparison table"}
             className="mx-auto flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 mb-8"
             style={{
               background: comparisonOpen ? "#111" : "#fff",
@@ -317,7 +321,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── What's Included in Every Plan ── */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="py-20" style={{ background: "#fff" }} data-testid="section-every-plan-includes" aria-label="Features included in every plan">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
             <p
@@ -366,7 +370,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 lg:py-28" style={{ background: "#f5f5f7" }}>
+      <section className="py-20 lg:py-28" style={{ background: "#f5f5f7" }} data-testid="section-faq" aria-label="Frequently asked questions">
         <div className="max-w-3xl mx-auto px-6 sm:px-8">
           <h2
             className="text-3xl sm:text-4xl lg:text-[2.8rem] font-bold leading-tight text-center mb-14"
@@ -380,7 +384,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="py-20" style={{ background: "#fff" }} data-testid="section-bottom-cta" aria-label="Call to action">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-4" style={{ color: "#111" }}>
             Ready to get started?
@@ -391,6 +395,8 @@ export default function PricingPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             <button
               onClick={() => openAuth()}
+              data-testid="btn-start-free"
+              aria-label="Start free account"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
               style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
             >
@@ -398,6 +404,8 @@ export default function PricingPage() {
             </button>
             <button
               onClick={() => openAuth()}
+              data-testid="btn-contact-sales"
+              aria-label="Contact sales team"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-all duration-200 hover:bg-gray-50"
               style={{ color: "#333", background: "#fff", border: "1px solid #e5e7eb" }}
             >

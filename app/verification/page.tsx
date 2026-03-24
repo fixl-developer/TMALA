@@ -94,11 +94,13 @@ const verifiedRoles = [
 export default function VerificationPage() {
   const { openAuth } = useAuthModal()
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" data-testid="section-verification-page" aria-label="Verification page">
       {/* ───── HERO ───── */}
       <section
         className="relative w-full overflow-hidden py-20 lg:py-28 pt-32"
         style={{ background: "#fff" }}
+        data-testid="section-hero"
+        aria-label="Verification hero"
       >
         {/* Subtle ambient glow */}
         <div
@@ -162,6 +164,8 @@ export default function VerificationPage() {
               background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
               boxShadow: "0 4px 16px rgba(139,92,246,0.3)",
             }}
+            data-testid="btn-hero-join-waitlist"
+            aria-label="Join the Waitlist"
           >
             Join the Waitlist
             <ArrowRight className="w-4 h-4" />
@@ -173,6 +177,8 @@ export default function VerificationPage() {
       <section
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-features"
+        aria-label="Verification features"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
@@ -234,7 +240,7 @@ export default function VerificationPage() {
       </section>
 
       {/* ───── VERIFICATION LEVELS ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section className="py-24 lg:py-28" style={{ background: "#fff" }} data-testid="section-verification-levels" aria-label="Verification levels">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
             <p
@@ -306,6 +312,8 @@ export default function VerificationPage() {
       <section
         className="py-24 lg:py-28"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-who-gets-verified"
+        aria-label="Who gets verified"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
@@ -365,7 +373,7 @@ export default function VerificationPage() {
       </section>
 
       {/* ───── CTA ───── */}
-      <section className="relative py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section className="relative py-24 lg:py-28" style={{ background: "#fff" }} data-testid="section-cta" aria-label="Call to action">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold mb-4"
@@ -388,6 +396,8 @@ export default function VerificationPage() {
               background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
               boxShadow: "0 4px 16px rgba(139,92,246,0.3)",
             }}
+            data-testid="btn-cta-join-waitlist"
+            aria-label="Join the Waitlist"
           >
             Join the Waitlist
             <ArrowRight className="w-4 h-4" />

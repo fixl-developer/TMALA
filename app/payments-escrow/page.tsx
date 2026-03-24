@@ -153,6 +153,8 @@ export default function PaymentsEscrowPage() {
     <main className="min-h-screen">
       {/* ───── HERO SECTION ───── */}
       <section
+        data-testid="section-hero"
+        aria-label="Payments and escrow hero"
         className="relative w-full overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-32"
         style={{ background: "#0a0a0a" }}
       >
@@ -166,7 +168,7 @@ export default function PaymentsEscrowPage() {
           }}
         />
 
-        {/* Emerald glow top-right */}
+        {/* Amber glow top-right */}
         <div
           className="absolute pointer-events-none rounded-full"
           style={{
@@ -175,7 +177,7 @@ export default function PaymentsEscrowPage() {
             top: -100,
             right: -100,
             background:
-              "radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -201,9 +203,9 @@ export default function PaymentsEscrowPage() {
               <div
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-7"
                 style={{
-                  background: "rgba(16,185,129,0.1)",
-                  border: "1px solid rgba(16,185,129,0.2)",
-                  color: "#10b981",
+                  background: "rgba(245,158,11,0.1)",
+                  border: "1px solid rgba(245,158,11,0.2)",
+                  color: "#f59e0b",
                 }}
               >
                 <CreditCard className="w-3 h-3" />
@@ -217,7 +219,7 @@ export default function PaymentsEscrowPage() {
                   transparent escrow
                 </span>
                 <br />
-                <span style={{ color: "#10b981" }}>
+                <span style={{ color: "#f59e0b" }}>
                   built for talent management.
                 </span>
               </h1>
@@ -234,10 +236,12 @@ export default function PaymentsEscrowPage() {
               <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => openAuth()}
+                  data-testid="btn-hero-join-waitlist"
+                  aria-label="Join the waitlist"
                   className="inline-flex items-center gap-2 font-bold px-7 py-3.5 text-sm rounded-full text-white hover:scale-[1.02] transition-all duration-200"
                   style={{
-                    background: "#10b981",
-                    boxShadow: "0 4px 24px rgba(16,185,129,0.35)",
+                    background: "#f59e0b",
+                    boxShadow: "0 4px 24px rgba(245,158,11,0.35)",
                   }}
                 >
                   Join Waitlist
@@ -255,7 +259,7 @@ export default function PaymentsEscrowPage() {
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%)",
+                      "radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)",
                     filter: "blur(40px)",
                   }}
                 />
@@ -264,9 +268,9 @@ export default function PaymentsEscrowPage() {
                 <div
                   className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl flex items-center justify-center"
                   style={{
-                    background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                    background: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
                     boxShadow:
-                      "0 20px 60px rgba(16,185,129,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset",
+                      "0 20px 60px rgba(245,158,11,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset",
                     transform: "rotate(-5deg)",
                   }}
                 >
@@ -344,21 +348,80 @@ export default function PaymentsEscrowPage() {
       </section>
 
       {/* ───── VIDEO SHOWCASE SECTION ───── */}
-      <section className="relative w-full overflow-hidden">
-        <video
-          className="w-full h-auto block"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/escrow.mp4" type="video/mp4" />
-        </video>
+      <section data-testid="section-video-showcase" aria-label="Video showcase" className="relative w-full overflow-hidden py-14 lg:py-18" style={{ background: "#fff" }}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[35%_1fr] gap-8 items-center">
+            {/* Left: Feature Cards */}
+            <div className="flex flex-col gap-5">
+              {[
+                {
+                  icon: Wallet,
+                  title: "Digital Wallets",
+                  desc: "Every talent, agency, and client gets a dedicated wallet with real-time balance tracking.",
+                  bg: "#f3e8ff",
+                  color: "#7c3aed",
+                },
+                {
+                  icon: Lock,
+                  title: "Milestone Escrow",
+                  desc: "Funds stay locked until deliverables are approved — protecting both parties.",
+                  bg: "#dbeafe",
+                  color: "#2563eb",
+                },
+                {
+                  icon: BadgeDollarSign,
+                  title: "Auto Commission Split",
+                  desc: "Agency commissions, talent fees, and platform charges split automatically.",
+                  bg: "#fef9c3",
+                  color: "#ca8a04",
+                },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-6 flex items-start gap-4"
+                  style={{ background: card.bg }}
+                >
+                  <span
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-xl shrink-0"
+                    style={{ background: `${card.color}18` }}
+                  >
+                    <card.icon className="w-5 h-5" style={{ color: card.color }} />
+                  </span>
+                  <div>
+                    <h3 className="text-[16px] font-bold mb-1" style={{ color: "#111" }}>
+                      {card.title}
+                    </h3>
+                    <p className="text-[13px] leading-relaxed" style={{ color: "#444" }}>
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right: Video */}
+            <div className="rounded-2xl overflow-hidden">
+              <video
+                data-testid="video-escrow"
+                aria-label="Escrow payment flow demo"
+                className="w-full h-auto block rounded-2xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src="/escrow.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ───── SECTION 2: Key Features Grid ───── */}
       <section
-        className="relative py-24 lg:py-28 overflow-hidden"
+        data-testid="section-key-features"
+        aria-label="Key features"
+        className="relative py-14 lg:py-18 overflow-hidden"
         style={{ background: "#f5f5f7" }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -416,7 +479,7 @@ export default function PaymentsEscrowPage() {
       </section>
 
       {/* ───── SECTION 3: Escrow Process Flow ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section data-testid="section-escrow-flow" aria-label="Escrow process flow" className="py-14 lg:py-18" style={{ background: "#fff" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -476,7 +539,9 @@ export default function PaymentsEscrowPage() {
 
       {/* ───── SECTION 4: Payment Methods ───── */}
       <section
-        className="relative py-24 lg:py-28 overflow-hidden"
+        data-testid="section-payment-methods"
+        aria-label="Payment methods"
+        className="relative py-14 lg:py-18 overflow-hidden"
         style={{ background: "#f5f5f7" }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -548,7 +613,7 @@ export default function PaymentsEscrowPage() {
       </section>
 
       {/* ───── SECTION 5: Escrow Tiers ───── */}
-      <section className="py-24 lg:py-28" style={{ background: "#fff" }}>
+      <section data-testid="section-escrow-tiers" aria-label="Escrow tiers" className="py-14 lg:py-18" style={{ background: "#fff" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -619,35 +684,53 @@ export default function PaymentsEscrowPage() {
 
       {/* ───── SECTION 6: CTA ───── */}
       <section
-        className="relative py-24 lg:py-28"
-        style={{ background: "#f5f5f7" }}
+        data-testid="section-cta"
+        aria-label="Call to action"
+        className="relative py-10 lg:py-12 overflow-hidden"
+        style={{ background: "#f59e0b" }}
       >
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-bold mb-4"
-            style={{ color: "#111" }}
-          >
-            Ready to simplify your{" "}
-            <span style={{ color: "#10b981" }}>payments?</span>
+        {/* Decorative drips */}
+        <div className="absolute top-0 left-[15%] w-1 h-12 rounded-b-full" style={{ background: "rgba(255,255,255,0.15)" }} />
+        <div className="absolute top-0 left-[50%] w-1 h-8 rounded-b-full" style={{ background: "rgba(255,255,255,0.1)" }} />
+        <div className="absolute top-0 right-[20%] w-1 h-16 rounded-b-full" style={{ background: "rgba(255,255,255,0.12)" }} />
+
+        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+            Get Started for Free!
           </h2>
           <p
             className="text-sm leading-relaxed mb-8"
-            style={{ color: "#555" }}
+            style={{ color: "rgba(255,255,255,0.85)" }}
           >
             Join the waitlist and be among the first to experience secure
             payments and escrow built for talent agencies.
           </p>
-          <button
-            onClick={() => openAuth()}
-            className="inline-flex items-center gap-2 font-bold px-8 py-3.5 text-sm rounded-full text-white hover:scale-[1.02] transition-all duration-200"
-            style={{
-              background: "#10b981",
-              boxShadow: "0 4px 16px rgba(16,185,129,0.3)",
-            }}
-          >
-            Join the Waitlist
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => openAuth()}
+              data-testid="btn-cta-join-waitlist"
+              aria-label="Join the waitlist"
+              className="inline-flex items-center gap-2 font-bold px-8 py-3.5 text-sm rounded-full hover:scale-[1.02] transition-all duration-200"
+              style={{
+                background: "#111",
+                color: "#fff",
+              }}
+            >
+              Join the Waitlist
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => openAuth()}
+              className="inline-flex items-center gap-2 font-bold px-8 py-3.5 text-sm rounded-full hover:scale-[1.02] transition-all duration-200"
+              style={{
+                background: "transparent",
+                color: "#fff",
+                border: "2px solid #fff",
+              }}
+            >
+              Learn More
+            </button>
+          </div>
         </div>
       </section>
     </main>

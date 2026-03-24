@@ -14,7 +14,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ background: "#fff", minHeight: "92vh" }}>
+    <section data-testid="section-hero" className="relative w-full overflow-hidden" style={{ background: "#fff", minHeight: "92vh" }}>
       {/* Subtle ambient glow */}
       <div
         className="absolute z-[1] rounded-full pointer-events-none"
@@ -65,14 +65,18 @@ export function HeroSection() {
               style={{ transitionDelay: "0.4s" }}
             >
               <button
+                data-testid="btn-get-started"
+                aria-label="Get Started Free"
                 onClick={() => openAuth("signup")}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white hover:scale-[1.02] transition-all duration-200"
                 style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
               >
                 Get Started Free
               </button>
-              <Link href="/#features">
+              <Link href="/#features" data-testid="link-see-features">
                 <button
+                  data-testid="btn-see-features"
+                  aria-label="See Features"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-all duration-200 hover:bg-gray-50"
                   style={{ color: "#333", background: "#fff", border: "1px solid #e5e7eb" }}
                 >

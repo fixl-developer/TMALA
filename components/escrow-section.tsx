@@ -292,7 +292,7 @@ export function EscrowSection() {
   ]
 
   return (
-    <section id="escrow" className="relative bg-white py-28 overflow-hidden">
+    <section id="escrow" data-testid="section-escrow" aria-label="Escrow secure payment system" className="relative bg-white py-28 overflow-hidden">
       <div className="mx-auto max-w-full">
         {/* Header */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 mb-20 text-center">
@@ -375,6 +375,7 @@ export function EscrowSection() {
                 setIsTransitioning(true)
                 setCurrentIndex(idx)
               }}
+              data-testid={`btn-escrow-step-${idx + 1}`}
               className={`h-1 rounded-full transition-all duration-500 ${idx === (currentIndex % totalOriginalSteps) ? 'w-12 bg-amber-400' : 'w-4 bg-gray-200 hover:bg-gray-300'}`}
               aria-label={`Go to step ${idx + 1}`}
             />

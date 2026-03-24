@@ -503,12 +503,12 @@ export default function TalentsPage() {
   }, [])
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" data-testid="section-talents-page" aria-label="Talents page">
       {/* ───── VIDEO BANNER SLIDER ───── */}
       <VideoBannerSlider />
 
       {/* ───── SECTION 1: Intro — Light ───── */}
-      <section className="relative w-full overflow-hidden py-20 lg:py-28" style={{ background: "#fff" }}>
+      <section className="relative w-full overflow-hidden py-20 lg:py-28" style={{ background: "#fff" }} data-testid="section-intro" aria-label="Introduction">
         {/* Subtle ambient glow */}
         <div
           className="absolute z-[1] rounded-full pointer-events-none"
@@ -551,14 +551,19 @@ export default function TalentsPage() {
             <Button
               className="font-bold px-7 py-3.5 text-sm rounded-full h-auto text-white hover:scale-[1.02] transition-all duration-200"
               style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
+              data-testid="btn-create-talent-profile"
+              aria-label="Create Talent Profile"
             >
               Create Talent Profile
             </Button>
+
             <Button
               variant="outline"
               className="font-semibold px-7 py-3.5 text-sm rounded-full h-auto inline-flex items-center gap-2 hover:bg-gray-50 transition-all duration-200"
               style={{ color: "#333", background: "#fff", border: "1px solid #e5e7eb" }}
               onClick={scrollToNext}
+              data-testid="btn-explore-opportunities"
+              aria-label="Explore Opportunities"
             >
               Explore Opportunities
               <ArrowRight className="w-3.5 h-3.5" />
@@ -582,6 +587,8 @@ export default function TalentsPage() {
         ref={nextSectionRef}
         className="relative py-24 lg:py-28"
         style={{ background: "#fff" }}
+        data-testid="section-talent-spectrum"
+        aria-label="Talent spectrum"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -605,6 +612,8 @@ export default function TalentsPage() {
       <section
         className="relative py-24 lg:py-28 overflow-hidden"
         style={{ background: "#f5f5f7" }}
+        data-testid="section-career-features"
+        aria-label="Career features"
       >
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -682,6 +691,8 @@ export default function TalentsPage() {
         ref={benefitsSectionRef}
         className="py-24 lg:py-28"
         style={{ background: "#fff" }}
+        data-testid="section-benefits"
+        aria-label="Benefits"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
@@ -759,6 +770,8 @@ export default function TalentsPage() {
                 size="lg"
                 className="font-bold px-8 h-12 rounded-full text-sm text-white"
                 style={{ background: "#6366f1" }}
+                data-testid="btn-create-your-profile"
+                aria-label="Create Your Profile"
               >
                 Create Your Profile
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -815,7 +828,7 @@ export default function TalentsPage() {
       </section>
 
       {/* ───── SECTION 5: CTA — Light ───── */}
-      <section className="relative py-24 lg:py-28" style={{ background: "#f8f8fa" }}>
+      <section className="relative py-24 lg:py-28" style={{ background: "#f8f8fa" }} data-testid="section-cta" aria-label="Call to action">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#111" }}>
             Your career starts{" "}
@@ -834,6 +847,8 @@ export default function TalentsPage() {
               size="lg"
               className="rounded-full px-8 py-6 text-sm font-bold text-white hover:scale-[1.02] transition-all duration-200"
               style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
+              data-testid="btn-create-free-profile"
+              aria-label="Create Free Profile"
             >
               Create Free Profile
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -847,6 +862,8 @@ export default function TalentsPage() {
                 color: "#333",
                 background: "#fff",
               }}
+              data-testid="btn-explore-agencies"
+              aria-label="Explore Agencies"
             >
               Explore Agencies
               <ChevronRight className="ml-1 w-4 h-4" />

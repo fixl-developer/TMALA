@@ -76,6 +76,9 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
 
           {/* Card */}
           <div
+            data-testid="modal-auth"
+            aria-label="Authentication modal"
+            role="dialog"
             className="relative z-10 w-full max-w-[400px] rounded-2xl overflow-hidden"
             style={{
               background: "#fff",
@@ -86,6 +89,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
             {/* Close button */}
             <button
               onClick={closeAuth}
+              data-testid="btn-close"
+              aria-label="Close authentication modal"
               className="absolute top-3 right-3 z-20 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-gray-100"
             >
               <X size={14} style={{ color: "#666" }} />
@@ -113,6 +118,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
               {/* Social buttons */}
               <div className="grid grid-cols-2 gap-2.5 mb-4">
                 <button
+                  data-testid="btn-google"
+                  aria-label="Continue with Google"
                   className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-[12px] font-semibold transition-all hover:bg-gray-50"
                   style={{ border: "1.5px solid #e5e7eb", color: "#333" }}
                 >
@@ -125,6 +132,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                   Google
                 </button>
                 <button
+                  data-testid="btn-apple"
+                  aria-label="Continue with Apple"
                   className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-[12px] font-semibold transition-all hover:bg-gray-50"
                   style={{ border: "1.5px solid #e5e7eb", color: "#333" }}
                 >
@@ -151,6 +160,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                     </label>
                     <input
                       type="text"
+                      data-testid="input-fullname"
+                      aria-label="Full name"
                       placeholder="Enter your full name"
                       className="w-full px-3.5 py-2.5 rounded-lg text-[13px] outline-none transition-all focus:ring-2 focus:ring-violet-500/20"
                       style={{ border: "1.5px solid #e5e7eb", color: "#111", background: "#fafafa" }}
@@ -168,6 +179,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                     <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#999" }} />
                     <input
                       type="email"
+                      data-testid="input-email"
+                      aria-label="Email address"
                       placeholder="you@example.com"
                       className="w-full pl-9 pr-3.5 py-2.5 rounded-lg text-[13px] outline-none transition-all focus:ring-2 focus:ring-violet-500/20"
                       style={{ border: "1.5px solid #e5e7eb", color: "#111", background: "#fafafa" }}
@@ -183,7 +196,7 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                       Password
                     </label>
                     {view === "signin" && (
-                      <button type="button" className="text-[11px] font-semibold" style={{ color: "#7c3aed" }}>
+                      <button type="button" data-testid="btn-forgot-password" aria-label="Forgot password" className="text-[11px] font-semibold" style={{ color: "#7c3aed" }}>
                         Forgot?
                       </button>
                     )}
@@ -192,6 +205,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                     <Lock size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#999" }} />
                     <input
                       type={showPassword ? "text" : "password"}
+                      data-testid="input-password"
+                      aria-label="Password"
                       placeholder={view === "signin" ? "Enter password" : "Create a password"}
                       className="w-full pl-9 pr-10 py-2.5 rounded-lg text-[13px] outline-none transition-all focus:ring-2 focus:ring-violet-500/20"
                       style={{ border: "1.5px solid #e5e7eb", color: "#111", background: "#fafafa" }}
@@ -200,6 +215,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
                     />
                     <button
                       type="button"
+                      data-testid="btn-toggle-password"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5"
                     >
@@ -213,6 +230,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
 
                 <button
                   type="submit"
+                  data-testid="btn-submit"
+                  aria-label={view === "signin" ? "Sign in" : "Create account"}
                   className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-[13px] font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
                   style={{ background: "linear-gradient(135deg, #7c3aed, #6366f1)" }}
                 >
@@ -225,6 +244,8 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
               <p className="text-center text-[12px] mt-4" style={{ color: "#666" }}>
                 {view === "signin" ? "Don't have an account? " : "Already have an account? "}
                 <button
+                  data-testid="btn-toggle-view"
+                  aria-label={view === "signin" ? "Switch to sign up" : "Switch to sign in"}
                   onClick={() => { setView(view === "signin" ? "signup" : "signin"); setShowPassword(false) }}
                   className="font-bold transition-colors hover:underline"
                   style={{ color: "#7c3aed" }}
@@ -235,9 +256,9 @@ export function AuthModalProvider({ children }: { children: React.ReactNode }) {
               {view === "signup" && (
                 <p className="text-center text-[10px] mt-2" style={{ color: "#aaa" }}>
                   By continuing, you agree to our{" "}
-                  <a href="/terms" className="underline hover:text-gray-600">Terms</a>
+                  <a href="/terms" data-testid="link-terms" className="underline hover:text-gray-600">Terms</a>
                   {" & "}
-                  <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>
+                  <a href="/privacy" data-testid="link-privacy" className="underline hover:text-gray-600">Privacy Policy</a>
                 </p>
               )}
             </div>

@@ -15,6 +15,8 @@ function MiniTopBar() {
   const { openAuth } = useAuthModal()
   return (
     <div
+      data-testid="section-mini-top-bar"
+      aria-label="Mini top bar"
       className="flex items-center justify-between px-4 sm:px-8 py-3"
       style={{ background: "#0a0a0a", borderBottom: "1px solid rgba(255,255,255,0.04)" }}
     >
@@ -27,8 +29,10 @@ function MiniTopBar() {
         </span>
       </div>
       <div className="flex items-center gap-3">
-        <button onClick={() => openAuth("signin")} className="text-[13px] text-white/60 hover:text-white transition-colors">Login</button>
+        <button data-testid="btn-login" aria-label="Login" onClick={() => openAuth("signin")} className="text-[13px] text-white/60 hover:text-white transition-colors">Login</button>
         <button
+          data-testid="btn-signup"
+          aria-label="Sign up"
           onClick={() => openAuth("signup")}
           className="text-[13px] font-bold px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
           style={{ background: "#c8ff00", color: "#000" }}
@@ -58,12 +62,13 @@ function QuickToolsRow() {
     { label: "Pricing", href: "/ai-features/pricing" },
   ]
   return (
-    <div className="overflow-x-auto scrollbar-none px-4 sm:px-8 py-3" style={{ background: "#0a0a0a" }}>
+    <div data-testid="section-quick-tools" aria-label="Quick tools navigation" className="overflow-x-auto scrollbar-none px-4 sm:px-8 py-3" style={{ background: "#0a0a0a" }}>
       <div className="flex items-center gap-2 min-w-max">
         {tools.map((tool, i) => (
           <a
             key={tool.label}
             href={tool.href}
+            data-testid={`link-tool-${tool.label.toLowerCase().replace(/[\s&]+/g, "-")}`}
             className="px-4 py-2 rounded-lg text-[13px] font-medium whitespace-nowrap transition-colors"
             style={{
               background: i === 0 ? "#c8ff00" : "rgba(255,255,255,0.05)",
@@ -82,13 +87,14 @@ function QuickToolsRow() {
 /* ─── Featured tool cards (Portfolio Builder + Smart Matching) ─── */
 function FeaturedToolCards() {
   return (
-    <section id="explore" className="py-8 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
+    <section id="explore" data-testid="section-featured-tools" aria-label="Featured tool cards" className="py-8 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
       <div className="max-w-[1440px] mx-auto">
         {/* Two big featured cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
           {/* Portfolio Builder */}
           <a
             href="/ai-features/portfolio-builder"
+            data-testid="link-portfolio-builder"
             className="relative rounded-2xl overflow-hidden group cursor-pointer block"
             style={{ minHeight: 320 }}
           >
@@ -115,6 +121,7 @@ function FeaturedToolCards() {
           {/* Smart Matching */}
           <a
             href="/ai-features/casting"
+            data-testid="link-smart-matching"
             className="relative rounded-2xl overflow-hidden group cursor-pointer block"
             style={{ minHeight: 320 }}
           >
@@ -150,6 +157,7 @@ function FeaturedToolCards() {
             <a
               key={i}
               href={card.href}
+              data-testid={`link-tool-card-${card.title.replace(/\n/g, "-").toLowerCase()}`}
               className="relative rounded-2xl overflow-hidden group cursor-pointer block"
               style={{ minHeight: 220 }}
             >
@@ -180,7 +188,7 @@ function FeaturedToolCards() {
 function CTAFooter() {
   const { openAuth } = useAuthModal()
   return (
-    <section className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
+    <section data-testid="section-cta-footer" aria-label="Call to action" className="py-20 px-4 sm:px-8" style={{ background: "#0a0a0a" }}>
       <div className="max-w-3xl mx-auto text-center">
         <div
           className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-8"
@@ -195,6 +203,8 @@ function CTAFooter() {
           Join talents and agencies using AI Studio to build portfolios, nail auditions, and win more roles.
         </p>
         <button
+          data-testid="btn-get-started"
+          aria-label="Get started for free"
           onClick={() => openAuth()}
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold transition-all hover:scale-[1.03]"
           style={{ background: "#c8ff00", color: "#000" }}
@@ -245,7 +255,7 @@ function Footer() {
   }
 
   return (
-    <footer style={{ background: "#c8ff00" }}>
+    <footer data-testid="section-footer" aria-label="Site footer" style={{ background: "#c8ff00" }}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] gap-10 mb-12">
           {/* Left: Big headline */}
@@ -266,7 +276,7 @@ function Footer() {
               <ul className="space-y-2.5">
                 {links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-[13px] text-black/70 hover:text-black transition-colors font-medium">
+                    <a href={l.href} data-testid={`link-footer-${l.label.toLowerCase().replace(/[\s&]+/g, "-")}`} className="text-[13px] text-black/70 hover:text-black transition-colors font-medium">
                       {l.label}
                     </a>
                   </li>
@@ -287,7 +297,7 @@ function Footer() {
           </div>
           <div className="flex items-center gap-4">
             {["Privacy", "Terms", "Trust & Safety", "Cookies"].map((item) => (
-              <a key={item} href="#" className="text-[11px] text-black/50 hover:text-black transition-colors font-medium">
+              <a key={item} href="#" data-testid={`link-footer-${item.toLowerCase().replace(/[\s&]+/g, "-")}`} className="text-[11px] text-black/50 hover:text-black transition-colors font-medium">
                 {item}
               </a>
             ))}
@@ -303,7 +313,7 @@ function Footer() {
    ═══════════════════════════════════════════════════════════════════════════ */
 export default function AIFeaturesPage() {
   return (
-    <div className="min-h-screen" style={{ background: "#0a0a0a", color: "#fff" }}>
+    <div data-testid="section-ai-features-page" aria-label="AI Features page" className="min-h-screen" style={{ background: "#0a0a0a", color: "#fff" }}>
       {/* Feature pills — always visible below main header */}
       <AIStudioStickyHeader />
 
