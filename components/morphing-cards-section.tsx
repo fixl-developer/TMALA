@@ -43,7 +43,7 @@ const pillars = [
 
 export function MorphingCardsSection() {
   return (
-    <section className="relative w-full py-28 overflow-hidden" style={{ background: "#fafafa" }}>
+    <section data-testid="section-morphing-cards" aria-label="Morphing cards" className="relative w-full py-28 overflow-hidden" style={{ background: "#fafafa" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -136,6 +136,8 @@ export function MorphingCardsSection() {
 
                   {/* CTA */}
                   <button
+                    data-testid={`btn-explore-${p.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    aria-label={`Explore ${p.title}`}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold self-start opacity-60 group-hover:opacity-100 transition-all duration-300"
                     style={{ color: p.accentColor }}
                   >

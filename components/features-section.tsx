@@ -485,6 +485,8 @@ export function FeaturesSection() {
     <section
       ref={containerRef}
       id="features"
+      data-testid="section-features"
+      aria-label="Features"
       className="relative"
       style={{ color: "#111", background: "#fff" }}
     >
@@ -539,6 +541,8 @@ export function FeaturesSection() {
 
                   {/* CTA */}
                   <button
+                    data-testid={`btn-get-started-${f.label.toLowerCase()}`}
+                    aria-label={`Get Started with ${f.label}`}
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                     style={{ background: f.accent }}
                   >

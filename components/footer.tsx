@@ -96,7 +96,7 @@ export function Footer() {
   if (pathname.startsWith("/ai-features")) return null
 
   return (
-    <footer style={{ background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+    <footer data-testid="footer" aria-label="Site footer" style={{ background: "#fff", borderTop: "1px solid #e5e7eb" }}>
       {/* ── Main Footer ── */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Top: Brand + Link columns (Monday.com style) */}
@@ -148,6 +148,8 @@ export function Footer() {
             {/* CTA */}
             <button
               onClick={() => openAuth()}
+              data-testid="btn-get-started"
+              aria-label="Get Started"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
               style={{
                 background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -175,6 +177,8 @@ export function Footer() {
                       {link.href === "/#waitlist" ? (
                         <button
                           onClick={() => openAuth()}
+                          data-testid={`btn-${link.label.toLowerCase().replace(/\s+/g, "-").replace(/[&]/g, "and")}`}
+                          aria-label={link.label}
                           className="text-[13px] leading-relaxed transition-colors duration-200 hover:text-[#6366f1]"
                           style={{ color: "#555" }}
                         >
@@ -183,6 +187,7 @@ export function Footer() {
                       ) : (
                         <Link
                           href={link.href}
+                          data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, "-").replace(/[&]/g, "and")}`}
                           className="text-[13px] leading-relaxed transition-colors duration-200 hover:text-[#6366f1]"
                           style={{ color: "#555" }}
                         >
@@ -213,6 +218,8 @@ export function Footer() {
                   <button
                     key={item}
                     onClick={() => openAuth()}
+                    data-testid={`btn-${item.toLowerCase()}`}
+                    aria-label={item}
                     className="text-xs transition-colors duration-200 hover:text-[#6366f1]"
                     style={{ color: "#555" }}
                   >
@@ -228,6 +235,7 @@ export function Footer() {
                 <button
                   key={social.label}
                   onClick={() => openAuth()}
+                  data-testid={`btn-${social.label.toLowerCase()}`}
                   aria-label={social.label}
                   className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200 hover:bg-gray-100 hover:scale-105"
                   style={{

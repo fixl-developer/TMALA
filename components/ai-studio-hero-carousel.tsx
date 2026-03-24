@@ -150,6 +150,8 @@ export function AIStudioHeroCarousel() {
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
+          data-testid="btn-scroll-right"
+          aria-label="Scroll carousel right"
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
           style={{ background: "rgba(200,255,0,0.9)", color: "#000" }}
         >

@@ -192,7 +192,7 @@ export function StatsSection() {
   const view = dashboardViews[selected]
 
   return (
-    <section className="relative z-10 py-20 overflow-hidden bg-white">
+    <section data-testid="section-stats" aria-label="Stats and product showcase" className="relative z-10 py-20 overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* ── Interactive Product Showcase (Monday.com style) ── */}
@@ -385,6 +385,8 @@ export function StatsSection() {
                   return (
                     <button
                       key={opt.key}
+                      data-testid={`btn-explore-${opt.key}`}
+                      aria-label={`Explore ${opt.label}`}
                       onClick={() => handleSelect(opt.key)}
                       className="relative flex flex-col items-center gap-2 py-4 px-2 rounded-xl transition-all duration-200 text-center"
                       style={{
@@ -413,6 +415,8 @@ export function StatsSection() {
 
               {/* CTA */}
               <button
+                data-testid="btn-get-started"
+                aria-label="Get Started"
                 onClick={() => openAuth()}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
                 style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}
@@ -455,6 +459,8 @@ export function StatsSection() {
                   return (
                     <button
                       key={opt.key}
+                      data-testid={`btn-explore-mobile-${opt.key}`}
+                      aria-label={`Explore ${opt.label}`}
                       onClick={() => handleSelect(opt.key)}
                       className="flex flex-col items-center gap-1.5 py-3 rounded-xl transition-all duration-200"
                       style={{
@@ -469,6 +475,8 @@ export function StatsSection() {
                 })}
               </div>
               <button
+                data-testid="btn-get-started-mobile"
+                aria-label="Get Started"
                 onClick={() => openAuth()}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-white"
                 style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}

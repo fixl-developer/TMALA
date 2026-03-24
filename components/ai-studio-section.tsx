@@ -170,6 +170,8 @@ export function AIStudioSection() {
   return (
     <section
       id="ai-studio"
+      data-testid="section-ai-studio"
+      aria-label="AI Studio"
       className="relative overflow-hidden py-28"
       style={{
         background: "#f5f5f7",
@@ -335,14 +337,14 @@ export function AIStudioSection() {
         {/* CTA */}
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4">
-            <Link href="/ai-features">
-              <button className="flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-sm hover:from-violet-500 hover:to-indigo-500 hover:scale-105 transition-all duration-200 shadow-[0_8px_32px_rgba(139,92,246,0.4)]">
+            <Link href="/ai-features" data-testid="link-explore-ai-studio">
+              <button data-testid="btn-explore-ai-studio" aria-label="Explore AI Studio" className="flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-sm hover:from-violet-500 hover:to-indigo-500 hover:scale-105 transition-all duration-200 shadow-[0_8px_32px_rgba(139,92,246,0.4)]">
                 <Sparkles className="h-4 w-4" />
                 Explore AI Studio
                 <ArrowRight className="h-4 w-4" />
               </button>
             </Link>
-            <button onClick={() => openAuth()} className="flex items-center gap-2 px-8 py-4 rounded-full border border-gray-300 font-medium text-sm hover:border-gray-400 transition-all duration-200" style={{ color: "#555" }}>
+            <button data-testid="btn-join-waitlist" aria-label="Join Waitlist for Early Access" onClick={() => openAuth()} className="flex items-center gap-2 px-8 py-4 rounded-full border border-gray-300 font-medium text-sm hover:border-gray-400 transition-all duration-200" style={{ color: "#555" }}>
               <Zap className="h-4 w-4" />
               Join Waitlist for Early Access
             </button>

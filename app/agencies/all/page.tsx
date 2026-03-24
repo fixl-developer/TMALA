@@ -140,9 +140,9 @@ export default function AllAgenciesPage() {
   const currentSlide = HERO_SLIDES[activeSlide]
 
   return (
-    <main className="min-h-screen bg-white" style={{ paddingTop: "4rem" }}>
+    <main className="min-h-screen bg-white" style={{ paddingTop: "4rem" }} data-testid="section-all-agencies" aria-label="All agencies page">
       {/* ───── SECTION 1: Full-width Video Banner ───── */}
-      <section className="relative w-full overflow-hidden" style={{ background: "#08080a" }}>
+      <section className="relative w-full overflow-hidden" style={{ background: "#08080a" }} data-testid="section-hero-banner" aria-label="Hero video banner">
         {/* Background video — hidden controls, no URL visible */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
@@ -183,6 +183,8 @@ export default function AllAgenciesPage() {
                   <button
                     key={slide.key}
                     onClick={() => goToSlide(i)}
+                    data-testid={`btn-hero-slide-${slide.key}`}
+                    aria-label={`View ${slide.label} category`}
                     className="relative px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 overflow-hidden"
                     style={{
                       background: isActive ? slide.accent : "rgba(255,255,255,0.08)",
@@ -225,6 +227,8 @@ export default function AllAgenciesPage() {
             <div className="flex flex-wrap gap-3 justify-center">
               <button
                 onClick={() => openAuth()}
+                data-testid="btn-hero-start-free-trial"
+                aria-label="Start free trial"
                 className="inline-flex items-center gap-2 font-bold px-7 py-3 text-sm rounded-full text-white transition-all duration-200 hover:scale-[1.02]"
                 style={{
                   background: currentSlide.accent,
@@ -236,6 +240,7 @@ export default function AllAgenciesPage() {
               </button>
               <Link
                 href="#agencies-grid"
+                data-testid="link-browse-all-types"
                 className="inline-flex items-center gap-2 font-bold px-7 py-3 text-sm rounded-full transition-all duration-200 hover:scale-[1.02]"
                 style={{
                   background: "rgba(255,255,255,0.1)",
@@ -254,7 +259,7 @@ export default function AllAgenciesPage() {
       </section>
 
       {/* ───── SECTION 2: Category Filters + Grid — Dark ───── */}
-      <section id="agencies-grid" className="relative py-20 lg:py-28" style={{ background: "#08080a" }}>
+      <section id="agencies-grid" className="relative py-20 lg:py-28" style={{ background: "#08080a" }} data-testid="section-agencies-grid" aria-label="Agency types grid">
         {/* Grid pattern */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -270,6 +275,8 @@ export default function AllAgenciesPage() {
           <div className="flex flex-wrap items-center gap-2 mb-12">
             <button
               onClick={() => setActiveCategory(null)}
+              data-testid="btn-filter-all-types"
+              aria-label="Show all agency types"
               className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
               style={{
                 background: !activeCategory
@@ -299,6 +306,8 @@ export default function AllAgenciesPage() {
                   onClick={() =>
                     setActiveCategory(isActive ? null : cat.key)
                   }
+                  data-testid={`btn-filter-${cat.key}`}
+                  aria-label={`Filter by ${cat.label}`}
                   className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                   style={{
                     background: isActive ? hex : "rgba(255,255,255,0.04)",
@@ -326,6 +335,7 @@ export default function AllAgenciesPage() {
                 <Link
                   key={agency.slug}
                   href={getAgencyHref(agency.slug)}
+                  data-testid={`link-agency-${agency.slug}`}
                   className="group rounded-xl p-5 flex flex-col transition-all duration-300"
                   style={{
                     background: "rgba(255,255,255,0.02)",
@@ -431,7 +441,7 @@ export default function AllAgenciesPage() {
       </section>
 
       {/* ───── SECTION 3: Why TalentOS — White ───── */}
-      <section className="relative py-20 lg:py-28" style={{ background: "#fff" }}>
+      <section className="relative py-20 lg:py-28" style={{ background: "#fff" }} data-testid="section-why-talentos" aria-label="Why TalentOS">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p
@@ -517,7 +527,7 @@ export default function AllAgenciesPage() {
       </section>
 
       {/* ───── SECTION 4: CTA — Dark ───── */}
-      <section className="relative py-24" style={{ background: "#0a0a0a" }}>
+      <section className="relative py-24" style={{ background: "#0a0a0a" }} data-testid="section-cta" aria-label="Call to action">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Ready to transform your{" "}
@@ -533,16 +543,20 @@ export default function AllAgenciesPage() {
             <Button
               onClick={() => openAuth()}
               size="lg"
+              data-testid="btn-cta-start-free-trial"
+              aria-label="Start free trial"
               className="rounded-xl px-8 py-6 text-sm font-semibold text-white"
               style={{ background: "#6366f1" }}
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Link href="/">
+            <Link href="/" data-testid="link-back-to-home">
               <Button
                 size="lg"
                 variant="outline"
+                data-testid="btn-back-to-home"
+                aria-label="Back to home"
                 className="rounded-xl px-8 py-6 text-sm font-semibold"
                 style={{
                   borderColor: "rgba(255,255,255,0.15)",

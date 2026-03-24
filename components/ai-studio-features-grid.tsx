@@ -78,6 +78,8 @@ export function AIStudioFeaturesGrid() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
+              data-testid={`btn-category-${category.toLowerCase().replace(/\s+/g, "-")}`}
+              aria-label={`Filter by ${category}`}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-white/10 text-white border border-white/20"
@@ -122,7 +124,11 @@ export function AIStudioFeaturesGrid() {
                 
                 {/* Action Buttons */}
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <button className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:bg-black/80 transition-colors">
+                  <button
+                    data-testid={`btn-info-${feature.id}`}
+                    aria-label={`More info about ${feature.title}`}
+                    className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:bg-black/80 transition-colors"
+                  >
                     <Info className="w-4 h-4 text-white" />
                   </button>
                 </div>
@@ -130,6 +136,8 @@ export function AIStudioFeaturesGrid() {
                 {/* Try It Button */}
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                   <Button
+                    data-testid={`btn-try-${feature.id}`}
+                    aria-label={`Try ${feature.title}`}
                     className="bg-black/80 backdrop-blur-md hover:bg-black text-white rounded-full px-6 py-2 text-sm font-medium border border-white/10 transition-all duration-300 group-hover:scale-105"
                   >
                     Try it
@@ -175,7 +183,7 @@ export function AIStudioFeaturesGrid() {
             <div className="space-y-4 text-gray-200 text-lg leading-relaxed">
               <p>
                 Create stunning and professional videos effortlessly with{" "}
-                <button onClick={() => openAuth()} className="text-[#00d4aa] hover:underline font-medium">
+                <button onClick={() => openAuth()} data-testid="btn-cta-multi-talent-agency" aria-label="Sign up for Multi Talent Agency" className="text-[#00d4aa] hover:underline font-medium">
                   Multi Talent Agency
                 </button>
                 's free AI video generator. Transform your creative visions into video content in minutes.
@@ -183,18 +191,18 @@ export function AIStudioFeaturesGrid() {
               
               <p>
                 Multi Talent Agency's{" "}
-                <button onClick={() => openAuth()} className="text-[#00d4aa] hover:underline font-medium">
+                <button onClick={() => openAuth()} data-testid="btn-cta-image-to-video" aria-label="Try image to video generator" className="text-[#00d4aa] hover:underline font-medium">
                   image to video generator
                 </button>
                 {" "}allows you to breathe life into your static photos. By uploading an image and providing a short prompt, our AI video maker will generate a dynamic video that brings movement and emotion to your still image in minutes. No video editing experience is needed, get professional-looking videos and{" "}
-                <button onClick={() => openAuth()} className="text-[#00d4aa] hover:underline font-medium">
+                <button onClick={() => openAuth()} data-testid="btn-cta-gifs-from-images" aria-label="Create GIFs from images" className="text-[#00d4aa] hover:underline font-medium">
                   GIFs from images
                 </button>
                 {" "}with ease.
               </p>
             </div>
 
-            <Button className="bg-[#7c6af7] hover:bg-[#6a58e5] text-white rounded-full px-8 py-6 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/25">
+            <Button data-testid="btn-create-ai-video" aria-label="Create AI Video Now" className="bg-[#7c6af7] hover:bg-[#6a58e5] text-white rounded-full px-8 py-6 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/25">
               Create AI Video Now
             </Button>
           </div>

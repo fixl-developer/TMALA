@@ -16,11 +16,13 @@ const benefits = [
 
 export default function AgenciesPage() {
   return (
-    <main className="min-h-screen section-bg-charcoal selection:bg-montra-red/30">
+    <main className="min-h-screen section-bg-charcoal selection:bg-montra-red/30" data-testid="section-agencies-page" aria-label="Agencies page">
       {/* Hero — cinematic */}
       <section
         className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-white/5"
         style={{ paddingTop: "calc(5rem + 2rem)" }}
+        data-testid="section-hero"
+        aria-label="Hero section"
       >
         <div className="absolute inset-0 z-0">
           <video
@@ -53,10 +55,12 @@ export default function AgenciesPage() {
             community — one cinematic stack for every kind of agency.
           </p>
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link href="/agencies/all">
+            <Link href="/agencies/all" data-testid="link-explore-agency-types">
               <Button
                 size="lg"
                 className="bg-red-600 text-white hover:bg-red-500 font-bebas uppercase tracking-widest px-10 py-7 rounded-none transition-all hover:scale-105 shadow-2xl shadow-red-500/25 text-lg"
+                data-testid="btn-explore-agency-types"
+                aria-label="Explore agency types"
               >
                 Explore agency types
               </Button>
@@ -65,6 +69,8 @@ export default function AgenciesPage() {
               size="lg"
               variant="outline"
               className="border-white/20 text-white hover:bg-white/5 font-bebas uppercase tracking-widest px-10 py-7 rounded-none text-lg"
+              data-testid="btn-schedule-demo"
+              aria-label="Schedule demo"
             >
               Schedule Demo
             </Button>
@@ -78,7 +84,7 @@ export default function AgenciesPage() {
         accent="crimson" 
         opacity={0.08}
       >
-        <section className="py-24 sm:py-32 section-bg-cool relative">
+        <section className="py-24 sm:py-32 section-bg-cool relative" data-testid="section-explore-by-focus" aria-label="Explore by focus section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 lg:mb-20">
             <p className="text-[10px] font-bebas uppercase tracking-[0.5em] text-red-500 mb-3">
@@ -100,6 +106,7 @@ export default function AgenciesPage() {
                   key={cat.key}
                   href="/agencies/all"
                   className="group relative block overflow-hidden border border-white/5 bg-zinc-900/60 backdrop-blur-sm transition-all duration-300 hover:border-cinematic-amber/30"
+                  data-testid={`link-category-${cat.key}`}
                 >
                   <div
                     className={`absolute top-0 left-0 w-1 h-full ${accent.bg} opacity-80 group-hover:opacity-100 transition-opacity`}
@@ -127,6 +134,7 @@ export default function AgenciesPage() {
             <Link
               href="/agencies/all"
               className="inline-flex items-center gap-2 text-sm font-bebas uppercase tracking-widest text-red-400 hover:text-red-300 transition-colors"
+              data-testid="link-view-all-agency-types"
             >
               View all agency types
               <ArrowRight className="h-4 w-4" />
@@ -143,7 +151,7 @@ export default function AgenciesPage() {
         opacity={0.06}
         className="border-t border-white/5"
       >
-      <section className="py-24 sm:py-32 section-bg-purple-tint relative overflow-hidden">
+      <section className="py-24 sm:py-32 section-bg-purple-tint relative overflow-hidden" data-testid="section-why-choose-us" aria-label="Why agencies choose us section">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_30%_50%,rgba(251,146,60,0.06),transparent_50%)]" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -186,6 +194,8 @@ export default function AgenciesPage() {
                   <Button
                     size="lg"
                     className="w-full bg-amber-500 hover:bg-amber-400 text-black font-bebas uppercase tracking-widest py-7 rounded-none shadow-lg shadow-amber-500/20"
+                    data-testid="btn-start-free-trial"
+                    aria-label="Start free trial"
                   >
                     Start Free Trial
                   </Button>
@@ -193,6 +203,8 @@ export default function AgenciesPage() {
                     variant="outline"
                     size="lg"
                     className="w-full mt-3 border-white/20 text-white hover:bg-white/5 font-bebas uppercase tracking-widest py-7 rounded-none"
+                    data-testid="btn-contact-sales"
+                    aria-label="Contact sales"
                   >
                     Contact Sales
                   </Button>
