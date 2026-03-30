@@ -33,7 +33,7 @@ const solutionColumns = [
     items: [
       { icon: CreditCard, label: "Payments & Escrow", desc: "Wallets, payouts & milestone escrow", href: "/payments-escrow" },
       { icon: Zap, label: "Automation", desc: "Workflows, triggers & smart rules", href: "/#waitlist" },
-      { icon: Globe, label: "White-Label Platform", desc: "Custom domain, branding & feature toggles", href: "/#waitlist" },
+      { icon: Globe, label: "White-Label Platform", desc: "Custom domain, branding & feature toggles", href: "/white-label" },
     ],
   },
   {
@@ -51,21 +51,21 @@ const resourceColumns = [
     title: "Learn",
     items: [
       { icon: Newspaper, label: "Blog", desc: "Industry insights & updates", href: "/blog" },
-      { icon: BookOpen, label: "Guides & Docs", desc: "Platform documentation", href: "/#waitlist" },
-      { icon: Award, label: "Customer Stories", desc: "How agencies use TalentOS", href: "/#waitlist" },
+      { icon: BookOpen, label: "Guides & Docs", desc: "Platform documentation", href: "/guides" },
+      { icon: Award, label: "Customer Stories", desc: "How agencies use TalentOS", href: "/customer-stories" },
     ],
   },
   {
     title: "Support",
     items: [
-      { icon: LifeBuoy, label: "Help Center", desc: "FAQs & troubleshooting", href: "/#waitlist" },
-      { icon: Headphones, label: "Contact Support", desc: "24/7 dedicated assistance", href: "/#waitlist" },
+      { icon: LifeBuoy, label: "Help Center", desc: "FAQs & troubleshooting", href: "/help" },
+      { icon: Headphones, label: "Contact Support", desc: "24/7 dedicated assistance", href: "/contact" },
     ],
   },
   {
     title: "Build",
     items: [
-      { icon: Code, label: "API & Integrations", desc: "REST APIs & webhook docs", href: "/#waitlist" },
+      { icon: Code, label: "API & Integrations", desc: "REST APIs & webhook docs", href: "/api-docs" },
       { icon: Blocks, label: "Template Center", desc: "Ready-made workflow templates", href: "/templates" },
     ],
   },

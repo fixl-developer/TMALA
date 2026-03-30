@@ -1,12 +1,17 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { usePathname } from "next/navigation"
 import Lenis from "lenis"
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
+    // Disable Lenis on guides pages — they have their own scroll container
+    if (pathname.startsWith("/guides")) return
+
     // Initialize Lenis
     const lenis = new Lenis({
       duration: 1.2, // Animation duration in seconds
@@ -34,7 +39,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     return () => {
       lenis.destroy()
     }
-  }, [])
+  }, [pathname])
 
   return <>{children}</>
 }
