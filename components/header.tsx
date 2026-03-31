@@ -491,11 +491,11 @@ export function Header() {
 
             {/* Desktop CTAs — right side */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
-              <button onClick={() => { handleNavigate(); openAuth("signin"); }} data-testid="btn-login" aria-label="Log in">
+              <Link href="/demo" onClick={handleNavigate} data-testid="btn-login" aria-label="Explore Demo">
                 <span className={`text-sm font-medium transition-colors ${isAIStudio ? "text-white/70 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}>
-                  Log in
+                  Demo
                 </span>
-              </button>
+              </Link>
               <button
                 onClick={() => { handleNavigate(); openAuth("signup"); }}
                 data-testid="btn-join-waitlist"
@@ -642,9 +642,9 @@ export function Header() {
 
           {/* Drawer CTA */}
           <div className="px-4 py-4 border-t border-gray-100 space-y-2">
-            <button onClick={() => { handleNavigate(); openAuth("signin"); }} data-testid="btn-mobile-login" aria-label="Log in" className="w-full py-2.5 rounded-xl text-sm font-medium text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors">
-              Log in
-            </button>
+            <Link href="/demo" onClick={handleNavigate} data-testid="btn-mobile-login" aria-label="Explore Demo" className="block w-full py-2.5 rounded-xl text-sm font-medium text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors text-center">
+              Demo
+            </Link>
             <button
               onClick={() => { handleNavigate(); openAuth("signup"); }}
               data-testid="btn-mobile-get-started"
