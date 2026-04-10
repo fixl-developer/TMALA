@@ -7,26 +7,28 @@ import {
   Palette, Camera, Star, Building2, BarChart3, ShoppingBag,
   Megaphone, Eye, Headphones, Film, Truck, MessageSquare,
   Layout, Wallet, CalendarCheck, Settings, Globe, Zap,
-  Search, ChevronRight, ExternalLink
+  Search, ChevronRight, ExternalLink, Mic, Scissors, Video,
+  UserPlus, GraduationCap, ClipboardList, Scale, Sparkles
 } from "lucide-react"
 
 const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000"
 
 const dashboardCategories = [
   {
-    title: "Talent & Creators",
-    description: "Dashboards for individual talent, influencers, and guardians",
-    color: "#6366f1",
+    title: "👑 Pageant Ecosystem",
+    description: "End-to-end pageant management — fully wired with backend",
+    color: "#7C3AED",
+    wired: true,
     dashboards: [
-      { name: "Talent Dashboard", route: "/talent", icon: Users, desc: "Portfolio, castings, bookings, wallet & AI tools", pages: 27 },
-      { name: "Influencer Dashboard", route: "/influencer", icon: Megaphone, desc: "Campaigns, deals, deliverables, analytics & payments", pages: 20 },
-      { name: "Guardian Dashboard", route: "/guardian", icon: Shield, desc: "Minor protection, approvals, consents & earnings", pages: 9 },
-      { name: "Event Staff", route: "/event-staff", icon: CalendarCheck, desc: "Check-in, timesheets, earnings & shift management", pages: 6 },
-      { name: "Pageant Judge", route: "/pageant-judge", icon: Star, desc: "Scoring, rubrics, assigned pageants & history", pages: 7 },
+      { name: "Pageant Organizer", route: "/pageant", icon: Trophy, desc: "Events, scoring & results — fully wired", pages: 37, wired: true },
+      { name: "Pageant Judge", route: "/pageant-judge", icon: Scale, desc: "Scoring & blind evaluation", pages: 7, wired: true },
+      { name: "Pageant Coordinator", route: "/pageant-coordinator", icon: ClipboardList, desc: "Logistics & task management", pages: 6, wired: true },
+      { name: "Brand / Sponsor", route: "/brand", icon: Globe, desc: "Sponsor dashboard & ROI", pages: 10, wired: true },
+      { name: "Talent (Contestant)", route: "/talent", icon: Sparkles, desc: "Register, scores & portfolio", pages: 27, wired: true },
     ]
   },
   {
-    title: "Agency Management",
+    title: "🎭 Modelling & Talent",
     description: "Run your modelling, talent, or staffing agency",
     color: "#8b5cf6",
     dashboards: [
@@ -34,53 +36,86 @@ const dashboardCategories = [
       { name: "Modelling Booker", route: "/modelling-booker", icon: Briefcase, desc: "Auditions, bookings & client management", pages: 8 },
       { name: "Modelling Finance", route: "/modelling-finance", icon: CreditCard, desc: "Invoices, payouts, settlements & reports", pages: 6 },
       { name: "Modelling Manager", route: "/modelling-manager", icon: Settings, desc: "Team management, analytics & operations", pages: 5 },
-      { name: "Staffing Agency", route: "/staffing", icon: Users, desc: "Staff pool, shifts, assignments & payroll", pages: 8 },
-      { name: "Staffing Coordinator", route: "/staffing-coordinator", icon: Headphones, desc: "Scheduling, communications & coordination", pages: 6 },
+      { name: "Talent Management", route: "/talent-mgmt", icon: Users, desc: "Multi-talent operations & pipeline", pages: 10 },
     ]
   },
   {
-    title: "Events & Pageants",
-    description: "Manage events, pageants, and productions",
-    color: "#ec4899",
+    title: "🎬 Casting & Production",
+    description: "Casting agencies, photography studios, and production houses",
+    color: "#0073EA",
     dashboards: [
-      { name: "Event Management", route: "/event", icon: CalendarCheck, desc: "Create events, schedule, staff, check-in & settlements", pages: 15 },
-      { name: "Pageant Platform", route: "/pageant", icon: Trophy, desc: "Builder, judging, contestants, sponsors & results", pages: 20 },
+      { name: "Casting Agency", route: "/casting", icon: Film, desc: "Castings, auditions, shortlists & clients", pages: 10 },
+      { name: "Photography Studio", route: "/photography", icon: Camera, desc: "Shoots, assets, calendar & invoices", pages: 9 },
+      { name: "Speaker Bureau", route: "/speaker", icon: Mic, desc: "Speakers, bookings, events & revenue", pages: 9 },
       { name: "Production House", route: "/production", icon: Film, desc: "Projects, scheduling, crew & deliverables", pages: 6 },
     ]
   },
   {
-    title: "Brand & Marketplace",
-    description: "Brand campaigns, collaborations, and marketplace",
-    color: "#f59e0b",
+    title: "🏆 Sports, Styling & More",
+    description: "Specialized agency dashboards for every vertical",
+    color: "#059669",
     dashboards: [
-      { name: "Brand Dashboard", route: "/brand", icon: Globe, desc: "Campaigns, collaborations, content library & ROI", pages: 10 },
-      { name: "Brand Campaign", route: "/brand-campaign", icon: Zap, desc: "Campaign builder, creator shortlist, approvals & budget", pages: 10 },
-      { name: "Marketplace", route: "/marketplace", icon: ShoppingBag, desc: "Listings, orders, reviews & commission tracking", pages: 8 },
-      { name: "Client Portal", route: "/client-portal", icon: Eye, desc: "Project tracking, approvals, deliverables & reports", pages: 7 },
+      { name: "Sports Agency", route: "/sports-agency", icon: Trophy, desc: "Athletes, deals, sponsorships & appearances", pages: 10 },
+      { name: "Styling Agency", route: "/styling", icon: Scissors, desc: "Stylists, bookings, packages & schedule", pages: 8 },
+      { name: "UGC Agency", route: "/ugc", icon: Video, desc: "Content pipeline, approvals & creators", pages: 10 },
+      { name: "Social/Growth Agency", route: "/social-growth", icon: Megaphone, desc: "Campaigns, content calendar & community", pages: 10 },
+      { name: "Creative Recruitment", route: "/recruitment", icon: UserPlus, desc: "Jobs, candidates, interviews & placements", pages: 10 },
     ]
   },
   {
-    title: "Creative & Community",
-    description: "Creative direction, community management, and moderation",
-    color: "#10b981",
+    title: "📱 Influencer & Content",
+    description: "Influencer campaigns, brand deals, and community management",
+    color: "#e2445c",
     dashboards: [
-      { name: "Creative Director", route: "/creative-director", icon: Palette, desc: "Briefs, review queue, assets & quality control", pages: 9 },
-      { name: "Community Hub", route: "/community", icon: MessageSquare, desc: "Groups, events, members, rewards & analytics", pages: 10 },
-      { name: "Community Moderator", route: "/community-mod", icon: Shield, desc: "Flagged content, appeals, SLA tracking & offenders", pages: 7 },
+      { name: "Influencer Agency", route: "/influencer", icon: Megaphone, desc: "Creators, deals, campaigns & analytics", pages: 20 },
+      { name: "Brand Campaign", route: "/brand-campaign", icon: Zap, desc: "Campaign builder, creator shortlist & budget", pages: 10 },
+      { name: "Creative Director", route: "/creative-director", icon: Palette, desc: "Briefs, review queue, assets & quality", pages: 9 },
+      { name: "Community Hub", route: "/community", icon: MessageSquare, desc: "Groups, events, members & rewards", pages: 10 },
+      { name: "Community Moderator", route: "/community-mod", icon: Shield, desc: "Flagged content, appeals & SLA tracking", pages: 7 },
     ]
   },
   {
-    title: "Business Operations",
+    title: "🎪 Events & Staffing",
+    description: "Event management, staffing, and shift coordination",
+    color: "#F59E0B",
+    dashboards: [
+      { name: "Event Management", route: "/event", icon: CalendarCheck, desc: "Create events, schedule, staff & settlements", pages: 15 },
+      { name: "Event Staff", route: "/event-staff", icon: CalendarCheck, desc: "Check-in, timesheets, earnings & shifts", pages: 6 },
+      { name: "Staffing Agency", route: "/staffing", icon: Users, desc: "Staff pool, shifts, assignments & payroll", pages: 8 },
+      { name: "Staffing Coordinator", route: "/staffing-coordinator", icon: Headphones, desc: "Scheduling, roster & standby", pages: 6 },
+    ]
+  },
+  {
+    title: "🎓 Academy & Guardian",
+    description: "Training, courses, and minor protection",
+    color: "#00d2d3",
+    dashboards: [
+      { name: "Academy", route: "/academy", icon: GraduationCap, desc: "Courses, training, certs & revenue", pages: 29 },
+      { name: "Guardian (Minor)", route: "/guardian", icon: Shield, desc: "Minor protection, approvals & consents", pages: 9 },
+    ]
+  },
+  {
+    title: "🏪 Marketplace & Operations",
+    description: "Marketplace, wallet, vendor, and client portals",
+    color: "#6366F1",
+    dashboards: [
+      { name: "Marketplace Admin", route: "/marketplace", icon: ShoppingBag, desc: "Vendors, listings & commission tracking", pages: 8 },
+      { name: "Marketplace Client", route: "/marketplace-client", icon: ShoppingBag, desc: "Discover, book & review services", pages: 6 },
+      { name: "Client Portal", route: "/client-portal", icon: Eye, desc: "Project tracking, approvals & reports", pages: 7 },
+      { name: "Wallet & Payments", route: "/wallet", icon: Wallet, desc: "Balance, payouts, disputes & tax docs", pages: 9 },
+      { name: "Vendor Portal", route: "/vendor", icon: Truck, desc: "Vendor management, orders & payments", pages: 5 },
+    ]
+  },
+  {
+    title: "🏢 Business Operations",
     description: "Tenant management, finance, analytics, and operations",
     color: "#0ea5e9",
     dashboards: [
-      { name: "Admin Panel", route: "/admin", icon: Layout, desc: "Full admin: users, roles, CRM, finance, settings & more", pages: 45 },
-      { name: "Tenant Owner", route: "/tenant-owner", icon: Building2, desc: "Revenue, roster, team, events, WES & settings", pages: 25 },
-      { name: "Tenant Finance", route: "/tenant-finance", icon: Wallet, desc: "Payments, invoices, payouts, escrow, tax & reports", pages: 25 },
-      { name: "Tenant Operations", route: "/tenant-ops", icon: Settings, desc: "Tasks, SLA, scheduling, staff & conflict resolution", pages: 22 },
-      { name: "Holding Company", route: "/holding", icon: Building2, desc: "Multi-tenant group management, policies & analytics", pages: 8 },
-      { name: "Holding Finance", route: "/holding-finance", icon: BarChart3, desc: "Cross-tenant billing, settlements & compliance", pages: 10 },
-      { name: "Vendor Portal", route: "/vendor", icon: Truck, desc: "Vendor management, orders & payments", pages: 5 },
+      { name: "Tenant Owner", route: "/tenant-owner", icon: Building2, desc: "Revenue, roster, team, events & settings", pages: 25 },
+      { name: "Tenant Finance", route: "/tenant-finance", icon: Wallet, desc: "Payments, invoices, payouts & escrow", pages: 25 },
+      { name: "Tenant Operations", route: "/tenant-ops", icon: Settings, desc: "Tasks, SLA, scheduling & conflict resolution", pages: 22 },
+      { name: "Holding Company", route: "/holding", icon: Building2, desc: "Multi-tenant group management & policies", pages: 8 },
+      { name: "Holding Finance", route: "/holding-finance", icon: BarChart3, desc: "Cross-tenant billing & compliance", pages: 10 },
     ]
   },
 ]
@@ -170,6 +205,12 @@ export default function DemoPage() {
                             {dashboard.pages} pages
                           </span>
                           <span className="text-[10px] text-gray-400 font-mono">{dashboard.route}</span>
+                          {"wired" in dashboard && (dashboard as any).wired && (
+                            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-700 flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
+                              Live API
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
