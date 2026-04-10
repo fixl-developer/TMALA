@@ -6,8 +6,8 @@ import { Footer } from "@/components/footer"
 export function FooterWrapper() {
   const pathname = usePathname()
 
-  // Hide footer on guides pages — they have their own full-height layout
-  if (pathname.startsWith("/guides")) return null
+  // Hide footer on guides and admin pages
+  if (pathname.startsWith("/guides") || pathname.startsWith("/admintmalogin")) return null
 
   return <Footer />
 }
