@@ -56,6 +56,7 @@ const AGENCIES: Agency[] = [
     color: "#D97706",
     blueprints: "B2 + B6",
     roles: [
+      { category: "Leadership", label: "Production Head", desc: "All access · Every project · Every department", email: "production-head@talentos.io", icon: Crown, color: "#B45309" },
       { category: "Leadership", label: "Studio Exec", desc: "Slate · Greenlight · Portfolio · Risk", email: "studio-exec@talentos.io", icon: Crown, color: "#1E3A8A" },
       { category: "Leadership", label: "Director", desc: "Slate · Scenes · Dailies · Cuts", email: "director@talentos.io", icon: Clapperboard, color: "#0D9488" },
       { category: "Leadership", label: "Showrunner", desc: "Bible · Arcs · Writers · Episodes", email: "showrunner@talentos.io", icon: Sparkles, color: "#7C3AED" },
