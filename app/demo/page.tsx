@@ -10,8 +10,8 @@ import {
 } from "lucide-react"
 
 /* Light-themed demo catalogue matching tmalanding site design.
- * Each role click opens http://localhost:3000/login?email=<EMAIL> so the
- * main app can auto-fill + quick-login into that demo user. */
+ * Each role click opens http://localhost:3000/auto-login?email=<EMAIL> so the
+ * main app auto-logs in as that demo user. */
 
 const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000"
 
@@ -72,6 +72,7 @@ const AGENCIES: Agency[] = [
       { category: "Business", label: "Studio Finance", desc: "Budget · Burn · Tax · Payroll", email: "studio-finance@talentos.io", icon: Wallet, color: "#065F46" },
       { category: "Business", label: "HR & Welfare", desc: "Roster · Welfare · Minors · Carbon", email: "studio-hr@talentos.io", icon: Users, color: "#15803D" },
       { category: "Growth", label: "Publicist & Marketing", desc: "Press · Social · Premieres · Awards", email: "publicist@talentos.io", icon: Megaphone, color: "#C026D3" },
+      { category: "External", label: "Client Approver", desc: "Review · Approve · Accept deliverables", email: "client-netflix@talentos.io", icon: Eye, color: "#0891B2" },
     ],
   },
   {
@@ -329,7 +330,7 @@ export default function DemoPage() {
             <div style={{ fontSize: 8, color: "#92400E", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>Roles</div>
           </div>
           <div style={{ flex: 1, padding: "9px 10px", borderRadius: 9, background: "#DBEAFE", border: "1px solid #BFDBFE", textAlign: "center" }}>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#1D4ED8" }}>900+</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "#1D4ED8" }}>950+</div>
             <div style={{ fontSize: 8, color: "#1E3A8A", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>Pages</div>
           </div>
         </div>
