@@ -609,26 +609,35 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
                   className="text-[11px] font-bold uppercase tracking-widest"
                   style={{ color: accentHex }}
                 >
-                  {agency.name}
+                  {agency.heroBadge || agency.name}
                 </span>
               </div>
 
-              <h1
-                className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold leading-[1.1] mb-5"
-                style={{ color: "#111" }}
-              >
-                Everything your{" "}
-                <span style={{ color: accentHex }}>
-                  {agency.name.toLowerCase()}
-                </span>{" "}
-                needs — in one system.
-              </h1>
+              {agency.heroTagline ? (
+                <h1
+                  className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold leading-[1.1] mb-5"
+                  style={{ color: "#111" }}
+                >
+                  {agency.heroTagline}
+                </h1>
+              ) : (
+                <h1
+                  className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold leading-[1.1] mb-5"
+                  style={{ color: "#111" }}
+                >
+                  Everything your{" "}
+                  <span style={{ color: accentHex }}>
+                    {agency.name.toLowerCase()}
+                  </span>{" "}
+                  needs — in one system.
+                </h1>
+              )}
 
               <p
                 className="text-base leading-relaxed mb-8"
                 style={{ color: "#222" }}
               >
-                {agency.shortDescription}
+                {agency.heroSubtitle || agency.shortDescription}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -713,11 +722,252 @@ export function AgencyTypePage({ slug }: AgencyTypePageProps) {
         </div>
       </section>
 
+      {/* ───── OPTIONAL: Trusted Studios Strip ───── */}
+      {agency.trustedStudios && agency.trustedStudios.length > 0 && (
+        <section
+          className="relative py-10 border-y"
+          style={{ borderColor: "#eee", background: "#fff" }}
+          data-testid="section-trusted-studios"
+          aria-label="Trusted studios"
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-center mb-6" style={{ color: "#94A3B8" }}>
+              Trusted by
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-14">
+              {agency.trustedStudios.map((s) => (
+                <span
+                  key={s.label}
+                  className="text-xl sm:text-2xl font-black tracking-widest opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ color: s.accent }}
+                >
+                  {s.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ───── OPTIONAL: Stats Band ───── */}
+      {agency.stats && agency.stats.length > 0 && (
+        <section
+          className="relative py-16"
+          style={{ background: "#0F172A" }}
+          data-testid="section-stats"
+          aria-label="By the numbers"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap justify-around items-center gap-8 lg:gap-12">
+              {agency.stats.map((s) => (
+                <div key={s.label} className="text-center">
+                  <div
+                    className="text-4xl sm:text-5xl font-bold tracking-tight"
+                    style={{
+                      background: "linear-gradient(135deg, #A5F3FC, #C7D2FE)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] sm:text-xs mt-2 uppercase tracking-[0.12em]" style={{ color: "#94A3B8" }}>
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ───── OPTIONAL: Feature Cards (3 pillars) ───── */}
+      {agency.featureCards && agency.featureCards.length > 0 && (
+        <section
+          className="relative py-20 lg:py-24"
+          style={{ background: "#fafafa" }}
+          data-testid="section-feature-cards"
+          aria-label="Platform pillars"
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3" style={{ color: accentHex }}>
+                Platform pillars
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: "#111" }}>
+                Built for scale from day one.
+              </h2>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {agency.featureCards.map((f) => {
+                const tint = f.tint || accentHex
+                return (
+                  <div
+                    key={f.title}
+                    className="p-7 rounded-2xl border bg-white transition-all hover:-translate-y-1"
+                    style={{
+                      borderColor: "#eee",
+                      boxShadow: `0 20px 40px ${tint}08`,
+                    }}
+                  >
+                    <div
+                      className="w-11 h-11 rounded-xl mb-5"
+                      style={{
+                        background: `${tint}15`,
+                        border: `1px solid ${tint}40`,
+                      }}
+                    />
+                    <div className="text-lg font-bold mb-2" style={{ color: "#111" }}>
+                      {f.title}
+                    </div>
+                    <div className="text-sm leading-relaxed" style={{ color: "#555" }}>
+                      {f.body}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ───── OPTIONAL: State Machines Grid ───── */}
+      {agency.stateMachines && agency.stateMachines.length > 0 && (
+        <section
+          className="relative py-20 lg:py-24"
+          style={{ background: "#fff" }}
+          data-testid="section-state-machines"
+          aria-label="State machines"
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3" style={{ color: accentHex }}>
+                {agency.stateMachines.length} state machines
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ color: "#111" }}>
+                Every business-critical flow is a tracked machine.
+              </h2>
+              <p className="text-base max-w-2xl mx-auto" style={{ color: "#555" }}>
+                Each entity progresses through a strict set of statuses — no ad-hoc fields, no guesswork, full audit trail.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {agency.stateMachines.map((sm) => (
+                <span
+                  key={sm}
+                  className="px-5 py-2.5 rounded-full text-sm font-semibold border transition-colors hover:bg-white"
+                  style={{
+                    borderColor: accentHex + "30",
+                    background: accentHex + "08",
+                    color: "#111",
+                  }}
+                >
+                  {sm}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ───── SECTION 2: Modules — Monday.com Scrolling Cards ───── */}
       <ModuleCarousel modules={agency.modules} agencyName={agency.name} accentHex={accentHex} />
 
       {/* ───── SECTION 3: Interactive Team Roles & Access Control ───── */}
       <TeamStructureSection roles={agency.roles} agencyName={agency.name} accentHex={accentHex} />
+
+      {/* ───── OPTIONAL: Personas Band ───── */}
+      {agency.personas && agency.personas.length > 0 && (
+        <section
+          className="relative py-20 lg:py-24"
+          style={{ background: "#0B1120" }}
+          data-testid="section-personas"
+          aria-label="Personas"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <div className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3" style={{ color: accentHex }}>
+                Who uses it
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: "#F8FAFC" }}>
+                A tailored view for every role.
+              </h2>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {agency.personas.map((p) => (
+                <div
+                  key={p.role}
+                  className="p-6 rounded-2xl border transition-all hover:-translate-y-1"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    borderColor: "rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  <div className="text-sm font-bold mb-1" style={{ color: accentHex }}>
+                    {p.title}
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] mb-4" style={{ color: "#64748B" }}>
+                    {p.role}
+                  </div>
+                  <div className="text-[13px] leading-relaxed" style={{ color: "#CBD5E1" }}>
+                    {p.lines[0]} {p.lines[1]}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ───── OPTIONAL: Extra CTAs Band ───── */}
+      {agency.ctas && agency.ctas.length > 0 && (
+        <section
+          className="relative py-16"
+          style={{ background: "#0F172A" }}
+          data-testid="section-extra-ctas"
+          aria-label="Demo actions"
+        >
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3" style={{ color: "#5EEAD4" }}>
+              See it in motion
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-8" style={{ color: "#F8FAFC" }}>
+              Pick your path.
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {agency.ctas.map((c) => {
+                const isPrimary = c.variant === "primary" || !c.variant
+                const isSecondary = c.variant === "secondary"
+                return (
+                  <Link
+                    key={c.label}
+                    href={c.href}
+                    className="px-6 py-3 rounded-xl text-sm font-semibold transition-all"
+                    style={
+                      isPrimary
+                        ? { background: accentHex, color: "#fff" }
+                        : isSecondary
+                          ? {
+                              background: "rgba(255,255,255,0.08)",
+                              color: "#F8FAFC",
+                              border: "1px solid rgba(255,255,255,0.14)",
+                            }
+                          : {
+                              background: "transparent",
+                              color: "#5EEAD4",
+                              border: `1px solid ${accentHex}40`,
+                            }
+                    }
+                  >
+                    {c.label} →
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ───── SECTION 4: Why TalentOS — Monday.com style white cards ───── */}
       <section className="relative py-20 lg:py-28" style={{ background: "#fafafa" }} data-testid="section-why-talentos" aria-label="Why TalentOS">

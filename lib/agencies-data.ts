@@ -76,6 +76,35 @@ export const AGENCY_ACCENTS: Record<
   },
 }
 
+export interface AgencyPersona {
+  title: string
+  role: string
+  email?: string
+  lines: [string, string]
+}
+
+export interface AgencyStat {
+  value: string
+  label: string
+}
+
+export interface AgencyFeatureCard {
+  title: string
+  body: string
+  tint?: string
+}
+
+export interface AgencyCTA {
+  label: string
+  href: string
+  variant?: "primary" | "secondary" | "ghost"
+}
+
+export interface AgencyTrustedLogo {
+  label: string
+  accent: string
+}
+
 export interface AgencyType {
   slug: string
   name: string
@@ -84,6 +113,16 @@ export interface AgencyType {
   roles: string[]
   accent: AgencyAccent
   image: string
+  /** Optional rich-page content — when present, extra sections render on the agency page. */
+  heroBadge?: string
+  heroTagline?: string
+  heroSubtitle?: string
+  personas?: AgencyPersona[]
+  stateMachines?: string[]
+  stats?: AgencyStat[]
+  featureCards?: AgencyFeatureCard[]
+  ctas?: AgencyCTA[]
+  trustedStudios?: AgencyTrustedLogo[]
 }
 
 export const AGENCY_TYPES: AgencyType[] = [
@@ -185,6 +224,134 @@ export const AGENCY_TYPES: AgencyType[] = [
     ],
     accent: "crimson",
     image: "/production-agency.jpg",
+    /* ── Rich-page content (ported from TalentOS /-landing v3) ── */
+    heroBadge: "Fixl Studio OS — ag.md compliant",
+    heroTagline: "The operating system for modern production houses.",
+    heroSubtitle:
+      "50+ project pages. 12 state machines. 15 approval gates. ag.md compliant. Built for Dharma-scale productions.",
+    personas: [
+      {
+        title: "Production Head",
+        role: "production-head",
+        email: "production-head@talentos.io",
+        lines: [
+          "See every project, every department, every number. Full control.",
+          "Try as Karan Johar — the all-access studio owner role.",
+        ],
+      },
+      {
+        title: "Studio Exec",
+        role: "studio-exec",
+        email: "studio-exec@talentos.io",
+        lines: [
+          "Portfolio dashboards across every active project.",
+          "Greenlight, budgets, and delivery status in one view.",
+        ],
+      },
+      {
+        title: "Director",
+        role: "director",
+        email: "director@talentos.io",
+        lines: [
+          "Scene-level creative control with cast, callsheets, and cues.",
+          "Delegate custom sub-roles to your creative team.",
+        ],
+      },
+      {
+        title: "Line Producer",
+        role: "line-producer",
+        email: "line-producer@talentos.io",
+        lines: [
+          "Live production operations: POs, invoices, callsheets, crew.",
+          "Department-scoped permissions for every head of department.",
+        ],
+      },
+      {
+        title: "Actor / Talent",
+        role: "talent",
+        email: "alia@talentos.io",
+        lines: [
+          "See your schedule, scripts, dailies, contracts and check-ins —",
+          "all in one place. Just for you.",
+        ],
+      },
+      {
+        title: "Supplier / Vendor",
+        role: "production-vendor",
+        email: "panavision@talentos.io",
+        lines: [
+          "Track your POs, submit invoices, watch payment status —",
+          "your own portal, scoped just to your engagement.",
+        ],
+      },
+      {
+        title: "Parent / Guardian",
+        role: "guardian",
+        email: "meera@talentos.io",
+        lines: [
+          "Stay on top of your child's schedule, welfare, hours and compliance —",
+          "all in one safe place.",
+        ],
+      },
+      {
+        title: "Platform operator",
+        role: "platform-admin",
+        email: "platform-admin@talentos.io",
+        lines: [
+          "Run TalentOS as a multi-tenant platform across many production houses.",
+          "Manage tenants, branding, billing and global audit in one console.",
+        ],
+      },
+    ],
+    stateMachines: [
+      "Project",
+      "Asset",
+      "Contract",
+      "Escrow",
+      "Vendor",
+      "Change Request",
+      "Quote",
+      "Dispute",
+      "Cut",
+      "Call Sheet",
+      "PO",
+      "Scene",
+    ],
+    stats: [
+      { value: "85+", label: "pages" },
+      { value: "12", label: "state machines" },
+      { value: "15", label: "approval gates" },
+      { value: "50+", label: "sidebar items" },
+      { value: "644", label: "atomic permissions" },
+    ],
+    featureCards: [
+      {
+        title: "Project-first architecture",
+        body: "50+ sidebar items per project. Every module scoped to a project code. 5 portal sidebars.",
+        tint: "#14B8A6",
+      },
+      {
+        title: "Delegated RBAC",
+        body: "Every main role can create custom sub-roles with any subset of 644 atomic permissions.",
+        tint: "#6366F1",
+      },
+      {
+        title: "12 state machines",
+        body: "Project, Asset, Contract, Escrow, Vendor, Change Request, Quote, Dispute, Cut, Call Sheet, PO, Scene.",
+        tint: "#F59E0B",
+      },
+    ],
+    ctas: [
+      { label: "Try the guided demo", href: "/demo", variant: "primary" },
+      { label: "Watch delegated RBAC", href: "/demo", variant: "secondary" },
+      { label: "Watch the v4 tour", href: "/demo", variant: "ghost" },
+    ],
+    trustedStudios: [
+      { label: "DHARMA", accent: "#991B1B" },
+      { label: "YRF", accent: "#DC2626" },
+      { label: "EXCEL", accent: "#2563EB" },
+      { label: "ARKA", accent: "#F59E0B" },
+    ],
   },
   {
     slug: "influencer",
