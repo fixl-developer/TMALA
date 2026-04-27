@@ -9,8 +9,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   const pathname = usePathname()
 
   useEffect(() => {
-    // Disable Lenis on guides pages — they have their own scroll container
-    if (pathname.startsWith("/guides")) return
+    // Disable Lenis on guides and demo pages — they have their own scroll containers
+    if (pathname.startsWith("/guides") || pathname.startsWith("/demo")) return
 
     // Initialize Lenis
     const lenis = new Lenis({
