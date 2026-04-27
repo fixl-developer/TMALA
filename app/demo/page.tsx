@@ -81,8 +81,13 @@ const AGENCIES: Agency[] = [
     color: "#e2445c",
     blueprints: "B4",
     roles: [
-      { label: "Influencer Agency", desc: "Creators, deals & campaigns", email: "influencer@talentos.io", icon: Megaphone, color: "#e2445c" },
-      { label: "Campaign Manager", desc: "Content approvals & execution", email: "campaign-mgr@talentos.io", icon: Zap, color: "#EA580C" },
+      { category: "Leadership", label: "Agency Admin",         desc: "Tenant config, RBAC & all-up control",        email: "admin@influencer.demo",       icon: ShieldCheck,    color: "#0073EA" },
+      { category: "Operations", label: "Deals Manager",        desc: "Pipeline, briefs, contracts & deal rooms",    email: "deals-mgr@influencer.demo",   icon: Briefcase,      color: "#00C875" },
+      { category: "Operations", label: "Creator Manager",      desc: "Roster, onboarding & retention",               email: "creator-mgr@influencer.demo", icon: UserCheck,      color: "#A25DDC" },
+      { category: "Operations", label: "Content Reviewer",     desc: "Approval queue, brand safety & revisions",    email: "reviewer@influencer.demo",    icon: ClipboardList,  color: "#FDAB3D" },
+      { category: "Talent",     label: "Creator (Influencer)", desc: "My campaigns, tasks, wallet & media kit",     email: "creator@influencer.demo",     icon: Sparkles,       color: "#E2445C" },
+      { category: "Business",   label: "Finance",              desc: "Escrow, payouts, invoices & GST/TDS",         email: "finance@influencer.demo",     icon: Wallet,         color: "#00D2D3" },
+      { category: "Business",   label: "Legal",                desc: "Contract templates, approvals & compliance",  email: "legal@influencer.demo",       icon: Scale,          color: "#475569" },
     ],
   },
   {
