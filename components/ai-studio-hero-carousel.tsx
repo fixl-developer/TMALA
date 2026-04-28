@@ -8,7 +8,7 @@ const featured = [
     title: "CASTING\nSTUDIO",
     subtitle: "CASTING STUDIO",
     desc: "Build your perfect talent cast with AI-powered screening.",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&h=500&fit=crop",
+    img: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=500&fit=crop",
     href: "/ai-features/casting",
     wide: true,
   },
@@ -57,6 +57,7 @@ const featured = [
 export function AIStudioHeroCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollRight, setCanScrollRight] = useState(true)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return
@@ -68,15 +69,17 @@ export function AIStudioHeroCarousel() {
     if (!scrollRef.current) return
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
     setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10)
+    setCanScrollLeft(scrollLeft > 10)
   }
 
   return (
     <section className="relative pb-6" style={{ background: "#0a0a0a" }}>
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-7 lg:px-12 xl:px-16">
       {/* Scroll container */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex gap-4 overflow-x-auto scrollbar-none px-4 sm:px-8 pt-4"
+        className="flex gap-4 overflow-x-auto scrollbar-none pt-4"
         style={{ scrollSnapType: "x mandatory" }}
       >
         {featured.map((item, i) => (
@@ -131,7 +134,7 @@ export function AIStudioHeroCarousel() {
       </div>
 
       {/* Titles below cards */}
-      <div className="flex gap-4 overflow-x-auto scrollbar-none px-4 sm:px-8 mt-4">
+      <div className="flex gap-4 overflow-x-auto scrollbar-none mt-4">
         {featured.map((item, i) => (
           <div
             key={i}
@@ -146,18 +149,30 @@ export function AIStudioHeroCarousel() {
         ))}
       </div>
 
-      {/* Scroll arrow */}
+      {/* Scroll arrows */}
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll("left")}
+          data-testid="btn-scroll-left"
+          aria-label="Scroll carousel left"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
+          style={{ background: "rgba(200,255,0,0.9)", color: "#000" }}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+      )}
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
           data-testid="btn-scroll-right"
           aria-label="Scroll carousel right"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
           style={{ background: "rgba(200,255,0,0.9)", color: "#000" }}
         >
           <ChevronRight className="w-5 h-5" />
         </button>
       )}
+      </div>
     </section>
   )
 }

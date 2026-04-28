@@ -4,6 +4,7 @@ import React from "react"
 import { Sparkles, ArrowRight, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { AIStudioStickyHeader } from "./ai-studio-sticky-header"
+import { AIStudioLaunchBanner } from "./ai-studio-launch-banner"
 import { useAuthModal } from "@/components/auth-modal"
 
 /* ─── Types ─── */
@@ -55,6 +56,9 @@ export function AIStudioSubLayout({
     <div className="min-h-screen" data-testid={`page-${slug}`} aria-label={`${badge} page`} style={{ background: "#0a0a0a", color: "#fff" }}>
       {/* Feature pills bar — always visible below main header */}
       <AIStudioStickyHeader />
+
+      {/* Launch banner — promotes external AI Studio app */}
+      <AIStudioLaunchBanner />
 
       {/* ── Breadcrumb ── */}
       <div className="px-4 sm:px-8 py-3" data-testid="section-breadcrumb" aria-label="Breadcrumb navigation" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>

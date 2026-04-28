@@ -3,6 +3,7 @@
 import React from "react"
 import { Sparkles, ArrowRight, ArrowUpRight } from "lucide-react"
 import { AIStudioStickyHeader } from "@/components/ai-studio-sticky-header"
+import { AIStudioLaunchBanner } from "@/components/ai-studio-launch-banner"
 import { AIStudioHeroCarousel } from "@/components/ai-studio-hero-carousel"
 import { AIStudioFeatureBanner } from "@/components/ai-studio-feature-banner"
 import { AIStudioPhotoGallery } from "@/components/ai-studio-photo-gallery"
@@ -316,6 +317,9 @@ export default function AIFeaturesPage() {
     <div data-testid="section-ai-features-page" aria-label="AI Features page" className="min-h-screen" style={{ background: "#0a0a0a", color: "#fff" }}>
       {/* Feature pills — always visible below main header */}
       <AIStudioStickyHeader />
+
+      {/* Launch banner — promotes external AI Studio app */}
+      <AIStudioLaunchBanner />
 
       {/* Hero carousel — featured products */}
       <AIStudioHeroCarousel />

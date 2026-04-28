@@ -4,6 +4,7 @@ import { Check, X, Sparkles, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { useAuthModal } from "@/components/auth-modal"
 import { AIStudioStickyHeader } from "@/components/ai-studio-sticky-header"
+import { AIStudioLaunchBanner } from "@/components/ai-studio-launch-banner"
 
 const plans = [
   {
@@ -90,6 +91,7 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen" style={{ background: "#0a0a0a", color: "#fff" }}>
       <AIStudioStickyHeader />
+      <AIStudioLaunchBanner />
 
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 sm:px-8 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
