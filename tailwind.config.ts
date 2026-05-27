@@ -112,6 +112,16 @@ const config: Config = {
           purple: '#8B5CF6',
           indigo: '#6366F1',
         },
+        /* Influencer landing (neo-brutalist fashion palette) — only used under /agencies/influencer */
+        'bg-base': '#EAE6DF',
+        'surface-main': '#F4F1EC',
+        'surface-sec': '#DFD9CF',
+        'text-main': '#0B0B0B',
+        'text-mut': '#54514D',
+        'accent-primary': '#631B1B',
+        'accent-secondary': '#0A0A0A',
+        'accent-tertiary': '#4A1313',
+        'accent-dark': '#310D0D',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -126,6 +136,9 @@ const config: Config = {
         sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
         jakarta: ['var(--font-jakarta)', 'sans-serif'],
         bebas: ['var(--font-bebas)', 'sans-serif'],
+        /* Influencer landing only */
+        display: ['var(--font-bricolage)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        space: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         'flow': {
