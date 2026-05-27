@@ -25,8 +25,11 @@ import { Badge } from '@/components/influencer-landing/ui/Badge'
 import { Section } from '@/components/influencer-landing/ui/Section'
 import { AnimatedReveal } from '@/components/influencer-landing/ui/AnimatedReveal'
 
-// Where the live app lives. Override via NEXT_PUBLIC_APP_URL.
-const APP_BASE = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+// Where the live app lives. Override via NEXT_PUBLIC_APP_URL (e.g. set on
+// production Vercel projects). Falls back to the live influencer-locked app
+// URL so deployed tiles work even when the env var isn't configured. For
+// local development, set NEXT_PUBLIC_APP_URL=http://localhost:3000 in .env.local.
+const APP_BASE = process.env.NEXT_PUBLIC_APP_URL || 'https://tma-frontend-influencer.vercel.app'
 
 type DemoRole = {
   category: 'leadership' | 'operations' | 'business' | 'talent' | 'external' | 'tenant'
