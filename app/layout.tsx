@@ -1,7 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Bebas_Neue, Plus_Jakarta_Sans } from 'next/font/google'
-import { Header } from "@/components/header"
+import { HeaderWrapper } from "@/components/header-wrapper"
 import { FooterWrapper } from "@/components/footer-wrapper"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 import { ScrollProgress } from "@/components/scroll-progress"
@@ -46,7 +46,7 @@ export default function RootLayout({
         <AuthModalProvider>
           <SmoothScrollProvider>
             <ScrollProgress />
-            <Header />
+            <HeaderWrapper />
             {children}
             <FooterWrapper />
           </SmoothScrollProvider>
