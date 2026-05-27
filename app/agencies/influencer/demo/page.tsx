@@ -29,7 +29,7 @@ import { AnimatedReveal } from '@/components/influencer-landing/ui/AnimatedRevea
 // production Vercel projects). Falls back to the live influencer-locked app
 // URL so deployed tiles work even when the env var isn't configured. For
 // local development, set NEXT_PUBLIC_APP_URL=http://localhost:3000 in .env.local.
-const APP_BASE = process.env.NEXT_PUBLIC_APP_URL || 'https://tma-frontend-influencer.vercel.app'
+const APP_BASE = process.env.NEXT_PUBLIC_APP_URL || 'https://frontend-mauve-beta-86.vercel.app'
 
 type DemoRole = {
   category: 'leadership' | 'operations' | 'business' | 'talent' | 'external' | 'tenant'
