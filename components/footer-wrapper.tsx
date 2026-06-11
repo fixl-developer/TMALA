@@ -11,7 +11,8 @@ export function FooterWrapper() {
     pathname.startsWith("/guides") ||
     pathname.startsWith("/admintmalogin") ||
     pathname.startsWith("/demo") ||
-    pathname.startsWith("/agencies/influencer")
+    pathname.startsWith("/agencies/influencer") ||
+    pathname.startsWith("/agencies/modeling")
   ) return null
 
   return <Footer />
