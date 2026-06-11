@@ -122,6 +122,18 @@ const config: Config = {
         'accent-secondary': '#0A0A0A',
         'accent-tertiary': '#4A1313',
         'accent-dark': '#310D0D',
+        /* Modeling landing (rose palette mirroring the real ModellingTalentShell dashboard) — only used under /agencies/modeling */
+        modeling: {
+          rose: '#EC4899',
+          deep: '#BE185D',
+          deeper: '#9D174D',
+          light: '#FCE7F3',
+          cream: '#FFF1F2',
+          ink: '#0F172A',
+          mut: '#64748B',
+          bg: '#FFFBFA',
+          line: '#F1E4E8',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -139,6 +151,11 @@ const config: Config = {
         /* Influencer landing only */
         display: ['var(--font-bricolage)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         space: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        /* Modeling landing — uses the site-wide Jakarta family so it matches the rest of TMA-Lp.
+           Display reuses Jakarta with editorial weight/italic treatment in components.
+           Bebas Neue is available via `font-bebas` for ALL-CAPS micro-labels (already global). */
+        'modeling-display': ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        'modeling-body': ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         'flow': {

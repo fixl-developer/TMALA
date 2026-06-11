@@ -7,6 +7,7 @@ export function HeaderWrapper() {
   const pathname = usePathname()
 
   if (pathname.startsWith("/agencies/influencer")) return null
+  if (pathname.startsWith("/agencies/modeling")) return null
 
   return <Header />
 }
